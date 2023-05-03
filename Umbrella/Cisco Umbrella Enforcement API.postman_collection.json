@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "bd8d6952-8aa2-47e7-9c0b-918ee9637a0b",
+		"name": "Cisco Umbrella Enforcement API",
+		"description": "The Umbrella Enforcement API enables you to register a domain associated with a security event. For each security event, Umbrella checks the domain's security characteristics with an integrated threat intelligence solution and either blocks or allows the destination.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://www.postman.com/ciscodevnet/workspace/cisco-devnet-s-public-workspace/collection/15368436-bd8d6952-8aa2-47e7-9c0b-918ee9637a0b?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Enforce Get List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://s-platform.api.opendns.com/1.0/domains?customerKey=EnterYourCustomerKeyHere",
+					"protocol": "https",
+					"host": [
+						"s-platform",
+						"api",
+						"opendns",
+						"com"
+					],
+					"path": [
+						"1.0",
+						"domains"
+					],
+					"query": [
+						{
+							"key": "customerKey",
+							"value": "EnterYourCustomerKeyHere"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enforce Delete Domains",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://s-platform.api.opendns.com/1.0/domains/EnterYourDomainIdHere?customerKey=EnterYourCustomerKeyHere",
+					"protocol": "https",
+					"host": [
+						"s-platform",
+						"api",
+						"opendns",
+						"com"
+					],
+					"path": [
+						"1.0",
+						"domains",
+						"EnterYourDomainIdHere"
+					],
+					"query": [
+						{
+							"key": "customerKey",
+							"value": "EnterYourCustomerKeyHere"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enforce Block Domain",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"alertTime\": \"2013-02-08T11:14:26.0Z\",\n    \"deviceId\": \"ba6a59f4-e692-4724-ba36-c28132c761de\",\n    \"deviceVersion\": \"13.7a\",\n    \"dstDomain\": \"internetbadguys.com\",\n    \"dstUrl\": \"http://internetbadguys.com/a-bad-url\",\n    \"eventTime\": \"2013-02-08T09:30:26.0Z\",\n    \"protocolVersion\": \"1.0a\",\n    \"providerName\": \"Security Platform\"\n}"
+				},
+				"url": {
+					"raw": "https://s-platform.api.opendns.com/1.0/events?customerKey=EnterYourCustomerKeyHere",
+					"protocol": "https",
+					"host": [
+						"s-platform",
+						"api",
+						"opendns",
+						"com"
+					],
+					"path": [
+						"1.0",
+						"events"
+					],
+					"query": [
+						{
+							"key": "customerKey",
+							"value": "EnterYourCustomerKeyHere"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
