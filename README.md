@@ -11,7 +11,7 @@ From your workspace, click the import button and paste in the following
 URL:</br>
 https://raw.githubusercontent.com/brebouch/Cisco-Security-Postman/main/Postman%20Collections/cisco-security-postman.json
 
-![Import Collection](Docs/img/Postman Collection Import.png)
+![Import Collection](Docs/img/Postman%20Collection%20Import.png)
 
 ### Environment
 
