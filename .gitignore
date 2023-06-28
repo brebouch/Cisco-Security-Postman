@@ -1,6 +1,6 @@
 ### MicrosoftOffice template
 *.tmp
-
+.idea
 # Word temporary
 ~$*.doc*
 
