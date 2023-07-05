@@ -1,6 +1,6 @@
 {
-	"id": "2168169b-a0fe-40f3-ab9a-6e244776ff5f",
-	"name": "Cisco Security Template",
+	"id": "f2070077-df72-4b8c-a7be-49ef2edc87f1",
+	"name": "Cisco Security Environment",
 	"values": [
 		{
 			"key": "fmc_username",
@@ -256,55 +256,55 @@
 		},
 		{
 			"key": "panoptica_access_key",
-			"value": "",
+			"value": "18f4e191-1900-46a3-a7e8-ce8b8f5cefcd",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "panoptica_secret_key",
-			"value": "",
+			"value": "QMIht7wfAboajyssl5/VzZtsLuRFnRcPwWwYIzSTEYY=",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "panoptica_controller_secret_key",
-			"value": "",
+			"value": "zhUht4sEEk7k0ps0nbkBaab1nTXTg0oZAioY2+1JXSA=",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_net_device_key",
-			"value": "",
+			"value": "c22153d479e447dfb48656436fb002cc",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_net_device_secret",
-			"value": "",
+			"value": "26af2600c1cf42b88769e4b55d56f8ba",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_reporting_key",
-			"value": "",
+			"value": "35469d25e34249bd9aa58a29e27a5c6b",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_reporting_secret",
-			"value": "",
+			"value": "4d4a0c389efb4b938f281d4d31047fdf",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_mgmt_key",
-			"value": "",
+			"value": "4f0f1b7ace394f46bcab90bd44a2c9be",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "umbrella_mgmt_secret",
-			"value": "",
+			"value": "7b2afe2327ca4674b16858c9c071ba7b",
 			"type": "secret",
 			"enabled": true
 		},
@@ -340,31 +340,31 @@
 		},
 		{
 			"key": "secure_workload_hostname",
-			"value": "",
+			"value": "tet-pov-rtp1.cpoc.co",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "secure_workload_api_key",
-			"value": "",
+			"value": "49ae0c150faa45bdab8a47862438464f",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "secure_workload_api_secret",
-			"value": "",
+			"value": "84ae5471c6bdb4b3bf32a09aba4f7afc56f3b561",
 			"type": "secret",
 			"enabled": true
 		},
 		{
 			"key": "secure_malware_hostname",
-			"value": "",
+			"value": "https://panacea.threatgrid.com",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "secure_malware_key",
-			"value": "",
+			"value": "q8fc9ckcvufe5304evcj0kjo05",
 			"type": "secret",
 			"enabled": true
 		},
@@ -406,19 +406,19 @@
 		},
 		{
 			"key": "duo_admin_hostname",
-			"value": "",
+			"value": "api-36476aa2.duosecurity.com",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "duo_admin_app_client",
-			"value": "",
+			"value": "DITDEXB7YBG510UAKTI2",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "duo_admin_app_key",
-			"value": "",
+			"value": "S9s7CiH7ap9DWHPjOYxRVRPHUj5IVxPgHUS4YSRp",
 			"type": "default",
 			"enabled": true
 		},
@@ -550,7 +550,7 @@
 		},
 		{
 			"key": "kenna_hostname",
-			"value": "",
+			"value": "https://api.kennasecurity.com/",
 			"type": "default",
 			"enabled": true
 		},
@@ -580,7 +580,7 @@
 		},
 		{
 			"key": "cloud_insights_hostname",
-			"value": "",
+			"value": "https://graphql.us.jupiterone.io",
 			"type": "default",
 			"enabled": true
 		},
@@ -598,7 +598,7 @@
 		},
 		{
 			"key": "meraki_hostname",
-			"value": "",
+			"value": "https://api.meraki.com",
 			"type": "default",
 			"enabled": true
 		},
@@ -622,6 +622,6 @@
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2023-06-28T18:38:09.015Z",
+	"_postman_exported_at": "2023-07-05T17:47:04.678Z",
 	"_postman_exported_using": "Postman/10.15.4"
 }
