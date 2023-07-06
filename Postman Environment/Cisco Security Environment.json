@@ -21,6 +21,36 @@
 			"enabled": true
 		},
 		{
+			"key": "fmc_domain",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fmc_access_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fmc_refresh_token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fmc_object_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "fmc_container_uuid",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
 			"key": "ftd_username",
 			"value": "",
 			"type": "secret",
@@ -267,9 +297,219 @@
 			"enabled": true
 		},
 		{
+			"key": "panoptica_user_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
 			"key": "panoptica_controller_secret_key",
 			"value": "",
 			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_kubernetes_cluster_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_aws_account_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_aws_region_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_aws_role_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_environment_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_image_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_advisor_type",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_app_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_token_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_gateway_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_app_telemetry_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_request_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_cluster_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_owner_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_ignored_risk_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_role_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_catalog_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_agent_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_pod_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_expansion_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_deployer_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_resource_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_cd_rule_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_cd_policy_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_ci_policy_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_cloud_account_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_serverless_function_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_serverless_zip_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_event_forwarding_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_ca_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_apisecurity_policy_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_profile_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panpotica_trusted_signature_id",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "panoptica_registry_id",
+			"value": "",
+			"type": "default",
 			"enabled": true
 		},
 		{
@@ -619,9 +859,45 @@
 			"value": "",
 			"type": "secret",
 			"enabled": true
+		},
+		{
+			"key": "secure_email_hostname",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_email_username",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_email_password",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "secure_web_hostname",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_web_username",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "secure_web_password",
+			"value": "",
+			"type": "secret",
+			"enabled": true
 		}
 	],
 	"_postman_variable_scope": "environment",
-	"_postman_exported_at": "2023-06-28T18:38:09.015Z",
-	"_postman_exported_using": "Postman/10.15.4"
+	"_postman_exported_at": "2023-07-06T16:14:24.521Z",
+	"_postman_exported_using": "Postman/10.15.8"
 }
