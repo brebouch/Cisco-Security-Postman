@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "8cb28194-80bf-4f86-99ce-819251edc32a",
+		"name": "Cloudlock",
+		"description": "# Getting Started\n\nThe Cisco Cloudlock API is a REST API and uses JSON for all requests and responses. To get started, contact [Cloudlock Support]() to obtain your Cloudlock API URL.\n\n## Overview\n\nThe Cloudlock API provides a detailed view of applications, entities, and network incidents in your organization. You can manage lists of destinations (IP addresses), and integrate the Cloudlock detection and response information into your security workflows.\n\nFor more information about Cisco Cloudlock, see [Cloudlock Documentation Hub]().\n\n## Authentication\n\nTo get started, create your Cloudlock API access token.\n\nLog into Cloudlock using the following URL:\n\n[https://app.cloudlock.com]()\n\n### Generate Your API Token\n\nCreate a Cloudlock API access token.\n\n1. Navigate to the **Settings** page.\n2. Click the **Authentication & API** tab.\n3. Under **API**, click **Generate** to create your access token.\n    \n\n> Note: API keys, passwords, secrets, and tokens allow access to your private customer data. You should never share your credentials with another user or organization. \n  \n\n## Base URI\n\nSample Cloudlock API Base URI:\n\n`https://{YourCloudlockAPIServer}/api/v2`\n\n## Authorization\n\nEvery Cloudlock API request requires an `Authorization` header with a valid Bearer access token.\n\nFor example:\n\nSHELL\n\n``` shell\nCopycurl -i GET 'https://{YourCloudlockAPIServer}/api/v2/activities' \\\n-H 'Authorization: Bearer %YourAccessToken%' \\\n-H 'Content-Type: application/json'\n\n ```\n\n## Pagination\n\nThe Cloudlock API collection endpoints support pagination with the `limit` and `offset` query parameters.\n\n| Name | Type | Description | Default Value |\n| --- | --- | --- | --- |\n| limit | integer | The number of records from the collection to return in a response. The maximum value is 100. | 20 |\n| offset | integer | The number that represents the index in the collection. | 0 |\n\n## Rate Limits\n\nThe Cloudlock API limits the number and rate of requests for each endpoint. If you are unable to access an endpoint, check your Cloudlock license.\n\n## Response Codes\n\nThe Cloudlock API uses HTTP response codes to indicate success or failure of an API request. Codes in the 2xx range indicate success, codes in the 4xx range indicate an error and include an error response object, and codes in the 5xx range indicate an error with Cloudlock's servers.\n\n| Status Code | Message | Description |\n| --- | --- | --- |\n| **200** | **OK** | Success. Everything worked as expected. |\n| **400** | **Bad Request** | Likely missing a required parameter or malformed JSON. The syntax of your query may need to be revised. Check for any spaces preceding, trailing, or spaces in the domain name of the query string. |\n| **401** | **Unauthorized** | The authorization header is missing or the access token is invalid. |\n| **403** | **Forbidden** | The client is unauthorized to access the content. |\n| **404** | **Not Found** | The requested item doesn't exist. Check the syntax of your query or ensure the IP and domain are valid. |\n| **429** | **Too Many Requests** | Too many requests received in a given amount of time. You may have exceeded the rate limits for your organization or package. |\n| **500** | **Server errors** | This request could not be processed by the Cloudlock server. |\n\nDocumentation: [https://developer.cisco.com/docs/cloud-security/#!cloudlock-api-getting-started/response-codes]()",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://galactic-astronaut-430691.postman.co/workspace/Cisco-Security~ff5542bd-d893-4a19-ae32-6a56f151c6e7/collection/8695710-8cb28194-80bf-4f86-99ce-819251edc32a?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Activities",
+			"item": [
+				{
+					"name": "List Activities",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/activities",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"activities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Apps",
+			"item": [
+				{
+					"name": "List of all organization's applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/apps",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a specific apps classification",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\"type\": \"unclassified\", \"reason_id\": 4,\"other_reason\" : \"Other Custom Reason\"}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/apps/EnterAnAppID/classification",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"apps",
+								"EnterAnAppID",
+								"classification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a specific app",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/apps?app_ids=EnterAnAppID",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"apps"
+							],
+							"query": [
+								{
+									"key": "app_ids",
+									"value": "EnterAnAppID"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Incidents",
+			"item": [
+				{
+					"name": "Retrieve a specific incident",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/incidents/EnterIncidentID",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"incidents",
+								"EnterIncidentID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an incidents status to NEW",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " { \"incident_status\": \"NEW\" }"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/incidents/EnterIncidentID",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"incidents",
+								"EnterIncidentID"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all Incidents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/incidents",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"incidents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List latest Incidents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/incidents?order=-created_at",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"incidents"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "-created_at"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policies",
+			"item": [
+				{
+					"name": "List all of organization's policies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/policies",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all of organization's active policies copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/policies?state=ACTIVE",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"policies"
+							],
+							"query": [
+								{
+									"key": "state",
+									"value": "ACTIVE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suspicious IP Libraries",
+			"item": [
+				{
+					"name": "List of all organization's suspicious IPs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/ip/suspicious",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"ip",
+								"suspicious"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new IP to the suspicious library",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Foo bar\",\n  \"description\": \"Lorem ipsum had a little lamb\",\n  \"ip_address\": \"3.3.3.97\",\n  \"categories\": [\n    \"foo\",\n    \"bar\"\n  ],\n  \"expires_on\": \"2017-01-17T15:52:24.677313+00:00\"\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/ip/suspicious",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"ip",
+								"suspicious"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an IP from the suspicious library",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Foo bar\",\n  \"description\": \"Lorem ipsum had a little lamb\",\n  \"ip_address\": \"3.3.3.97\",\n  \"categories\": [\n    \"foo\",\n    \"bar\"\n  ],\n  \"expires_on\": \"2017-01-17T15:52:24.677313+00:00\"\n}"
+						},
+						"url": {
+							"raw": "https://{{hostname}}/ip/suspicious?ids=ZkL4dG31oj",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"ip",
+								"suspicious"
+							],
+							"query": [
+								{
+									"key": "ids",
+									"value": "ZkL4dG31oj"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Threats",
+			"item": [
+				{
+					"name": "List Threats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}/threats",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"path": [
+								"threats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "api_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

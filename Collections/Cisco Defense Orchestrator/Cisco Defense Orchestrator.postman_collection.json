@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "4884b45a-9b19-400c-acfd-80add861394e",
+		"name": "Cisco Defense Orchestrator",
+		"description": "# Getting started\n\n## Welcome to the CDO public API[​]()\n\nThe goal of our public API is to provide you with a simple and effective way to perform a lot of what you would normally be able to do in the CDO UI, but in code.\n\nTo use this API, you will need to know GraphQL. It is very easy to learn, and their [official guide]() provides a thorough, light read. We chose GraphQL because it is flexible, strongly typed, and auto-documenting.\n\nTo find the full schema documentation, simply go to the [GraphQL Playground](), and click on the `docs` tab on the right hand side of the page.\n\n---\n\n## Samples[​]()\n\nTo help you get started, we have prepared a bunch of [sample GraphQL queries and mutations]() that you can experiment with right away!\n\n##### IMPORTANT\n\nBefore running the samples, you must first provide your API token to the playground.  \nClick on `HTTP Headers` in the bottom left corner, and replace with your token. This will fix any errors being displayed, and should perform the query successfully.\n\nWhen you reload the `Samples` page, all of your changes, including the API token that you provided, will be reset. If you want a persistent playground session to work with, use the [empty playground]() . However, as a current limitation, do be warned that if you visit the `Samples` page again, your empty playground data will reset.\n\nSome of the queries will need modification before running them, so you don't end up with bogus data in your account. The required changes are mostly in mutation quries, where it is creating or updating data. Make sure you change any boilerplate, and ensure all the values being set are correct. (You can always delete incorrect data manually if you accidentally run the query before making these changes)\n\n---\n\n## Empty Playground[​]()\n\nFor your convenience, we are also providing a raw [empty playground]() with no preset settings. This means you will need to provide your API token by clicking `HTTP Headers` in the bottom left corner of the screen, and pasting this in (with the correct API token):\n\n```\n{\n  \"Authorization\": \"Bearer \"\n}\n\n ```\n\nCopy\n\nOnce you have done this, you can start writing queries! Have a look at the auto-generated `docs` tab on the right hand side of the playground to see the kind of queries you can write. The playground's intellisense should help too.\n\n---\n\n## Endpoints[​]()\n\n#### How do I decide what endpoint URL to use?[​]()\n\nWe have prepared this table to help you determine what endpoint URL you should hit when making API requests. This is the same URL you need to enter in the Playground.\n\n| Region | Endpoint you should use | Description |\n| --- | --- | --- |\n| US | [https://edge.us.cdo.cisco.com/api/public]() | Use if you normally access CDO from [www.defenseorchestrator.com]() |\n| EU | [https://edge.eu.cdo.cisco.com/api/public]() | Use if you normally access CDO from [www.defenseorchestrator.eu]() |\n| APJ | [https://edge.apj.cdo.cisco.com/api/public]() | Use if you normally access CDO from [www.apj.cdo.cisco.com]() |\n\n---\n\n## How do I start coding with the CDO Public API?[​]()\n\nWhile you are able use any workflow you want with the GraphQL API, here is, in our opinion, the best way to start programming in TypeScript:\n\nFirst, set up the [GraphQL code generator]()\n\nOnce you have followed the setup wizard, make sure your `codegen.yml` config has the correct authorization headers, something like this:\n\n```\nschema:\n  - https://edge..cdo.cisco.com/api/public:\n      headers:\n        Authorization: Bearer \n\n ```\n\nWe also recommend the [Apollo client library]() to help you write code to interface with our GraphQL API.\n\nDocumentation: [https://edge.us.cdo.cisco.com/api-explorer/docs/]()",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://galactic-astronaut-430691.postman.co/workspace/Cisco-Security~ff5542bd-d893-4a19-ae32-6a56f151c6e7/collection/8695710-4884b45a-9b19-400c-acfd-80add861394e?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Graph",
+			"item": [
+				{
+					"name": "Query Device",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n  devices(limit: 50, sortField: NAME, deviceType: [FIREPOWER, ASA, FTD]) {\n    metadata {\n      count\n    }\n    items {\n      softwareVersion\n      name\n      uid\n      isModel\n      conflictDetectionState\n      ipv4\n      deviceType\n      serial\n      configurationStatus\n      interfaces\n      connectivityState\n      highAvailability\n      specificDevice {\n        namespace\n        ... on FtdSpecificDevice {\n          uid\n        }\n        ... on AsaSpecificDevice {\n          uid\n          type\n          vpnId\n        }\n        ... on MerakiSpecificDevice {\n          uid\n          type\n        }\n        ... on AwsSpecificDevice {\n          vpcId\n          region\n        }\n      }\n    }\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Object",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n  devices(limit: 50, sortField: NAME, deviceType: [FIREPOWER, ASA, FTD]) {\n    metadata {\n      count\n    }\n    items {\n      softwareVersion\n      name\n      uid\n      isModel\n      conflictDetectionState\n      ipv4\n      deviceType\n      serial\n      configurationStatus\n      interfaces\n      connectivityState\n      highAvailability\n      specificDevice {\n        namespace\n        ... on FtdSpecificDevice {\n          uid\n        }\n        ... on AsaSpecificDevice {\n          uid\n          type\n          vpnId\n        }\n        ... on MerakiSpecificDevice {\n          uid\n          type\n        }\n        ... on AwsSpecificDevice {\n          vpcId\n          region\n        }\n      }\n    }\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Changelog",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    changelog(\n      # deviceUid: [\"some-uid-1\", \"some-uid-2\"]\n      # searchTerm: \"some-search-term\"\n      sortField: LAST_UPDATED\n      sortOrder: ASC\n      changeStatus: [COMPLETED]\n      # user: [\"some-username\"]\n      dateRange: { start: 1593017544000 }\n    ) {\n      metadata {\n        count\n      }\n      items {\n        uid\n        deviceName\n        lastUpdated\n        lastUser\n        lastDescription\n        changeStatus\n        deviceUid\n  \n        events {\n          class\n          action\n          user\n          objectReference {\n            uid\n            type\n            namespace\n          }\n          details {\n            class\n            description\n            diff\n          }\n          eventDate\n          changeType\n        }\n      }\n    }\n  }",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Network Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    createNetworkGroup(\n      baseInput: { name: \"some-device-name\", deviceType: ASA }\n      networkGroupInput: {\n        ipAddresses: [{ value: \"6.9.6.9\" }, { value: \"7.9.7.9\" }]\n        objectReferences: [\n          {\n            uid: \"<Enter the uid of another network group (or object) here>\"\n            name: \"<Enter the name of that Object here>\"\n            type: NETWORK_GROUP #or NETWORK_OBJECT depending on the type\n          }\n        ]\n      }\n    ) {\n      name\n      uid\n      details {\n        ... on NetworkDetailsIpEq {\n          value\n        }\n  \n        ... on NetworkDetailsIpRange {\n          start\n          end\n        }\n  \n        ... on NetworkGroupDetails {\n          items {\n            ... on ObjectReferenceDetails {\n              name\n              uid\n            }\n            ... on NetworkDetailsIpEq {\n              value\n            }\n          }\n        }\n      }\n    }\n  }\n  ",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Network Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    updateNetworkGroup(\n      baseInput: {\n        uid: \"<Enter uid of existing Object to update>\"\n        name: \"<Enter a name>\"\n        description: \"<Enter a description>\"\n      }\n      networkGroupInput: {\n        ipAddresses: [{ value: \"6.9.6.9\" }, { value: \"7.0.0.0\" }]\n        objectReferences: [\n          {\n            uid: \"<Enter the uid of another network group (or object) here>\"\n            name: \"<Enter the name of that Object here>\"\n            type: NETWORK_GROUP # or NETWORK_OBJECT\n          }\n        ]\n      }\n    ) {\n      name\n      uid\n      description\n      details {\n        ... on NetworkDetailsIpEq {\n          value\n        }\n        ... on NetworkDetailsIpRange {\n          start\n          end\n        }\n        ... on NetworkGroupDetails {\n          items {\n            ... on NetworkDetailsBase {\n              wildcardMask\n            }\n            ... on NetworkDetailsIpEq {\n              value\n            }\n            ... on ObjectReferenceDetails {\n              name\n              uid\n              type\n            }\n          }\n        }\n      }\n    }\n  }",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Object",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    updateNetworkObject(\n      baseInput: { uid: \"<Enter the uid of the Object you want to update>\" }\n      ipAddressRangeInput: { start: \"6.9.6.9\", end: \"9.6.9.7\" }\n    ) {\n      name\n      uid\n      objectType\n      description\n      details {\n        ... on NetworkDetailsIpEq {\n          value\n        }\n        ... on NetworkDetailsIpRange {\n          start\n          end\n        }\n      }\n    }\n    createNetworkObject(\n      baseInput: { name: \"I <3 CDO\", deviceType: FTD }\n      ipAddressEqInput: { value: \"1.1.1.1\" }\n    ) {\n      name\n      uid\n      objectType\n      details {\n        ... on NetworkDetailsIpEq {\n          value\n        }\n  \n        # In this case, this fragment should not occur as we create it with ipAddressEqInput\n        ... on NetworkDetailsIpRange {\n          start\n          end\n        }\n      }\n    }\n  }",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Tenant Settings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    tenantSettings {\n      uid\n      enableChangeRequestTracking\n      lastUpdatedDate\n      preventCiscoSupportFromViewingTenant\n      autoDetectRuleSets\n      autoAcceptDeviceChanges\n      allowDeploymentScheduling\n    }\n  }",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tenant Settings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    updateTenantSettings(\n      input: {\n        enableChangeRequestTracking: true\n        autoAcceptDeviceChanges: true\n        allowDeploymentScheduling: true\n        preventCiscoSupportFromViewingTenant: false\n      }\n    ) {\n      uid\n      enableChangeRequestTracking\n      lastUpdatedDate\n      preventCiscoSupportFromViewingTenant\n      autoDetectRuleSets\n      autoAcceptDeviceChanges\n      allowDeploymentScheduling\n    }\n  }",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query Change Requests",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query {\n    activeChangeRequest\n    \n    changeRequests(\n      limit: 5\n      sortField: CREATED_DATE\n      sortOrder: ASC\n    ) {\n      metadata {\n        count\n      }\n      items {\n        uid\n        name\n        description\n        createdDate\n        lastUpdatedDate\n      }\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Change Requests",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    createChangeRequest(\n      input: {\n        name: \"<Enter a name>\"\n        description: \"<Enter an optional description>\"\n      }\n    ) {\n      uid\n      description\n      name\n      createdDate\n      lastUpdatedDate\n    }\n    updateChangeRequest(\n      input: {\n        uid: \"<Enter uid of existing change request to update>\"\n        description: \"<Enter new description to give change request>\"\n      }\n    ) {\n      uid\n      description\n      name\n      createdDate\n      lastUpdatedDate\n    }\n  \n    deleteChangeRequest(uid: \"<Enter uid of existing change request to delete>\")\n    \n    clearActiveChangeRequest\n    \n    setActiveChangeRequest(name: \"<Enter name of change request to set as active>\")\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://edge.us.cdo.cisco.com/api/public",
+							"protocol": "https",
+							"host": [
+								"edge",
+								"us",
+								"cdo",
+								"cisco",
+								"com"
+							],
+							"path": [
+								"api",
+								"public"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "api_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "object_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

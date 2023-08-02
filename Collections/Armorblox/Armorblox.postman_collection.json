@@ -1,0 +1,1400 @@
+{
+	"info": {
+		"_postman_id": "f2914e84-e3ce-474c-b3c5-9730d2a70c55",
+		"name": "Armorblox",
+		"description": "Armorblox secures enterprise communications over email and other cloud office applications with the power of Natural Language Understanding. The Armorblox platform connects over APIs and analyzes thousands of signals to understand the context of communications and protect people and data from compromise.\n\nThe Armorblox API enables developers to build integrations with the Armorblox platform.\n\n* * *\n\n## Getting started\n\nTo start using our APIs, you will need your Armorblox tenant name and an API key.\n\n#### Tenant name\n\nYour Armorblox portal's URL looks like `https://yourtenantname.armorblox.io`. The `yourtenantname` part is needed to generate the correct API endpoints for use with all of our APIs.\n\n#### API key\n\nSteps to obtain an Armorblox API key:\n\n1.  Log into your Armorblox portal with your credentials.\n2.  In the portal, click **Settings**.\n3.  In the **Settings** view, click **API Keys.**\n4.  Click **Create API Key**.\n5.  Specify a descriptive name so that you know the purpose of this key for future reference.\n6.  Click **Create**, and copy the API key displayed in the modal. The key is only displayed once.\n7.  Save the API key securely.\n    \n\nAny such API keys should never be shared with anyone (other than internal Armorblox admins). The API key should be included with each API call in the request header.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://galactic-astronaut-430691.postman.co/workspace/Cisco-Security~ff5542bd-d893-4a19-ae32-6a56f151c6e7/collection/8695710-f2914e84-e3ce-474c-b3c5-9730d2a70c55?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1beta1",
+					"item": [
+						{
+							"name": "organizations",
+							"item": [
+								{
+									"name": "{tenant}:getPolicyList",
+									"item": [
+										{
+											"name": "List Policies",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}:getPolicyList?sortBy=PRIORITY&pageSize=100&pageToken=<string>&timeFilter=lastMonth&orderBy=ASC&priorityTypesFilter=MEDIUM&statusFilter=STATUS_DEVELOPED",
+													"protocol": "https",
+													"host": [
+														"{{tenant}}",
+														"armorblox",
+														"io"
+													],
+													"path": [
+														"api",
+														"v1beta1",
+														"organizations",
+														"{{tenant}}:getPolicyList"
+													],
+													"query": [
+														{
+															"key": "sortBy",
+															"value": "PRIORITY",
+															"description": "Options:\n  * `PRIORITY`\n  * `NAME`\n  * `VIOLATIONS` - Referred to as *Number of Incidents* in UI\n  * `UPDATE_DATE`\n"
+														},
+														{
+															"key": "pageSize",
+															"value": "100",
+															"description": "Number of results to return at a time"
+														},
+														{
+															"key": "pageToken",
+															"value": "<string>",
+															"description": "`next_page_token` goes here for next page retrieval"
+														},
+														{
+															"key": "timeFilter",
+															"value": "lastMonth"
+														},
+														{
+															"key": "orderBy",
+															"value": "ASC",
+															"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+														},
+														{
+															"key": "priorityTypesFilter",
+															"value": "MEDIUM",
+															"description": "Options:\n  * `HIGH`   - Fetch high priority results\n  * `MEDIUM` - Fetch medium priority results\n  * `LOW`    - Fetch low priority results\n"
+														},
+														{
+															"key": "statusFilter",
+															"value": "STATUS_DEVELOPED",
+															"description": "Options:\n  * `STATUS_DEVELOPED` - Referred to as *Deployed* in UI\n  * `STATUS_DISABLED`  - Referred to as *Ignored* in UI\n"
+														}
+													]
+												},
+												"description": "Gets a list of all the policies available in Armorblox."
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "X-Ab-Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1beta1/organizations/{{tenant}}:getPolicyList?sortBy=PRIORITY&pageSize=100&pageToken=<string>&timeFilter=lastMonth&orderBy=ASC&priorityTypesFilter=MEDIUM&statusFilter=STATUS_DEVELOPED",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1beta1",
+																"organizations",
+																"{{tenant}}:getPolicyList"
+															],
+															"query": [
+																{
+																	"key": "sortBy",
+																	"value": "PRIORITY",
+																	"description": "Options:\n  * `PRIORITY`\n  * `NAME`\n  * `VIOLATIONS` - Referred to as *Number of Incidents* in UI\n  * `UPDATE_DATE`\n"
+																},
+																{
+																	"key": "pageSize",
+																	"value": "100",
+																	"description": "Number of results to return at a time"
+																},
+																{
+																	"key": "pageToken",
+																	"value": "<string>",
+																	"description": "`next_page_token` goes here for next page retrieval"
+																},
+																{
+																	"key": "timeFilter",
+																	"value": "lastMonth"
+																},
+																{
+																	"key": "orderBy",
+																	"value": "ASC",
+																	"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+																},
+																{
+																	"key": "priorityTypesFilter",
+																	"value": "MEDIUM",
+																	"description": "Options:\n  * `HIGH`   - Fetch high priority results\n  * `MEDIUM` - Fetch medium priority results\n  * `LOW`    - Fetch low priority results\n"
+																},
+																{
+																	"key": "statusFilter",
+																	"value": "STATUS_DEVELOPED",
+																	"description": "Options:\n  * `STATUS_DEVELOPED` - Referred to as *Deployed* in UI\n  * `STATUS_DISABLED`  - Referred to as *Ignored* in UI\n"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "{}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "{tenant}",
+									"item": [
+										{
+											"name": "incidents",
+											"item": [
+												{
+													"name": "{incident_id}:updateAction",
+													"item": [
+														{
+															"name": "Update Incident Action",
+															"request": {
+																"method": "PATCH",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"policyActionType\": \"MARK_AS_SAFE\",\n  \"addSenderToException\": false,\n  \"actionProfileId\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}/incidents/{{incident_id}}:updateAction",
+																	"protocol": "https",
+																	"host": [
+																		"{{tenant}}",
+																		"armorblox",
+																		"io"
+																	],
+																	"path": [
+																		"api",
+																		"v1beta1",
+																		"organizations",
+																		"{{tenant}}",
+																		"incidents",
+																		"{{incident_id}}:updateAction"
+																	]
+																},
+																"description": "Updates the action to be taken for an incident's objects."
+															},
+															"response": [
+																{
+																	"name": "OK",
+																	"originalRequest": {
+																		"method": "PATCH",
+																		"header": [
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			},
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			},
+																			{
+																				"description": "Added as a part of security scheme: apikey",
+																				"key": "X-Ab-Authorization",
+																				"value": "<API Key>"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"policyActionType\": \"MARK_AS_SAFE\",\n  \"addSenderToException\": false,\n  \"actionProfileId\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "{{baseUrl}}/api/v1beta1/organizations/:tenant/incidents/{{incident_id}}:updateAction",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"v1beta1",
+																				"organizations",
+																				":tenant",
+																				"incidents",
+																				"{{incident_id}}:updateAction"
+																			],
+																			"variable": [
+																				{
+																					"key": "tenant"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "<string>",
+																			"description": {
+																				"content": "",
+																				"type": "text/plain"
+																			}
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{}"
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "{incident_id}:getSenders",
+													"item": [
+														{
+															"name": "Get Incident Senders",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}/incidents/{{incident_id}}:getSenders",
+																	"protocol": "https",
+																	"host": [
+																		"{{tenant}}",
+																		"armorblox",
+																		"io"
+																	],
+																	"path": [
+																		"api",
+																		"v1beta1",
+																		"organizations",
+																		"{{tenant}}",
+																		"incidents",
+																		"{{incident_id}}:getSenders"
+																	]
+																},
+																"description": "Gets information about an incident's sender data."
+															},
+															"response": [
+																{
+																	"name": "OK",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			},
+																			{
+																				"description": "Added as a part of security scheme: apikey",
+																				"key": "X-Ab-Authorization",
+																				"value": "<API Key>"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/v1beta1/organizations/:tenant/incidents/{{incident_id}}:getSenders",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"v1beta1",
+																				"organizations",
+																				":tenant",
+																				"incidents",
+																				"{{incident_id}}:getSenders"
+																			],
+																			"variable": [
+																				{
+																					"key": "tenant"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "<string>",
+																			"description": {
+																				"content": "",
+																				"type": "text/plain"
+																			}
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"domains\": [\n    {\n      \"domain\": \"<string>\",\n      \"server_ip\": \"<string>\",\n      \"bcti_data\": {\n        \"category\": \"<string>\",\n        \"country\": \"<string>\",\n        \"popularity\": \"<string>\",\n        \"first_seen_months\": \"<string>\",\n        \"dns_lifetime_months\": \"<string>\",\n        \"reputation\": \"<string>\",\n        \"global_threat_history\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"domain\": \"<string>\",\n      \"server_ip\": \"<string>\",\n      \"bcti_data\": {\n        \"category\": \"<string>\",\n        \"country\": \"<string>\",\n        \"popularity\": \"<string>\",\n        \"first_seen_months\": \"<string>\",\n        \"dns_lifetime_months\": \"<string>\",\n        \"reputation\": \"<string>\",\n        \"global_threat_history\": \"<string>\"\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"user\": {\n    \"analyses_list\": [\n      {\n        \"common\": {\n          \"type\": \"<string>\",\n          \"priority\": \"<string>\"\n        },\n        \"analyses\": [\n          {\n            \"vip_impersonation\": {\n              \"common\": {\n                \"type\": \"<string>\"\n              },\n              \"display\": {\n                \"display_name\": \"<string>\"\n              },\n              \"impersonator\": {\n                \"impersonated_email\": \"<string>\",\n                \"impersonator_name\": \"<string>\"\n              },\n              \"original\": {\n                \"original_email\": \"<string>\"\n              },\n              \"nickname\": {\n                \"is_nickname\": \"<boolean>\"\n              },\n              \"spoof_type\": {\n                \"name_spoof_type\": \"<string>\"\n              }\n            }\n          },\n          {\n            \"vip_impersonation\": {\n              \"common\": {\n                \"type\": \"<string>\"\n              },\n              \"display\": {\n                \"display_name\": \"<string>\"\n              },\n              \"impersonator\": {\n                \"impersonated_email\": \"<string>\",\n                \"impersonator_name\": \"<string>\"\n              },\n              \"original\": {\n                \"original_email\": \"<string>\"\n              },\n              \"nickname\": {\n                \"is_nickname\": \"<boolean>\"\n              },\n              \"spoof_type\": {\n                \"name_spoof_type\": \"<string>\"\n              }\n            }\n          }\n        ],\n        \"date\": \"<string>\"\n      },\n      {\n        \"common\": {\n          \"type\": \"<string>\",\n          \"priority\": \"<string>\"\n        },\n        \"analyses\": [\n          {\n            \"vip_impersonation\": {\n              \"common\": {\n                \"type\": \"<string>\"\n              },\n              \"display\": {\n                \"display_name\": \"<string>\"\n              },\n              \"impersonator\": {\n                \"impersonated_email\": \"<string>\",\n                \"impersonator_name\": \"<string>\"\n              },\n              \"original\": {\n                \"original_email\": \"<string>\"\n              },\n              \"nickname\": {\n                \"is_nickname\": \"<boolean>\"\n              },\n              \"spoof_type\": {\n                \"name_spoof_type\": \"<string>\"\n              }\n            }\n          },\n          {\n            \"vip_impersonation\": {\n              \"common\": {\n                \"type\": \"<string>\"\n              },\n              \"display\": {\n                \"display_name\": \"<string>\"\n              },\n              \"impersonator\": {\n                \"impersonated_email\": \"<string>\",\n                \"impersonator_name\": \"<string>\"\n              },\n              \"original\": {\n                \"original_email\": \"<string>\"\n              },\n              \"nickname\": {\n                \"is_nickname\": \"<boolean>\"\n              },\n              \"spoof_type\": {\n                \"name_spoof_type\": \"<string>\"\n              }\n            }\n          }\n        ],\n        \"date\": \"<string>\"\n      }\n    ],\n    \"relationship_history\": {\n      \"edge_history\": {\n        \"all_time\": {\n          \"emails\": \"<string>\",\n          \"vips\": \"<string>\",\n          \"suspicious\": \"<boolean>\"\n        }\n      }\n    },\n    \"user_info\": {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"is_vip\": \"<boolean>\"\n    }\n  }\n}"
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "{incident_id}:getAnalysis",
+													"item": [
+														{
+															"name": "Get Incident Analysis by Id",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}/incidents/{{incident_id}}:getAnalysis",
+																	"protocol": "https",
+																	"host": [
+																		"{{tenant}}",
+																		"armorblox",
+																		"io"
+																	],
+																	"path": [
+																		"api",
+																		"v1beta1",
+																		"organizations",
+																		"{{tenant}}",
+																		"incidents",
+																		"{{incident_id}}:getAnalysis"
+																	]
+																},
+																"description": "Gets information about an incident's analysis data."
+															},
+															"response": [
+																{
+																	"name": "OK",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			},
+																			{
+																				"description": "Added as a part of security scheme: apikey",
+																				"key": "X-Ab-Authorization",
+																				"value": "<API Key>"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/v1beta1/organizations/:tenant/incidents/{{incident_id}}:getAnalysis",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"v1beta1",
+																				"organizations",
+																				":tenant",
+																				"incidents",
+																				"{{incident_id}}:getAnalysis"
+																			],
+																			"variable": [
+																				{
+																					"key": "tenant"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "<string>",
+																			"description": {
+																				"content": "",
+																				"type": "text/plain"
+																			}
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"analyses_list\": [\n    {\n      \"common\": {\n        \"type\": \"<string>\",\n        \"priority\": \"<string>\"\n      },\n      \"analyses\": [\n        {\n          \"unusual_payment_request\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"user\": {\n              \"suspicious_user_name\": \"<string>\",\n              \"suspicious_user_email\": \"<string>\"\n            },\n            \"urgency\": {\n              \"urgency\": \"<boolean>\"\n            },\n            \"ask\": {\n              \"ask\": \"<boolean>\"\n            },\n            \"deadline\": {\n              \"deadline\": \"<boolean>\"\n            },\n            \"financial\": {\n              \"financial\": \"<boolean>\"\n            },\n            \"invoice\": {\n              \"invoice\": \"<boolean>\"\n            }\n          },\n          \"domain_attrs\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"domain_name\": \"<string>\",\n            \"top_domain\": \"<boolean>\",\n            \"mail_provider_domain\": \"<boolean>\",\n            \"reputable_domain\": \"<boolean>\"\n          },\n          \"email_authentication\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"spf\": \"<string>\",\n            \"dkim\": \"<string>\",\n            \"spf_alignment\": \"<string>\",\n            \"dkim_alignment\": \"<string>\",\n            \"dmarc\": \"<string>\",\n            \"domain_name\": \"<string>\"\n          }\n        },\n        {\n          \"unusual_payment_request\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"user\": {\n              \"suspicious_user_name\": \"<string>\",\n              \"suspicious_user_email\": \"<string>\"\n            },\n            \"urgency\": {\n              \"urgency\": \"<boolean>\"\n            },\n            \"ask\": {\n              \"ask\": \"<boolean>\"\n            },\n            \"deadline\": {\n              \"deadline\": \"<boolean>\"\n            },\n            \"financial\": {\n              \"financial\": \"<boolean>\"\n            },\n            \"invoice\": {\n              \"invoice\": \"<boolean>\"\n            }\n          },\n          \"domain_attrs\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"domain_name\": \"<string>\",\n            \"top_domain\": \"<boolean>\",\n            \"mail_provider_domain\": \"<boolean>\",\n            \"reputable_domain\": \"<boolean>\"\n          },\n          \"email_authentication\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"spf\": \"<string>\",\n            \"dkim\": \"<string>\",\n            \"spf_alignment\": \"<string>\",\n            \"dkim_alignment\": \"<string>\",\n            \"dmarc\": \"<string>\",\n            \"domain_name\": \"<string>\"\n          }\n        }\n      ],\n      \"date\": \"<string>\"\n    },\n    {\n      \"common\": {\n        \"type\": \"<string>\",\n        \"priority\": \"<string>\"\n      },\n      \"analyses\": [\n        {\n          \"unusual_payment_request\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"user\": {\n              \"suspicious_user_name\": \"<string>\",\n              \"suspicious_user_email\": \"<string>\"\n            },\n            \"urgency\": {\n              \"urgency\": \"<boolean>\"\n            },\n            \"ask\": {\n              \"ask\": \"<boolean>\"\n            },\n            \"deadline\": {\n              \"deadline\": \"<boolean>\"\n            },\n            \"financial\": {\n              \"financial\": \"<boolean>\"\n            },\n            \"invoice\": {\n              \"invoice\": \"<boolean>\"\n            }\n          },\n          \"domain_attrs\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"domain_name\": \"<string>\",\n            \"top_domain\": \"<boolean>\",\n            \"mail_provider_domain\": \"<boolean>\",\n            \"reputable_domain\": \"<boolean>\"\n          },\n          \"email_authentication\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"spf\": \"<string>\",\n            \"dkim\": \"<string>\",\n            \"spf_alignment\": \"<string>\",\n            \"dkim_alignment\": \"<string>\",\n            \"dmarc\": \"<string>\",\n            \"domain_name\": \"<string>\"\n          }\n        },\n        {\n          \"unusual_payment_request\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"user\": {\n              \"suspicious_user_name\": \"<string>\",\n              \"suspicious_user_email\": \"<string>\"\n            },\n            \"urgency\": {\n              \"urgency\": \"<boolean>\"\n            },\n            \"ask\": {\n              \"ask\": \"<boolean>\"\n            },\n            \"deadline\": {\n              \"deadline\": \"<boolean>\"\n            },\n            \"financial\": {\n              \"financial\": \"<boolean>\"\n            },\n            \"invoice\": {\n              \"invoice\": \"<boolean>\"\n            }\n          },\n          \"domain_attrs\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"domain_name\": \"<string>\",\n            \"top_domain\": \"<boolean>\",\n            \"mail_provider_domain\": \"<boolean>\",\n            \"reputable_domain\": \"<boolean>\"\n          },\n          \"email_authentication\": {\n            \"common\": {\n              \"type\": \"<string>\"\n            },\n            \"spf\": \"<string>\",\n            \"dkim\": \"<string>\",\n            \"spf_alignment\": \"<string>\",\n            \"dkim_alignment\": \"<string>\",\n            \"dmarc\": \"<string>\",\n            \"domain_name\": \"<string>\"\n          }\n        }\n      ],\n      \"date\": \"<string>\"\n    }\n  ]\n}"
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "{incident_id}",
+													"item": [
+														{
+															"name": "Get Incident by Id",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}/incidents/:incident_id?pageToken=<string>&pageSize=20",
+																	"protocol": "https",
+																	"host": [
+																		"{{tenant}}",
+																		"armorblox",
+																		"io"
+																	],
+																	"path": [
+																		"api",
+																		"v1beta1",
+																		"organizations",
+																		"{{tenant}}",
+																		"incidents",
+																		":incident_id"
+																	],
+																	"query": [
+																		{
+																			"key": "pageToken",
+																			"value": "<string>",
+																			"description": "`next_page_token` goes here for next event page retrieval"
+																		},
+																		{
+																			"key": "pageSize",
+																			"value": "20",
+																			"description": "Number of events to return in `events` at a time"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "incident_id",
+																			"value": "<string>"
+																		}
+																	]
+																},
+																"description": "Gets information about a specific incident."
+															},
+															"response": [
+																{
+																	"name": "OK",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			},
+																			{
+																				"description": "Added as a part of security scheme: apikey",
+																				"key": "X-Ab-Authorization",
+																				"value": "<API Key>"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/v1beta1/organizations/:tenant/incidents/:incident_id?pageToken=<string>&pageSize=20",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"v1beta1",
+																				"organizations",
+																				":tenant",
+																				"incidents",
+																				":incident_id"
+																			],
+																			"query": [
+																				{
+																					"key": "pageToken",
+																					"value": "<string>",
+																					"description": "`next_page_token` goes here for next event page retrieval"
+																				},
+																				{
+																					"key": "pageSize",
+																					"value": "20",
+																					"description": "Number of events to return in `events` at a time"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "tenant"
+																				},
+																				{
+																					"key": "incident_id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		},
+																		{
+																			"key": "Content-Type",
+																			"value": "<string>",
+																			"description": {
+																				"content": "",
+																				"type": "text/plain"
+																			}
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"incident_id\": \"<string>\",\n  \"date\": \"<string>\",\n  \"policy_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"remediation_actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"users\": [\n    {\n      \"user_name\": \"<string>\",\n      \"user_address\": \"<string>\",\n      \"is_vip\": \"<boolean>\",\n      \"department_name\": \"<string>\",\n      \"job_title\": \"<string>\"\n    },\n    {\n      \"user_name\": \"<string>\",\n      \"user_address\": \"<string>\",\n      \"is_vip\": \"<boolean>\",\n      \"department_name\": \"<string>\",\n      \"job_title\": \"<string>\"\n    }\n  ],\n  \"events\": [\n    {\n      \"event_id\": \"<string>\",\n      \"object_id\": \"<string>\",\n      \"from_name\": \"<string>\",\n      \"from_address\": \"<string>\",\n      \"date\": \"<string>\",\n      \"event_action\": {\n        \"update_by\": \"<string>\",\n        \"action\": \"<string>\"\n      },\n      \"object_type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"to_users\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"to_address\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"affected_user\": \"<string>\",\n      \"attachment_list\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"event_id\": \"<string>\",\n      \"object_id\": \"<string>\",\n      \"from_name\": \"<string>\",\n      \"from_address\": \"<string>\",\n      \"date\": \"<string>\",\n      \"event_action\": {\n        \"update_by\": \"<string>\",\n        \"action\": \"<string>\"\n      },\n      \"object_type\": \"<string>\",\n      \"title\": \"<string>\",\n      \"to_users\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"to_address\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"affected_user\": \"<string>\",\n      \"attachment_list\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"total_count\": \"<string>\",\n  \"resolutionState\": \"<string>\",\n  \"tagged\": \"<boolean>\",\n  \"object_type\": \"<string>\",\n  \"remediated_by\": \"<string>\",\n  \"created_date\": \"<string>\",\n  \"incident_type\": \"<string>\",\n  \"research_status\": \"<string>\",\n  \"earliest_subject\": \"<string>\",\n  \"app_name\": \"<string>\",\n  \"senders\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"final_detection_tags\": [\n    {\n      \"detection_tag_id\": \"<string>\",\n      \"detection_tag_name\": \"<string>\"\n    },\n    {\n      \"detection_tag_id\": \"<string>\",\n      \"detection_tag_name\": \"<string>\"\n    }\n  ]\n}"
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "List Incidents",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "https://{{tenant}}.armorblox.io/api/v1beta1/organizations/{{tenant}}/incidents?incidentTypesFilter=THREAT_INCIDENT_TYPE&timeFilter=lastMonth&orderBy=ASC&sortBy=PRIORITY&resolutionStatesTypeFilter=OPEN_INCIDENT_RESOLUTION_STATE&priorityTypesFilter=MEDIUM&statusFilter=STATUS_DEVELOPED&tagStateFilter=TAGGED_TAG_STATE&titleFilter=<string>&senderEmailFilter=<string>&receiverEmailFilter=<string>&senderDomainFilter=<string>&pageSize=100&pageToken=<string>&fromDate=<string>&toDate=<string>&policyIdsFilter=<string>&actionTypesFilter=MARK_AS_SAFE",
+															"protocol": "https",
+															"host": [
+																"{{tenant}}",
+																"armorblox",
+																"io"
+															],
+															"path": [
+																"api",
+																"v1beta1",
+																"organizations",
+																"{{tenant}}",
+																"incidents"
+															],
+															"query": [
+																{
+																	"key": "incidentTypesFilter",
+																	"value": "THREAT_INCIDENT_TYPE",
+																	"description": "Options:\n  * `THREAT_INCIDENT_TYPE`   - Fetch inbound threats only\n  * `ABUSE_INCIDENT_TYPE`    - Fetch abuse incidents only\n  * `DLP_INCIDENT_TYPE`      - Fetch DLP incidents only\n  * `EAC_INCIDENT_TYPE`      - Fetch EAC incidents only\n  * `GRAYMAIL_INCIDENT_TYPE` - Fetch Graymail incidents only\n"
+																},
+																{
+																	"key": "timeFilter",
+																	"value": "lastMonth"
+																},
+																{
+																	"key": "orderBy",
+																	"value": "ASC",
+																	"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+																},
+																{
+																	"key": "sortBy",
+																	"value": "PRIORITY",
+																	"description": "Options:\n  * `DATE`     - Sort results by date\n  * `TITLE`    - Sort results by title/subject\n  * `PRIORITY` - Sort results by priority\n"
+																},
+																{
+																	"key": "resolutionStatesTypeFilter",
+																	"value": "OPEN_INCIDENT_RESOLUTION_STATE",
+																	"description": "Options:\n  * `OPEN_INCIDENT_RESOLUTION_STATE`        - Fetch open incidents\n  * `IN_PROGRESS_INCIDENT_RESOLUTION_STATE` - Fetch 'in-progress' incidents\n  * `RESOLVED_INCIDENT_RESOLUTION_STATE`    - Fetch resolved incidents\n"
+																},
+																{
+																	"key": "priorityTypesFilter",
+																	"value": "MEDIUM",
+																	"description": "Options:\n  * `HIGH`   - Fetch high priority results\n  * `MEDIUM` - Fetch medium priority results\n  * `LOW`    - Fetch low priority results\n"
+																},
+																{
+																	"key": "statusFilter",
+																	"value": "STATUS_DEVELOPED",
+																	"description": "Options:\n  * `STATUS_DEVELOPED` - Referred to as *Deployed* in UI\n  * `STATUS_DISABLED`  - Referred to as *Ignored* in UI\n"
+																},
+																{
+																	"key": "tagStateFilter",
+																	"value": "TAGGED_TAG_STATE",
+																	"description": "Options:\n  * `TAGGED_TAG_STATE` - This is referred to as being *Starred* in the UI\n"
+																},
+																{
+																	"key": "titleFilter",
+																	"value": "<string>",
+																	"description": "Non-exact subject search"
+																},
+																{
+																	"key": "senderEmailFilter",
+																	"value": "<string>",
+																	"description": "Search by sender email"
+																},
+																{
+																	"key": "receiverEmailFilter",
+																	"value": "<string>",
+																	"description": "Search by recipient email"
+																},
+																{
+																	"key": "senderDomainFilter",
+																	"value": "<string>",
+																	"description": "Search by sender domain"
+																},
+																{
+																	"key": "pageSize",
+																	"value": "100",
+																	"description": "Number of results to return at a time"
+																},
+																{
+																	"key": "pageToken",
+																	"value": "<string>",
+																	"description": "`next_page_token` goes here for next page retrieval"
+																},
+																{
+																	"key": "fromDate",
+																	"value": "<string>",
+																	"description": "Custom time filter parameter (overrides `timeFilter`)"
+																},
+																{
+																	"key": "toDate",
+																	"value": "<string>",
+																	"description": "Custom time filter parameter (overrides `timeFilter`)"
+																},
+																{
+																	"key": "policyIdsFilter",
+																	"value": "<string>",
+																	"description": "(duplicate this param to pass in multiple policy ids)"
+																},
+																{
+																	"key": "actionTypesFilter",
+																	"value": "MARK_AS_SAFE",
+																	"description": "Options:\n  * `ALERT`      - ALERT = \"Needs Review\"\n  * `DELETE`     - Delete the associated emails\n  * `QUARANTINE` - Quarantine the associated emails\n  * `LABEL`\n  * `MARK_AS_SAFE`\n  * `LOCK_USER_ACCOUNT`\n"
+																}
+															]
+														},
+														"description": "Gets a list of all the Incidents detected by Armorblox. These can be filtered in various ways - by type of incident, priority, action taken, time etc."
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	},
+																	{
+																		"description": "Added as a part of security scheme: apikey",
+																		"key": "X-Ab-Authorization",
+																		"value": "<API Key>"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1beta1/organizations/:tenant/incidents?incidentTypesFilter=THREAT_INCIDENT_TYPE&timeFilter=lastMonth&orderBy=ASC&sortBy=PRIORITY&resolutionStatesTypeFilter=OPEN_INCIDENT_RESOLUTION_STATE&priorityTypesFilter=MEDIUM&statusFilter=STATUS_DEVELOPED&tagStateFilter=TAGGED_TAG_STATE&titleFilter=<string>&senderEmailFilter=<string>&receiverEmailFilter=<string>&senderDomainFilter=<string>&pageSize=100&pageToken=<string>&fromDate=<string>&toDate=<string>&policyIdsFilter=<string>&actionTypesFilter=MARK_AS_SAFE",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1beta1",
+																		"organizations",
+																		":tenant",
+																		"incidents"
+																	],
+																	"query": [
+																		{
+																			"key": "incidentTypesFilter",
+																			"value": "THREAT_INCIDENT_TYPE",
+																			"description": "Options:\n  * `THREAT_INCIDENT_TYPE`   - Fetch inbound threats only\n  * `ABUSE_INCIDENT_TYPE`    - Fetch abuse incidents only\n  * `DLP_INCIDENT_TYPE`      - Fetch DLP incidents only\n  * `EAC_INCIDENT_TYPE`      - Fetch EAC incidents only\n  * `GRAYMAIL_INCIDENT_TYPE` - Fetch Graymail incidents only\n"
+																		},
+																		{
+																			"key": "timeFilter",
+																			"value": "lastMonth"
+																		},
+																		{
+																			"key": "orderBy",
+																			"value": "ASC",
+																			"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+																		},
+																		{
+																			"key": "sortBy",
+																			"value": "PRIORITY",
+																			"description": "Options:\n  * `DATE`     - Sort results by date\n  * `TITLE`    - Sort results by title/subject\n  * `PRIORITY` - Sort results by priority\n"
+																		},
+																		{
+																			"key": "resolutionStatesTypeFilter",
+																			"value": "OPEN_INCIDENT_RESOLUTION_STATE",
+																			"description": "Options:\n  * `OPEN_INCIDENT_RESOLUTION_STATE`        - Fetch open incidents\n  * `IN_PROGRESS_INCIDENT_RESOLUTION_STATE` - Fetch 'in-progress' incidents\n  * `RESOLVED_INCIDENT_RESOLUTION_STATE`    - Fetch resolved incidents\n"
+																		},
+																		{
+																			"key": "priorityTypesFilter",
+																			"value": "MEDIUM",
+																			"description": "Options:\n  * `HIGH`   - Fetch high priority results\n  * `MEDIUM` - Fetch medium priority results\n  * `LOW`    - Fetch low priority results\n"
+																		},
+																		{
+																			"key": "statusFilter",
+																			"value": "STATUS_DEVELOPED",
+																			"description": "Options:\n  * `STATUS_DEVELOPED` - Referred to as *Deployed* in UI\n  * `STATUS_DISABLED`  - Referred to as *Ignored* in UI\n"
+																		},
+																		{
+																			"key": "tagStateFilter",
+																			"value": "TAGGED_TAG_STATE",
+																			"description": "Options:\n  * `TAGGED_TAG_STATE` - This is referred to as being *Starred* in the UI\n"
+																		},
+																		{
+																			"key": "titleFilter",
+																			"value": "<string>",
+																			"description": "Non-exact subject search"
+																		},
+																		{
+																			"key": "senderEmailFilter",
+																			"value": "<string>",
+																			"description": "Search by sender email"
+																		},
+																		{
+																			"key": "receiverEmailFilter",
+																			"value": "<string>",
+																			"description": "Search by recipient email"
+																		},
+																		{
+																			"key": "senderDomainFilter",
+																			"value": "<string>",
+																			"description": "Search by sender domain"
+																		},
+																		{
+																			"key": "pageSize",
+																			"value": "100",
+																			"description": "Number of results to return at a time"
+																		},
+																		{
+																			"key": "pageToken",
+																			"value": "<string>",
+																			"description": "`next_page_token` goes here for next page retrieval"
+																		},
+																		{
+																			"key": "fromDate",
+																			"value": "<string>",
+																			"description": "Custom time filter parameter (overrides `timeFilter`)"
+																		},
+																		{
+																			"key": "toDate",
+																			"value": "<string>",
+																			"description": "Custom time filter parameter (overrides `timeFilter`)"
+																		},
+																		{
+																			"key": "policyIdsFilter",
+																			"value": "<string>",
+																			"description": "(duplicate this param to pass in multiple policy ids)"
+																		},
+																		{
+																			"key": "actionTypesFilter",
+																			"value": "MARK_AS_SAFE",
+																			"description": "Options:\n  * `ALERT`      - ALERT = \"Needs Review\"\n  * `DELETE`     - Delete the associated emails\n  * `QUARANTINE` - Quarantine the associated emails\n  * `LABEL`\n  * `MARK_AS_SAFE`\n  * `LOCK_USER_ACCOUNT`\n"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "tenant"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																},
+																{
+																	"key": "Content-Type",
+																	"value": "<string>",
+																	"description": {
+																		"content": "",
+																		"type": "text/plain"
+																	}
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"incidents\": [\n    {\n      \"priority\": \"<string>\",\n      \"tagged\": \"<boolean>\",\n      \"date\": \"<string>\",\n      \"users\": [\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        }\n      ],\n      \"message_id\": \"<string>\",\n      \"policy_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"remediation_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resolution_state\": \"<string>\",\n      \"object_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"research_status\": \"<string>\",\n      \"remediated_by\": \"<string>\",\n      \"app_name\": \"<string>\",\n      \"external_users\": [\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"priority\": \"<string>\",\n      \"tagged\": \"<boolean>\",\n      \"date\": \"<string>\",\n      \"users\": [\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        }\n      ],\n      \"message_id\": \"<string>\",\n      \"policy_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"title\": \"<string>\",\n      \"remediation_actions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"resolution_state\": \"<string>\",\n      \"object_type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"research_status\": \"<string>\",\n      \"remediated_by\": \"<string>\",\n      \"app_name\": \"<string>\",\n      \"external_users\": [\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"email\": \"<string>\",\n          \"is_vip\": \"<boolean>\"\n        }\n      ]\n    }\n  ],\n  \"total_count\": \"<string>\",\n  \"final_detection_tags\": [\n    {\n      \"detection_tag_id\": \"<string>\",\n      \"detection_tag_name\": \"<string>\"\n    },\n    {\n      \"detection_tag_id\": \"<string>\",\n      \"detection_tag_name\": \"<string>\"\n    }\n  ]\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "v1alpha1",
+					"item": [
+						{
+							"name": "organizations",
+							"item": [
+								{
+									"name": "{tenant}:getPolicyViolationDetailsByObjectId",
+									"item": [
+										{
+											"name": "Get Incident Object by Object Id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{tenant}}.armorblox.io/api/v1alpha1/organizations/{{tenant}}:getPolicyViolationDetailsByObjectId?objectId=<string>&objectType=CONTENT_MAIL",
+													"protocol": "https",
+													"host": [
+														"{{tenant}}",
+														"armorblox",
+														"io"
+													],
+													"path": [
+														"api",
+														"v1alpha1",
+														"organizations",
+														"{{tenant}}:getPolicyViolationDetailsByObjectId"
+													],
+													"query": [
+														{
+															"key": "objectId",
+															"value": "<string>"
+														},
+														{
+															"key": "objectType",
+															"value": "CONTENT_MAIL"
+														}
+													]
+												},
+												"description": "Gets information about an object associated with an incident (usually mail). Get the object ID from `Get Incident by Id`'s response, under `.events[].object_id`"
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "X-Ab-Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1alpha1/organizations/{{tenant}}:getPolicyViolationDetailsByObjectId?objectId=<string>&objectType=CONTENT_MAIL",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1alpha1",
+																"organizations",
+																"{{tenant}}:getPolicyViolationDetailsByObjectId"
+															],
+															"query": [
+																{
+																	"key": "objectId",
+																	"value": "<string>"
+																},
+																{
+																	"key": "objectType",
+																	"value": "CONTENT_MAIL"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "{}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "{tenant}:getAuditLog",
+									"item": [
+										{
+											"name": "Get Activity Log",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "https://{{tenant}}.armorblox.io/api/v1alpha1/organizations/{{tenant}}:getAuditLog?activityTimeFilter=lastDay&orderBy=ASC&sortBy=DATE&pageSize=100&pageToken=<string>",
+													"protocol": "https",
+													"host": [
+														"{{tenant}}",
+														"armorblox",
+														"io"
+													],
+													"path": [
+														"api",
+														"v1alpha1",
+														"organizations",
+														"{{tenant}}:getAuditLog"
+													],
+													"query": [
+														{
+															"key": "activityTimeFilter",
+															"value": "lastDay"
+														},
+														{
+															"key": "orderBy",
+															"value": "ASC",
+															"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+														},
+														{
+															"key": "sortBy",
+															"value": "DATE",
+															"description": "Sort results by date"
+														},
+														{
+															"key": "pageSize",
+															"value": "100",
+															"description": "Number of results to return at a time"
+														},
+														{
+															"key": "pageToken",
+															"value": "<string>",
+															"description": "`next_page_token` goes here for next page retrieval"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															},
+															{
+																"description": "Added as a part of security scheme: apikey",
+																"key": "X-Ab-Authorization",
+																"value": "<API Key>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1alpha1/organizations/{{tenant}}:getAuditLog?activityTimeFilter=lastDay&orderBy=ASC&sortBy=DATE&pageSize=100&pageToken=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1alpha1",
+																"organizations",
+																"{{tenant}}:getAuditLog"
+															],
+															"query": [
+																{
+																	"key": "activityTimeFilter",
+																	"value": "lastDay"
+																},
+																{
+																	"key": "orderBy",
+																	"value": "ASC",
+																	"description": "Works in conjunction with the `sortBy` parameter\n  * `ASC`  - Ascending order\n  * `DESC` - Descending order\n"
+																},
+																{
+																	"key": "sortBy",
+																	"value": "DATE",
+																	"description": "Sort results by date"
+																},
+																{
+																	"key": "pageSize",
+																	"value": "100",
+																	"description": "Number of results to return at a time"
+																},
+																{
+																	"key": "pageToken",
+																	"value": "<string>",
+																	"description": "`next_page_token` goes here for next page retrieval"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Content-Type",
+															"value": "<string>",
+															"description": {
+																"content": "",
+																"type": "text/plain"
+															}
+														}
+													],
+													"cookie": [],
+													"body": "{}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "{tenant}",
+									"item": [
+										{
+											"name": "document",
+											"item": [
+												{
+													"name": "Get Document",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "https://{{tenant}}.armorblox.io/api/v1alpha1/organizations/{{tenant}}/document?mail_id=<string>&doc_id=<string>&requested_format=PDF",
+															"protocol": "https",
+															"host": [
+																"{{tenant}}",
+																"armorblox",
+																"io"
+															],
+															"path": [
+																"api",
+																"v1alpha1",
+																"organizations",
+																"{{tenant}}",
+																"document"
+															],
+															"query": [
+																{
+																	"key": "mail_id",
+																	"value": "<string>",
+																	"description": "(Required) The mail ID containing the document"
+																},
+																{
+																	"key": "doc_id",
+																	"value": "<string>",
+																	"description": "(Required) Document ID being requested"
+																},
+																{
+																	"key": "requested_format",
+																	"value": "PDF",
+																	"description": "Options:\n  * `NONE` - Send original file\n  * `PDF`  - If possible, convert & send as PDF\n"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	},
+																	{
+																		"description": "Added as a part of security scheme: apikey",
+																		"key": "X-Ab-Authorization",
+																		"value": "<API Key>"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1alpha1/organizations/:tenant/document?mail_id=<string>&doc_id=<string>&requested_format=PDF",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1alpha1",
+																		"organizations",
+																		":tenant",
+																		"document"
+																	],
+																	"query": [
+																		{
+																			"key": "mail_id",
+																			"value": "<string>",
+																			"description": "(Required) The mail ID containing the document"
+																		},
+																		{
+																			"key": "doc_id",
+																			"value": "<string>",
+																			"description": "(Required) Document ID being requested"
+																		},
+																		{
+																			"key": "requested_format",
+																			"value": "PDF",
+																			"description": "Options:\n  * `NONE` - Send original file\n  * `PDF`  - If possible, convert & send as PDF\n"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "tenant"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{}"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "config:getAppRestrictions",
+											"item": [
+												{
+													"name": "Get App Restrictions",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "https://{{tenant}}.armorblox.io/api/v1alpha1/organizations/{{tenant}}/config:getAppRestrictions",
+															"protocol": "https",
+															"host": [
+																"{{tenant}}",
+																"armorblox",
+																"io"
+															],
+															"path": [
+																"api",
+																"v1alpha1",
+																"organizations",
+																"{{tenant}}",
+																"config:getAppRestrictions"
+															]
+														},
+														"description": "Retrieves info about what actions are available, what each email label's ID is, AD group UIds."
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	},
+																	{
+																		"description": "Added as a part of security scheme: apikey",
+																		"key": "X-Ab-Authorization",
+																		"value": "<API Key>"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1alpha1/organizations/:tenant/config:getAppRestrictions",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1alpha1",
+																		"organizations",
+																		":tenant",
+																		"config:getAppRestrictions"
+																	],
+																	"variable": [
+																		{
+																			"key": "tenant"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																},
+																{
+																	"key": "Content-Type",
+																	"value": "<string>",
+																	"description": {
+																		"content": "",
+																		"type": "text/plain"
+																	}
+																}
+															],
+															"cookie": [],
+															"body": "{}"
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{api_key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-Ab-Authorization",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tenant",
+			"value": "<string>"
+		},
+		{
+			"key": "api_key",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "incident_id",
+			"value": "<string>"
+		}
+	]
+}

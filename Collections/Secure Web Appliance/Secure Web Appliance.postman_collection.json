@@ -1,0 +1,4819 @@
+{
+	"info": {
+		"_postman_id": "f4b73cbf-2b6e-4a08-9856-80b5982aa9d3",
+		"name": "Secure Web Appliance",
+		"description": "The AsyncOS API for Cisco Security Management appliances (or AsyncOS API) is a representational state transfer (REST) based set of operations that provide secure and authenticated access to the Security Management appliance reports, report counters, tracking, quarantine, and configuration. You can retrieve the Security Management appliance reporting, tracking, and quarantine data (for Email Security appliances) using the API. In this release you can query for configuration information. Posting configuration changes is not supported in this release.\n\nThis chapter contains the following sections:\n\n- [Prerequisites for Using AsyncOS API]()\n- [Enabling AsyncOS API]()\n- [Securely Communicating with AsyncOS API]()\n- [AsyncOS API Authentication and Authorization]()\n- [AsyncOS API Requests and Responses]()\n- [AsyncOS API Capabilities]()\n    \n\n## Prerequisites for Using AsyncOS API\n\nTo use AsyncOS API, you need:\n\n- A Security Management appliance with AsyncOS 12.0.\n- Knowledge of:\n    - HTTP, which is the protocol used for API transactions. Secure communication over TLS.\n    - JavaScript Object Notation (JSON), which the API uses to construct resource representations.\n    - JSON Web Token (JWT)\n- A client or programming library that initiates requests and receives responses from the AsyncOS API using HTTP or HTTPS, for example, cURL. The client or programming library must support JSON to interpret the response from the API.\n- Authorization to access the AsyncOS API. See [Authorization]().\n- AsyncOS API enabled using web interface or CLI. See [Enabling AsyncOS API]().\n    \n\n## Enabling AsyncOS API\n\n**Before You Begin**\n\nMake sure that you are authorized to access the IP Interfaces page on the web interface or the `interfaceconfig` command on CLI. Only administrators, email administrators, cloud administrators, and operators are authorized.\n\nYou can also enable the AsyncOS API using the `interfaceconfig` command in CLI.\n\n### Procedure\n\n---\n\n| Step 1 |  \nLog in to the web interface.\n\n| Step 2 |  \n\\[New web interface only\\] Click the gear icon to load the legacy web interface.\n\n| Step 3 |  \nChoose Management Appliance Network > IP Interfaces.\n\n| Step 4 |  \nEdit the Management interface.\n\nNote  \nYou can enable AsyncOS API on any IP interface. However, Cisco recommends that you enable AsyncOS API on the Management interface.\n\n| Step 5 |  \nUnder the AsyncOS API (Monitoring) section, depending on your requirements, select HTTP, HTTPS, or both and the ports to use.\n\nNote  \nAsyncOS API communicates using HTTP / 1.1.\n\nIf you have selected HTTPS and you want to use your own certificate for secure communication, see [Securely Communicating with AsyncOS API]().\n\nCisco recommends that you always use HTTPS in the production environment. Use HTTP only for troubleshooting and testing the API.\n\n| Step 6 |  \nSubmit and commit your changes.\n\n---\n\n## Securely Communicating with AsyncOS API\n\nYou can communicate with AsyncOS API over secure HTTP using your own certificate.\n\nNote  \nDo not perform this procedure if you are already running the web interface over HTTPS and using your own certificate for secure communication. AsyncOS API uses the same certificate as web interface, for communicating over HTTPS.\n\n### Procedure\n\n---\n\n| Step 1 |  \nSet up a certificate using the `certconfig` command in the CLI. For instructions, refer the User Guide or Online Help.\n\n| Step 2 |  \nChange the HTTPS certificate used by the IP interface to your certificate using the `interfaceconfig` command in CLI. For instructions, refer the User Guide or Online Help.\n\n| Step 3 |  \nSubmit and commit your changes.\n\n---\n\n## AsyncOS API Authentication and Authorization\n\nThis section explains about the authentication methods, the user roles which can access APIs, and how to query for APIs accessible to a user.\n\n- [Authentication]()\n- [Authorization]()\n- [Retrieving APIs Accessible to a User Role]()\n    \n\n### Authentication\n\nSubmit the Security Management appliance's username and password with all the requests to the API, in the Base64-encoded format or with a JSON Web Token. The user inactivity timeout settings in the appliance apply to the validity of a JWT. If a request does not include valid credentials in the Authorization header, the API sends a 401 error message. You can use any base64 library to convert your credentials into base64-encoded format. You can authenticate queries to the API using either of the following two methods:\n\n#### Authenticating API Queries with JSON Web Token\n\nYou can generate a JSON Web Token (JWT) and use it with your API queries.\n\nDocumentation: [https://www.cisco.com/c/en/us/td/docs/security/wsa/wsa-14-5/api-guide/b_WSA_API_14-5_Guide/m_overview_of_wsa_apis.html]()",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://galactic-astronaut-430691.postman.co/workspace/Cisco-Security~ff5542bd-d893-4a19-ae32-6a56f151c6e7/collection/8695710-f4b73cbf-2b6e-4a08-9856-80b5982aa9d3?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "reporting",
+			"item": [
+				{
+					"name": "report",
+					"item": [
+						{
+							"name": "Query Report",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/reporting/report?device_type=wsa",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"reporting",
+										"report"
+									],
+									"query": [
+										{
+											"key": "startdate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration.",
+											"disabled": true
+										},
+										{
+											"key": "endDate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration.",
+											"disabled": true
+										},
+										{
+											"key": "device_type",
+											"value": "wsa",
+											"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+										},
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "filterBy",
+											"value": "<value>",
+											"description": "The value to search for.",
+											"disabled": true
+										},
+										{
+											"key": "filterOperator",
+											"value": "<value>",
+											"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "query_type",
+											"value": "<value>",
+											"description": "query_type=graph\n\n    Receive data that can be represented as graphs.\n\n    query_type=export\n\n    Receive data in the export format.\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Query Report Counters",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/reporting/report/counter?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"reporting",
+										"report",
+										"counter"
+									],
+									"query": [
+										{
+											"key": "startdate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "endDate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "device_type",
+											"value": "wsa",
+											"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+										},
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "filterBy",
+											"value": "<value>",
+											"description": "The value to search for.",
+											"disabled": true
+										},
+										{
+											"key": "filterOperator",
+											"value": "<value>",
+											"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "query_type",
+											"value": "<value>",
+											"description": "query_type=graph\n\n    Receive data that can be represented as graphs.\n\n    query_type=export\n\n    Receive data in the export format.\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Web Services Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/reporting/web_services_summary?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"reporting",
+										"web_services_summary"
+									],
+									"query": [
+										{
+											"key": "startdate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "endDate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "device_type",
+											"value": "wsa",
+											"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+										},
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "filterBy",
+											"value": "<value>",
+											"description": "The value to search for.",
+											"disabled": true
+										},
+										{
+											"key": "filterOperator",
+											"value": "<value>",
+											"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "query_type",
+											"value": "<value>",
+											"description": "query_type=graph\n\n    Receive data that can be represented as graphs.\n\n    query_type=export\n\n    Receive data in the export format.\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Web App Type Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/reporting/web_application_type_detail/bw_not_limited?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"reporting",
+										"web_application_type_detail",
+										"bw_not_limited"
+									],
+									"query": [
+										{
+											"key": "startdate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "endDate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "device_type",
+											"value": "wsa",
+											"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+										},
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "filterBy",
+											"value": "<value>",
+											"description": "The value to search for.",
+											"disabled": true
+										},
+										{
+											"key": "filterOperator",
+											"value": "<value>",
+											"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "query_type",
+											"value": "<value>",
+											"description": "query_type=graph\n\n    Receive data that can be represented as graphs.\n\n    query_type=export\n\n    Receive data in the export format.\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Web App Name App Type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/reporting/web_application_name_application_type_detail?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"reporting",
+										"web_application_name_application_type_detail"
+									],
+									"query": [
+										{
+											"key": "startdate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "endDate",
+											"value": "YYYY-MM-DDThh:mm:00.000Z",
+											"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+										},
+										{
+											"key": "device_type",
+											"value": "wsa",
+											"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+										},
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "filterBy",
+											"value": "<value>",
+											"description": "The value to search for.",
+											"disabled": true
+										},
+										{
+											"key": "filterOperator",
+											"value": "<value>",
+											"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "query_type",
+											"value": "<value>",
+											"description": "query_type=graph\n\n    Receive data that can be represented as graphs.\n\n    query_type=export\n\n    Receive data in the export format.\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Schedule and Archive APIs",
+			"item": [
+				{
+					"name": "Search Archived Reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/config/archived_reports?device_type=wsa&filterByTitle=Application",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"config",
+								"archived_reports"
+							],
+							"query": [
+								{
+									"key": "filterValue",
+									"value": "<value>",
+									"description": "Filter parameters restrict the data to be included the response.",
+									"disabled": true
+								},
+								{
+									"key": "filterBy",
+									"value": "<value>",
+									"description": "The value to search for.",
+									"disabled": true
+								},
+								{
+									"key": "filterOperator",
+									"value": "<value>",
+									"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n",
+									"disabled": true
+								},
+								{
+									"key": "top",
+									"value": "<value>",
+									"description": "Specify the number of records with the highest values to return.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "<value>",
+									"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+									"disabled": true
+								},
+								{
+									"key": "orderDir",
+									"value": "<value>",
+									"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+									"disabled": true
+								},
+								{
+									"key": "device_type",
+									"value": "wsa"
+								},
+								{
+									"key": "filterByTitle",
+									"value": "Application"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Archived Reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/config/archived_reports?device_type=wsa",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"config",
+								"archived_reports"
+							],
+							"query": [
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								},
+								{
+									"key": "top",
+									"value": "<value>",
+									"description": "Specify the number of records with the highest values to return.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "<value>",
+									"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+									"disabled": true
+								},
+								{
+									"key": "orderDir",
+									"value": "<value>",
+									"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Details of a Archive Report Entry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/config/archived_reports/view/{{archived_report_id}}/?device_type=wsa",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"config",
+								"archived_reports",
+								"view",
+								"{{archived_report_id}}",
+								""
+							],
+							"query": [
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Archive Report Entry",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"archived_reports\": [\n            {\n                \"periodic_report_delivery\": \"Archived Only\",\n                \"periodic_report_options\": {\n                    \"periodic_report_format\": \"pdf\",\n                    \"periodic_report_lang\": \"en-us\",\n                    \"periodic_report_rows\": 20,\n                    \"periodic_report_sort_columns\": [\n                        {\n                            \"table\": \"Users\",\n                            \"column\": \"Transactions Blocked\"\n                        }\n                    ],\n                    \"periodic_report_charts\": [\n                        {\n                            \"Chart\": \"Top Users (Left)\",\n                            \"Data to display\": \"Transactions Blocked\"\n                        },\n                        {\n                            \"Chart\": \"Top Users (Right)\",\n                            \"Data to display\": \"Bandwidth Used\"\n                        }\n                    ],\n                    \"periodic_report_time_range\": \"Previous calendar month\"\n                },\n                \"periodic_report_title\": \"Users Archive Report 2\",\n                \"periodic_report_type\": \"coeus\",\n                \"periodic_report_type_name\": \"Users\",\n                \"periodic_report_user_name\": \"admin\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/config/archived_reports?device_type=wsa",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"config",
+								"archived_reports"
+							],
+							"query": [
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Archive Report Entry",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"archived_reports\": [\n            {\n                \"periodic_report_delivery\": \"Archived Only\",\n                \"periodic_report_options\": {\n                    \"periodic_report_format\": \"pdf\",\n                    \"periodic_report_lang\": \"en-us\",\n                    \"periodic_report_rows\": 20,\n                    \"periodic_report_sort_columns\": [\n                        {\n                            \"table\": \"Users\",\n                            \"column\": \"Transactions Blocked\"\n                        }\n                    ],\n                    \"periodic_report_charts\": [\n                        {\n                            \"Chart\": \"Top Users (Left)\",\n                            \"Data to display\": \"Transactions Blocked\"\n                        },\n                        {\n                            \"Chart\": \"Top Users (Right)\",\n                            \"Data to display\": \"Bandwidth Used\"\n                        }\n                    ],\n                    \"periodic_report_time_range\": \"Previous calendar month\"\n                },\n                \"periodic_report_title\": \"Users Archive Report 2\",\n                \"periodic_report_type\": \"coeus\",\n                \"periodic_report_type_name\": \"Users\",\n                \"periodic_report_user_name\": \"admin\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/config/archived_reports?device_type=wsa&id={{archived_report_id}}",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"config",
+								"archived_reports"
+							],
+							"query": [
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								},
+								{
+									"key": "id",
+									"value": "{{archived_report_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracking",
+			"item": [
+				{
+					"name": "Get Proxy Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/web-tracking/web_transaction?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa&filterBy=proxy_services&filterOperator=is",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"web-tracking",
+								"web_transaction"
+							],
+							"query": [
+								{
+									"key": "startdate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "endDate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								},
+								{
+									"key": "filterValue",
+									"value": "<value>",
+									"description": "Filter parameters restrict the data to be included the response.",
+									"disabled": true
+								},
+								{
+									"key": "filterBy",
+									"value": "proxy_services",
+									"description": "The value to search for."
+								},
+								{
+									"key": "filterOperator",
+									"value": "is",
+									"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n"
+								},
+								{
+									"key": "top",
+									"value": "<value>",
+									"description": "Specify the number of records with the highest values to return.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "<value>",
+									"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+									"disabled": true
+								},
+								{
+									"key": "orderDir",
+									"value": "<value>",
+									"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+									"disabled": true
+								},
+								{
+									"key": "transactionStatus",
+									"value": "all",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Layer 4 Traffic Monitor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/web-tracking/web_transaction?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa&filterBy=l4tm&filterOperator=is",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"web-tracking",
+								"web_transaction"
+							],
+							"query": [
+								{
+									"key": "startdate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "endDate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								},
+								{
+									"key": "filterValue",
+									"value": "<value>",
+									"description": "Filter parameters restrict the data to be included the response.",
+									"disabled": true
+								},
+								{
+									"key": "filterBy",
+									"value": "l4tm",
+									"description": "The value to search for."
+								},
+								{
+									"key": "filterOperator",
+									"value": "is",
+									"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n"
+								},
+								{
+									"key": "top",
+									"value": "<value>",
+									"description": "Specify the number of records with the highest values to return.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "<value>",
+									"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+									"disabled": true
+								},
+								{
+									"key": "orderDir",
+									"value": "<value>",
+									"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+									"disabled": true
+								},
+								{
+									"key": "transactionStatus",
+									"value": "all",
+									"description": "transactionStatus",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SOCKS Proxy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{hostname}}:6443/wsa/api/v2.0/web-tracking/web_transaction?startdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z&device_type=wsa&filterBy=socks_proxy&filterOperator=is",
+							"protocol": "https",
+							"host": [
+								"{{hostname}}"
+							],
+							"port": "6443",
+							"path": [
+								"wsa",
+								"api",
+								"v2.0",
+								"web-tracking",
+								"web_transaction"
+							],
+							"query": [
+								{
+									"key": "startdate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "endDate",
+									"value": "YYYY-MM-DDThh:mm:00.000Z",
+									"description": "This is a required parameter. All API queries should be accompanied with this parameter.\n\nstartdate=YYYY-MM-DDThh:mm:00.000Z&endDate=YYYY-MM-DDThh:mm:00.000Z\n\nAggregate report(s) for the specified duration."
+								},
+								{
+									"key": "device_type",
+									"value": "wsa",
+									"description": "Specify the device type. This is a required parameter. All API queries must be accompanied with this parameter."
+								},
+								{
+									"key": "filterValue",
+									"value": "<value>",
+									"description": "Filter parameters restrict the data to be included the response.",
+									"disabled": true
+								},
+								{
+									"key": "filterBy",
+									"value": "socks_proxy",
+									"description": "The value to search for."
+								},
+								{
+									"key": "filterOperator",
+									"value": "is",
+									"description": "Filter the data to be retrieved according to the filter property and value.\n\nThe valid options are:\n\n    begins_with\n\n    Filter the response data based on the value specified. This is not an exact value.\n\n    is\n\n    Filter the response data based on the exact value specified.\n"
+								},
+								{
+									"key": "top",
+									"value": "<value>",
+									"description": "Specify the number of records with the highest values to return.",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "<value>",
+									"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+									"disabled": true
+								},
+								{
+									"key": "orderBy",
+									"value": "<value>",
+									"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+									"disabled": true
+								},
+								{
+									"key": "orderDir",
+									"value": "<value>",
+									"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+									"disabled": true
+								},
+								{
+									"key": "transactionStatus",
+									"value": "all",
+									"description": "transactionStatus",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Bandwidth",
+					"item": [
+						{
+							"name": "Get Overall Bandwidth Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/overall_bandwidth_limit",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"overall_bandwidth_limit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Overall Bandwidth Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bandwidth_limit\": 128\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/overall_bandwidth_limit",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"overall_bandwidth_limit"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PAC Files",
+					"item": [
+						{
+							"name": "Get PAC File Basic Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_basic_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_basic_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify PAC File Basic Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"enable\",\n    \"pac_file_expiry\": \"enable\",\n    \"pac_server_ports\": [\n        3345\n    ],\n    \"pac_expiration_interval\": 1233\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_basic_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_basic_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get PAC Files",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_file",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_file"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add PAC Files",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_file",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_file"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify PAC File",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "filename",
+											"value": "/C:/Users/Admin/Desktop/sample_pac_file.pac",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_file",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_file"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete PAC File",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pac_file?file_name=sample_pac_file2.pac",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pac_file"
+									],
+									"query": [
+										{
+											"key": "file_name",
+											"value": "sample_pac_file2.pac"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get PAC File and the Hostname Association",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pacfile_host",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pacfile_host"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add PAC File and the Hostname Association",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"hostname_pac_mapping\": [\n        {\n            \"hostname\": \"wsa1332\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        },\n        {\n            \"hostname\": \"wsa13101\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pacfile_host",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pacfile_host"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify PAC File and the Hostname Association",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"hostname_pac_mapping\": [\n        {\n            \"hostname\": \"wsa1332\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        },\n        {\n            \"hostname\": \"wsa13101\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pacfile_host",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pacfile_host"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete PAC File and the Hostname Association",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"hostname_pac_mapping\": [\n        {\n            \"hostname\": \"wsa1332\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        },\n        {\n            \"hostname\": \"wsa13101\",\n            \"pac_filename\": \"sample_pac_file.pac\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/pacfile_host?host_name=wsa1332",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"pacfile_host"
+									],
+									"query": [
+										{
+											"key": "host_name",
+											"value": "wsa1332"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Identification Profiles",
+					"item": [
+						{
+							"name": "Get Identification Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/identification_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"identification_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Identification Profile",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identification_profiles\": [\n        {\n            \"profile_name\": \"sample ID\",\n            \"new_profile_name\": \"sample ID modifiedw\"\n        },\n        {\n            \"status\": \"disable\",\n            \"profile_name\": \"idsample\",\n            \"order\": 1\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/identification_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"identification_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Identification Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identification_profiles\": [\n        {\n            \"status\": \"enable\",\n            \"description\": \"Sample description\",\n            \"identification_method\": {\n                \"auth_scheme\": [\n                    \"Basic\"\n                ],\n                \"auth_sequence\": \"ldaprealm\",\n                \"auth_surrogate_by_proto\": {\n                    \"ftp\": \"ip\",\n                    \"http\": \"ip\",\n                    \"https\": \"ip\"\n                },\n                \"prompt_on_sso_failure\": \"authenticate\",\n                \"use_forward_surrogates\": 1,\n                \"sso_scheme\": \"sso_none\",\n                \"use_guest_on_auth_failure\": 0\n            },\n            \"profile_name\": \"sample ID\",\n            \"members\": {\n                \"protocols\": [\n                    \"http\",\n                    \"https\",\n                    \"ftp\" ]\n            },\n            \"order\": 1 \n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/identification_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"identification_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Identification Profile",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/identification_profiles?profile_names=idsample,%20sample%20ID%20profile ",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"identification_profiles"
+									],
+									"query": [
+										{
+											"key": "profile_names",
+											"value": "idsample,%20sample%20ID%20profile "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Access Policies",
+					"item": [
+						{
+							"name": "Get Access Policy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/access_policies?policy_names=AP106",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"access_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "AP106"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Access Policy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"access_policies\": [\n        {\n            \"policy_name\": \"global policy\",\n            \"protocols_user_agents\": {\n                \"state\": \"custom\",\n                \"block_protocols\": [\n                    \"http\",\n                    \"https\"\n                ]\n            }\n        },\n        {\n            \"policy_name\": \"sample AP\",\n            \"protocols_user_agents\": {\n                \"block_protocols\": [\n                    \"http\"\n                ]\n            }\n        },\n        {\n            \"policy_name\": \"AP106\",\n            \"protocols_user_agents\": {\n                \"state\": \"custom\",\n                \"block_protocols\": [\n                    \"https\"\n                ]\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/access_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"access_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Access Policy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"access_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"sample AP\",\n            \"policy_order\": 1,\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ],\n                \"user_agents\": {\n                    \"predefined\": [\n                        \"Firefox\",\n                        \"Safari\",\n                        \"MSIE/10\"\n                    ],\n                    \"custom\": [\n                        \"Mozilla/. Gecko/. Firefox/\"\n                    ],\n                    \"is_inverse\": 0\n                }\n            },\n            \"protocols_user_agents\": {\n                \"state\": \"custom\",\n                \"allow_connect_ports\": [\n                    \"20\",\n                    \"21\",\n                    \"1-65535\"\n                ],\n                \"block_protocols\": [\n                    \"ftp\",\n                    \"http\",\n                    \"https\",\n                    \"nativeftp\"\n                ],\n                \"block_custom_user_agents\": [\n                    \"Mozilla/.* Gecko/.* Firefox/, Mozilla/4.0 (compatible; MSIE 5.5;)\",\n                    \"test\"\n                ]\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/access_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"access_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Access Policy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/access_policies?policy_names=AP105,%20sample%20AP,%20AP110",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"access_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "AP105,%20sample%20AP,%20AP110"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Domain Map",
+					"item": [
+						{
+							"name": "Get Domain Map Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/web_security/domain_map",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"web_security",
+										"domain_map"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Domain Map Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"new_domain_name\": \"abcd.com\",\n        \"domain_name\": \"abc.com\",\n        \"order\": 102,\n        \"IP_addresses\": [\n            \"002:45:32::00:12/24\",\n            \"2.2.2.1-10\"\n        ]\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/web_security/domain_map",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"web_security",
+										"domain_map"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Domain Map",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n        {       \n            \"domain_name\": \"abc.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:45:32::00:12/24\", \"2.2.2.1-10\"  \n            ]    \n        },\n        {       \n            \"domain_name\": \"xyz.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:55:34::00:12/24\", \"2.5.5.1-10\"  \n            ]    \n        }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/web_security/domain_map",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"web_security",
+										"domain_map"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Domain Map",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"domain_name\": \"xyz.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/web_security/domain_map",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"web_security",
+										"domain_map"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Upstream Proxy",
+					"item": [
+						{
+							"name": "Get Upstream Proxy Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Upstream Proxy Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"group_name\": \"Test11\",\n        \"new_group_name\": \"Test1\",\n        \"failure_handling\": \"drop\",\n        \"load_balancing\": \"none\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Upstream Proxy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"group_name\": \"Test2\",\n    \"failure_handling\": \"connect\",\n    \"load_balancing\": \"none\",\n    \"proxy_servers\": [\n        {\n            \"host\": \"www.google.com\",\n            \"retries\": 1,\n            \"port\": 22\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Upstream Proxy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"proxy_group\": \"Test1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Upstream Proxy Server",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"group_name\": \"Test3\",\n        \"proxy_servers\": [\n            {\n                \"retries\": 1,\n                \"host\": \"4.4.4.4\",\n                \"port\": 22\n            }\n        ]\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy/servers",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy",
+										"servers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Upstream Proxy Servers",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"group_name\": \"Test3\",\n        \"proxy_servers\": [\n            {\n                \"retries\": 1,\n                \"host\": \"7.7.7.7\",\n                \"new_host\": \"7.7.8.8\",\n                \"port\": 22\n            }\n        ]\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy/servers",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy",
+										"servers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Upstream Proxy Servers",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"group_name\": \"Test3\",\n        \"proxy_servers\": [\n            {\n                \"retries\": 1,\n                \"host\": \"7.7.8.8\",\n                \"port\": 22            \n            }             \n        ]    \n    }    \n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/upstream_proxy/servers",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"upstream_proxy",
+										"servers"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HTTPS Proxy",
+					"item": [
+						{
+							"name": "Get HTTPS Proxy Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/security_services/proxy/https",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"security_services",
+										"proxy",
+										"https"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify HTTP Proxy Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "https_enabled",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "https_ports",
+											"value": "9443",
+											"type": "text"
+										},
+										{
+											"key": "authentication",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "user_acknowledgement",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "application_visibility",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "user_notification",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "expired_cert",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "invalid_leaf_cert",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "unrecognized_root",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "invalid_signing_cert",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "mismatched_hostname",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "other_error",
+											"value": "drop",
+											"type": "text"
+										},
+										{
+											"key": "current_cert_type",
+											"value": "generated",
+											"type": "text"
+										},
+										{
+											"key": "accept_license",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "common_name",
+											"value": "dut037.perf8",
+											"type": "text"
+										},
+										{
+											"key": "org",
+											"value": "CISCOSBG",
+											"type": "text"
+										},
+										{
+											"key": "org_unit",
+											"value": "CS",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "USA",
+											"type": "text"
+										},
+										{
+											"key": "expires",
+											"value": "35",
+											"type": "text"
+										},
+										{
+											"key": "is_x509v3_critical",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/security_services/proxy/https",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"security_services",
+										"proxy",
+										"https"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get HTTP Proxy—Download Certificate File",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/security_services/proxy/https/download?cert_type=generated",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"security_services",
+										"proxy",
+										"https",
+										"download"
+									],
+									"query": [
+										{
+											"key": "cert_type",
+											"value": "generated"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get HTTP Proxy OCSP Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/security_services/proxy/ocsp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"security_services",
+										"proxy",
+										"ocsp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify HTTP Proxy—OCSP Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ocsp_enabled\": true,\n    \"ocsp_valid_response_cache_timeout\": 1200,\n    \"ocsp_invalid_response_cache_timeout\": 120,\n    \"ocsp_network_error_cache_timeout\": 34324,\n    \"ocsp_clock_skew\": 23,\n    \"ocsp_network_error_timeout\": 3,\n    \"ocsp_result_handling\": {\n        \"unknown\": \"scan\",\n        \"revoked\": \"decrypt\",\n        \"error\": \"scan\"\n    },\n    \"ocsp_use_nonce\": true,\n    \"ocsp_use_upstream_proxy\": true,\n    \"ocsp_proxy_group\": \"Test\",\n    \"ocsp_proxy_group_exempt_list\": []\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/security_services/proxy/ocsp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"security_services",
+										"proxy",
+										"ocsp"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Log Subscriptions",
+					"item": [
+						{
+							"name": "Get Log Subscriptions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Log Subscriptions—Rollover",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n     \"log_name\": \"mcafee_logs\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions/rollover",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions",
+										"rollover"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Log Subscriptions for the Fetch Field Lists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions/fields?fetch=facility_list",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions",
+										"fields"
+									],
+									"query": [
+										{
+											"key": "fetch",
+											"value": "facility_list"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Log Subscriptions to Fetch Default Values for a Log Type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions/defaults",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions",
+										"defaults"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Log Subscriptions",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"new_log_name\": \"logs_2\",\n        \"log_level\": \"debug\",\n        \"log_type\": \"CLI Audit Logs\",\n        \"log_file_name\": \"cli_file_name\",\n        \"rollover_file_size\": 10240,\n        \"retrieval_method\": {\n            \"max_num_files\": 10,\n            \"method\": \"local\"\n        },\n        \"rollover_by_time\": {\n            \"rollover_interval\": \"custom\",\n            \"rollover_custom_time\": 17280\n        }\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Log Subscriptions",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"delete_all\": false,\n    \"log_name\": \"logs_2\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Log Subscriptions",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"log_name\": \"logs_1\",\n        \"new_log_name\": \"logs_4\",\n        \"log_level\": \"debug\",\n        \"log_type\": \"CLI Audit Logs\",\n        \"log_file_name\": \"cli_file_name\",\n        \"rollover_file_size\": 10240,\n        \"retrieval_method\": {\n            \"max_num_files\": 10,\n            \"method\": \"local\"\n        },\n        \"rollover_by_time\": {\n            \"rollover_interval\": \"custom\",\n            \"rollover_custom_time\": 17280\n        }\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Log Subscriptions—Deanonymization",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "log_name",
+											"value": "accesslogs",
+											"type": "text"
+										},
+										{
+											"key": "passphrase",
+											"value": "Agt@1111",
+											"type": "text"
+										},
+										{
+											"key": "encrypted_content",
+											"value": "encrypted_text",
+											"type": "text"
+										},
+										{
+											"key": "paste_encrypted_text",
+											"value": "H/6VZtZeUccgwRWM1Ty3MVz8ijfKs/JT2HEEobmKyB0=,\nH/6VZtZeUccgwRWM1Ty3MVz8ijfKs/JT2HEEobmKyB0=\\",
+											"type": "text"
+										},
+										{
+											"key": "download_as_file",
+											"value": "false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/log_subscriptions/deanonymization",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"log_subscriptions",
+										"deanonymization"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Header Based Authentication",
+					"item": [
+						{
+							"name": "Get Header Based Authentication Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/xauth_header_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"xauth_header_setting"
+									],
+									"query": [
+										{
+											"key": "filterValue",
+											"value": "<value>",
+											"description": "Filter parameters restrict the data to be included the response.",
+											"disabled": true
+										},
+										{
+											"key": "top",
+											"value": "<value>",
+											"description": "Specify the number of records with the highest values to return.",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<value>",
+											"description": "You should use both these parameters. If you use either, you will not receive data in the response.\n\n    offset=<value>\n\n    Specify an offset value to retrieve a subset of records starting with the offset value. Offset works with limit, which determines how many records to retrieve starting from the offset.\n\n    limit=<value>\n\n    Specify the number of records to retrieve.\n",
+											"disabled": true
+										},
+										{
+											"key": "orderBy",
+											"value": "<value>",
+											"description": "Specify the attribute by which to order the data in the response. For example,\n\norderBy=total_clean_recipients",
+											"disabled": true
+										},
+										{
+											"key": "orderDir",
+											"value": "<value>",
+											"description": "Specify sort direction.\n\nThe valid options are:\n\n    asc\n\n    Order the results in ascending order.\n\n    desc\n\n    Order the results in descending order.\n",
+											"disabled": true
+										},
+										{
+											"key": "transactionStatus",
+											"value": "all",
+											"description": "transactionStatus",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Header Based Authentication with Different Parameters",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"xauth_header_based_auth\": \"enable\",\n    \"xauth_use_group_header\": \"enable\",\n    \"xauth_retain_auth_egress\": \"enable\",\n    \"xauth_header_mode\": \"standard\",\n    \"xauth_std_user\": {\n        \"text_format\": \"UTF8\",\n        \"Binary_encoding\": \"Base64\"\n    },\n    \"xauth_std_group\": {\n        \"text_format\": \"UTF8\",\n        \"Binary_encoding\": \"Base64\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/xauth_header_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"xauth_header_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Header Based Authentication Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"xauth_header_based_auth\": \"enable\",\n    \"xauth_use_group_header\": \"enable\",\n    \"xauth_retain_auth_egress\": \"enable\",\n    \"xauth_header_mode\": \"custom\",\n    \"xauth_custom_user\": {\n        \"name\": \"user\",\n        \"text_format\": \"ASCII\",\n        \"Binary_encoding\": \"No Encoding\"\n    },\n    \"xauth_custom_group\": {\n        \"name\": \"group\",\n        \"text_format\": \"ASCII\",\n        \"Binary_encoding\": \"No Encoding\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/xauth_header_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"xauth_header_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Request Header Rewrite Profiles",
+					"item": [
+						{
+							"name": "Get Request Header Rewrite Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/http_rewrite_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"http_rewrite_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Request Header Rewrite Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"http_rewrite_profiles\": [\n        {\n            \"profile_name\": \"Profile 4\",\n            \"new_profile_name\": \"Updated Profile\",\n            \"headers\": [\n                {\n                    \"header_name\": \"Header1\",\n                    \"header_value\": \"Value1\",\n                    \"text_format\": \"ASCII\",\n                    \"binary_encoding\": \"No Encoding\"\n                },\n                {\n                    \"header_name\": \"Header2\",\n                    \"header_value\": \"Value2\",\n                    \"text_format\": \"ASCII\",\n                    \"binary_encoding\": \"Base64\"\n                },\n                {\n                    \"header_name\": \"Header3\",\n                    \"header_value\": \"val\",\n                    \"text_format\": \"UTF-8\",\n                    \"binary_encoding\": \"No Encoding\"\n                },\n                {\n                    \"header_name\": \"Header4\",\n                    \"header_value\": \"val\",\n                    \"text_format\": \"UTF-8\",\n                    \"binary_encoding\": \"Base64\"\n                }\n            ]\n        }\n    ],\n    \"global_settings\": {\n        \"rewrite_format_for_user\": \"$authMechanism:\\\\\\\\$domainName\\\\$userName\",\n        \"rewrite_format_for_groups\": \"$authMechanism:\\\\\\\\$domainName\\\\$groupName\",\n        \"delimiter_for_groups\": \":\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/http_rewrite_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"http_rewrite_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Request Header Rewrite Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n        {       \n            \"domain_name\": \"abc.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:45:32::00:12/24\", \"2.2.2.1-10\"  \n            ]    \n        },\n        {       \n            \"domain_name\": \"xyz.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:55:34::00:12/24\", \"2.5.5.1-10\"  \n            ]    \n        }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/http_rewrite_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"http_rewrite_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Request Header Rewrite Profile",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"domain_name\": \"xyz.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/http_rewrite_profiles?alternate_profile_name=None&profile_name=RHR",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"http_rewrite_profiles"
+									],
+									"query": [
+										{
+											"key": "alternate_profile_name",
+											"value": "None"
+										},
+										{
+											"key": "profile_name",
+											"value": "RHR"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Smart Software Licenses",
+					"item": [
+						{
+							"name": "Get Smart Software Licenses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/sl_licenses",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"sl_licenses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Smart Software Licenses",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"http_rewrite_profiles\": [\n        {\n            \"profile_name\": \"Profile 4\",\n            \"new_profile_name\": \"Updated Profile\",\n            \"headers\": [\n                {\n                    \"header_name\": \"Header1\",\n                    \"header_value\": \"Value1\",\n                    \"text_format\": \"ASCII\",\n                    \"binary_encoding\": \"No Encoding\"\n                },\n                {\n                    \"header_name\": \"Header2\",\n                    \"header_value\": \"Value2\",\n                    \"text_format\": \"ASCII\",\n                    \"binary_encoding\": \"Base64\"\n                },\n                {\n                    \"header_name\": \"Header3\",\n                    \"header_value\": \"val\",\n                    \"text_format\": \"UTF-8\",\n                    \"binary_encoding\": \"No Encoding\"\n                },\n                {\n                    \"header_name\": \"Header4\",\n                    \"header_value\": \"val\",\n                    \"text_format\": \"UTF-8\",\n                    \"binary_encoding\": \"Base64\"\n                }\n            ]\n        }\n    ],\n    \"global_settings\": {\n        \"rewrite_format_for_user\": \"$authMechanism:\\\\\\\\$domainName\\\\$userName\",\n        \"rewrite_format_for_groups\": \"$authMechanism:\\\\\\\\$domainName\\\\$groupName\",\n        \"delimiter_for_groups\": \":\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/sl_licenses",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"sl_licenses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Request Header Rewrite Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n        {       \n            \"domain_name\": \"abc.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:45:32::00:12/24\", \"2.2.2.1-10\"  \n            ]    \n        },\n        {       \n            \"domain_name\": \"xyz.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:55:34::00:12/24\", \"2.5.5.1-10\"  \n            ]    \n        }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/http_rewrite_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"http_rewrite_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Smart License Agent Status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/smart_agent_status",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"smart_agent_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Smart License Agent Status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n        {       \n            \"domain_name\": \"abc.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:45:32::00:12/24\", \"2.2.2.1-10\"  \n            ]    \n        },\n        {       \n            \"domain_name\": \"xyz.com\",\n            \"order\": 102,\n            \"IP_addresses\": [            \n                \"002:55:34::00:12/24\", \"2.5.5.1-10\"  \n            ]    \n        }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/smart_agent_status",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"smart_agent_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Smart Software Licenses Status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/smart_software_licensing_status",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"smart_software_licensing_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Smart Software Licenses Status",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Sample Request 1\n\n{\n\"smart_license_status\": \"enable\"\n}\n\nSample Request 2\nNote \t\n\nUse your own registeration token.\n\n{ \"registration_token\": \"ZTExxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx%0A\", \"action\": \"register\", \"test_interface\": \"Data\" } { \"action\": \"deregister\" } { \"transport_mode\": \"transport_gateway\", \"transport_url\": \"https://www.google.com\" } { \"action\": \"renew_auth\" } { \"action\": \"renew_registration\" }\n\nSample Request 3\n\n{\n    \"action\": \"deregister\"\n}\n\nSample Request 4\n\n{\n    \"transport_mode\": \"transport_gateway\",\n    \"transport_url\": \"https://www.google.com\"\n\n}\n\nSample Request 5\n\n{\n    \"action\": \"renew_auth\"\n}\n\nSample Request 6\n\n{\n    \"action\": \"renew_registration\"\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/smart_software_licensing_status",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"smart_software_licensing_status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "System Setup Wizard",
+					"item": [
+						{
+							"name": "Get End User License Agreement Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/cisco_end_user_license_agreement",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"cisco_end_user_license_agreement"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify System Setup Wizard Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cisco_license_agreement\": \"accept\",\n    \"appliance_mode\": \"standard\",\n    \"system_settings\": {\n        \"hostname\": \"dut058.perf8\",\n        \"dns_servers\": {\n            \"dns_choice\": \"self\",\n            \"user_dns\": [\n                \"192.168.0.252\"\n            ]\n        },\n        \"ntp_server\": {\n            \"query_interval_time\": 23434,\n            \"sync_up_delay_ms\": 500,\n            \"server_name\": \"time.sco.cisco.com\",\n            \"server_auth\": {\n                \"status\": \"enable\",\n                \"key_id\": 123,\n                \"key_val\": \"MTIzNA==\",\n                \"key_type\": \"sha1\"\n            }\n        },\n        \"timezone\": {\n            \"region\": \"Europe\"\n        }\n    },\n    \"network_context\": {\n        \"other_proxy\": \"no\"\n    },\n    \"network_interface\": {\n        \"m1\": {\n            \"management_only\": \"no\",\n            \"ipv4_address_netmask\": \"10.10.194.68/24\",\n            \"hostname\": \"dut058.perf8\"\n        }\n    },\n    \"network_l4tm\": {\n        \"wiring_type\": \"duplex\"\n    },\n    \"network_routes\": {\n        \"management\": {\n            \"default_gateway\": \"10.10.194.1\"\n        }\n    },\n    \"transparent_connection\": {\n        \"redirection_device\": \"wccp_v2_router\",\n        \"wccp_v2_router\": {\n            \"standard_service_id\": {\n                \"status\": \"disable\"\n            }\n        }\n    },\n    \"network_admin\": {\n        \"passphrase\": \"Q2lzY28xMjMk\",\n        \"mail_to_addrs\": [\"sandhgan@cisco.com\"],\n        \"autosupport\": \"enable\",\n        \"network_participation\": {\n            \"status\": \"enable\",\n            \"participation_level\": \"standard\"\n        }\n    },\n    \"network_security\": {\n        \"global_policy_default_action\": \"monitor\",\n        \"l4_traffic_monitor\": \"monitor\",\n        \"cisco_data_security_filtering\": \"enable\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/system_setup_wizard",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"system_setup_wizard"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Decryption Policy",
+					"item": [
+						{
+							"name": "Get Decryption Policy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/decryption_policies?policy_names=DP1",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"decryption_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "DP1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Decryption Policy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"decryption_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"DP1\",\n            \"policy_description\": \"\",\n            \"policy_order\": 1,\n            \"policy_expiry\": \"12/2/2024 22:00\",\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"AllowISEIdentity\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"web_reputation\": {\n                \"state\": \"custom\",\n                \"score\": {\n                    \"drop\": [\n                        \"-10.0\",\n                        \"5.0\"\n                    ],\n                    \"pass_through\": [\n                        \"7.0\",\n                        \"10.0\"\n                    ]\n                },\n                \"wbrs_no_score_action\": \"drop\"\n            },\n            \"default_action\": \"pass_through\"\n        }\n    ]\n}\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/decryption_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"decryption_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Decryption Policy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"decryption_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"DP1\",\n            \"policy_description\": \"\",\n            \"policy_order\": 1,\n            \"policy_expiry\": \"12/2/2024 22:00\",\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"AllowISEIdentity\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"url_filtering\": {\n                \"custom_cats\": {\n                    \"use_global\": [\n                        \"GM Global External No Auth Custom URL\",\n                        \"Block NetFlix\",\n                        \"Secure Admin Workstation Allow List\",\n                        \"GM Global External Office 365 No Auth\",\n                        \"MFG Allow Custom URL\",\n                        \"Internet DENY Allow List\",\n                        \"Mobile Link GME Ogrinal Custom URL\",\n                        \"ESRS Server No Auth GME Orginal Custom URL\",\n                        \"CiscoEURservers No Auth GME Oginal Custom URL\"\n                    ]\n                },\n                \"predefined_cats\": {\n                    \"use_global\": [\n                        \"Adult\",\n                        \"Advertisements\",\n                        \"Alcohol\",\n                        \"Arts\",\n                        \"Astrology\",\n                        \"Auctions\",\n                        \"Business and Industry\",\n                        \"Chat and Instant Messaging\",\n                        \"Cheating and Plagiarism\",\n                        \"Child Abuse Content\",\n                        \"Computer Security\",\n                        \"Computers and Internet\",\n                        \"DIY Projects\",\n                        \"Dating\",\n                        \"Digital Postcards\",\n                        \"Dining and Drinking\",\n                        \"Dynamic and Residential\",\n                        \"Education\",\n                        \"Entertainment\",\n                        \"Extreme\",\n                        \"Fashion\",\n                        \"File Transfer Services\",\n                        \"Filter Avoidance\",\n                        \"Finance\",\n                        \"Freeware and Shareware\",\n                        \"Gambling\",\n                        \"Games\",\n                        \"Government and Law\",\n                        \"Hacking\",\n                        \"Hate Speech\",\n                        \"Health and Nutrition\",\n                        \"Humor\",\n                        \"Hunting\",\n                        \"Illegal Activities\",\n                        \"Illegal Downloads\",\n                        \"Illegal Drugs\",\n                        \"Infrastructure and Content Delivery Networks\",\n                        \"Internet Telephony\",\n                        \"Job Search\",\n                        \"Lingerie and Swimsuits\",\n                        \"Lotteries\",\n                        \"Military\",\n                        \"Mobile Phones\",\n                        \"Nature\",\n                        \"News\",\n                        \"Non-governmental Organizations\",\n                        \"Non-sexual Nudity\",\n                        \"Online Communities\",\n                        \"Online Meetings\",\n                        \"Online Storage and Backup\",\n                        \"Online Trading\",\n                        \"Organizational Email\",\n                        \"Paranormal\",\n                        \"Parked Domains\",\n                        \"Peer File Transfer\",\n                        \"Personal Sites\",\n                        \"Personal VPN\",\n                        \"Photo Search and Images\",\n                        \"Politics\",\n                        \"Pornography\",\n                        \"Professional Networking\",\n                        \"Real Estate\",\n                        \"Reference\",\n                        \"Religion\",\n                        \"SaaS and B2B\",\n                        \"Safe for Kids\",\n                        \"Science and Technology\",\n                        \"Search Engines and Portals\",\n                        \"Sex Education\",\n                        \"Shopping\",\n                        \"Social Networking\",\n                        \"Social Science\",\n                        \"Society and Culture\",\n                        \"Software Updates\",\n                        \"Sports and Recreation\",\n                        \"Streaming Audio\",\n                        \"Streaming Video\",\n                        \"Tobacco\",\n                        \"Transportation\",\n                        \"Travel\",\n                        \"Weapons\",\n                        \"Web Hosting\",\n                        \"Web Page Translation\",\n                        \"Web-based Email\"\n                    ]\n                },\n                \"state\": \"custom\",\n                \"update_cats_action\": \"use_global\",\n                \"uncategorized_url\": \"use_global\"\n            },\n            \"web_reputation\": {\n                \"state\": \"custom\",\n                \"score\": {\n                    \"drop\": [\n                        \"-10.0\",\n                        \"10.0\"\n                    ],\n                    \"decrypt\": [],\n                    \"pass_through\": []\n                },\n                \"wbrs_no_score_action\": \"monitor\"\n            },\n            \"default_action\": \"use_global\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/decryption_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"decryption_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Decryption Policy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"decryption_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"DP1\",\n            \"policy_description\": \"\",\n            \"policy_order\": 1,\n            \"policy_expiry\": \"12/2/2024 22:00\",\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"AllowISEIdentity\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"url_filtering\": {\n                \"custom_cats\": {\n                    \"use_global\": [\n                        \"GM Global External No Auth Custom URL\",\n                        \"Block NetFlix\",\n                        \"Secure Admin Workstation Allow List\",\n                        \"GM Global External Office 365 No Auth\",\n                        \"MFG Allow Custom URL\",\n                        \"Internet DENY Allow List\",\n                        \"Mobile Link GME Ogrinal Custom URL\",\n                        \"ESRS Server No Auth GME Orginal Custom URL\",\n                        \"CiscoEURservers No Auth GME Oginal Custom URL\"\n                    ]\n                },\n                \"predefined_cats\": {\n                    \"use_global\": [\n                        \"Adult\",\n                        \"Advertisements\",\n                        \"Alcohol\",\n                        \"Arts\",\n                        \"Astrology\",\n                        \"Auctions\",\n                        \"Business and Industry\",\n                        \"Chat and Instant Messaging\",\n                        \"Cheating and Plagiarism\",\n                        \"Child Abuse Content\",\n                        \"Computer Security\",\n                        \"Computers and Internet\",\n                        \"DIY Projects\",\n                        \"Dating\",\n                        \"Digital Postcards\",\n                        \"Dining and Drinking\",\n                        \"Dynamic and Residential\",\n                        \"Education\",\n                        \"Entertainment\",\n                        \"Extreme\",\n                        \"Fashion\",\n                        \"File Transfer Services\",\n                        \"Filter Avoidance\",\n                        \"Finance\",\n                        \"Freeware and Shareware\",\n                        \"Gambling\",\n                        \"Games\",\n                        \"Government and Law\",\n                        \"Hacking\",\n                        \"Hate Speech\",\n                        \"Health and Nutrition\",\n                        \"Humor\",\n                        \"Hunting\",\n                        \"Illegal Activities\",\n                        \"Illegal Downloads\",\n                        \"Illegal Drugs\",\n                        \"Infrastructure and Content Delivery Networks\",\n                        \"Internet Telephony\",\n                        \"Job Search\",\n                        \"Lingerie and Swimsuits\",\n                        \"Lotteries\",\n                        \"Military\",\n                        \"Mobile Phones\",\n                        \"Nature\",\n                        \"News\",\n                        \"Non-governmental Organizations\",\n                        \"Non-sexual Nudity\",\n                        \"Online Communities\",\n                        \"Online Meetings\",\n                        \"Online Storage and Backup\",\n                        \"Online Trading\",\n                        \"Organizational Email\",\n                        \"Paranormal\",\n                        \"Parked Domains\",\n                        \"Peer File Transfer\",\n                        \"Personal Sites\",\n                        \"Personal VPN\",\n                        \"Photo Search and Images\",\n                        \"Politics\",\n                        \"Pornography\",\n                        \"Professional Networking\",\n                        \"Real Estate\",\n                        \"Reference\",\n                        \"Religion\",\n                        \"SaaS and B2B\",\n                        \"Safe for Kids\",\n                        \"Science and Technology\",\n                        \"Search Engines and Portals\",\n                        \"Sex Education\",\n                        \"Shopping\",\n                        \"Social Networking\",\n                        \"Social Science\",\n                        \"Society and Culture\",\n                        \"Software Updates\",\n                        \"Sports and Recreation\",\n                        \"Streaming Audio\",\n                        \"Streaming Video\",\n                        \"Tobacco\",\n                        \"Transportation\",\n                        \"Travel\",\n                        \"Weapons\",\n                        \"Web Hosting\",\n                        \"Web Page Translation\",\n                        \"Web-based Email\"\n                    ]\n                },\n                \"state\": \"custom\",\n                \"update_cats_action\": \"use_global\",\n                \"uncategorized_url\": \"use_global\"\n            },\n            \"web_reputation\": {\n                \"state\": \"custom\",\n                \"score\": {\n                    \"drop\": [\n                        \"-10.0\",\n                        \"10.0\"\n                    ],\n                    \"decrypt\": [],\n                    \"pass_through\": []\n                },\n                \"wbrs_no_score_action\": \"monitor\"\n            },\n            \"default_action\": \"use_global\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/decryption_policies?policy_names=DP1,DP2,DP3",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"decryption_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "DP1,DP2,DP3"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Routing Policy",
+					"item": [
+						{
+							"name": "Get Routing Policy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/routing_policies?policy_names=RP1",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"routing_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "RP1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Routing Policy",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"routing_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"RP2\",\n            \"policy_description\": \"test protcol policy\",\n            \"policy_order\": 1,\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"ID1\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"ip_spoofing\": \"IP1\",\n            \"routing_destination\": {\n                \"upstream_proxy_group\": \"UPProxy1\"\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/routing_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"routing_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Routing Policy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"routing_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"RP1\",\n            \"policy_description\": \"test protcol policy\",\n            \"policy_order\": 1,\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"global_identification_profile\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"ip_spoofing\": \"Do not use IP Spoofing\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/routing_policies",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"routing_policies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Routing Policy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"decryption_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"DP1\",\n            \"policy_description\": \"\",\n            \"policy_order\": 1,\n            \"policy_expiry\": \"12/2/2024 22:00\",\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"AllowISEIdentity\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"url_filtering\": {\n                \"custom_cats\": {\n                    \"use_global\": [\n                        \"GM Global External No Auth Custom URL\",\n                        \"Block NetFlix\",\n                        \"Secure Admin Workstation Allow List\",\n                        \"GM Global External Office 365 No Auth\",\n                        \"MFG Allow Custom URL\",\n                        \"Internet DENY Allow List\",\n                        \"Mobile Link GME Ogrinal Custom URL\",\n                        \"ESRS Server No Auth GME Orginal Custom URL\",\n                        \"CiscoEURservers No Auth GME Oginal Custom URL\"\n                    ]\n                },\n                \"predefined_cats\": {\n                    \"use_global\": [\n                        \"Adult\",\n                        \"Advertisements\",\n                        \"Alcohol\",\n                        \"Arts\",\n                        \"Astrology\",\n                        \"Auctions\",\n                        \"Business and Industry\",\n                        \"Chat and Instant Messaging\",\n                        \"Cheating and Plagiarism\",\n                        \"Child Abuse Content\",\n                        \"Computer Security\",\n                        \"Computers and Internet\",\n                        \"DIY Projects\",\n                        \"Dating\",\n                        \"Digital Postcards\",\n                        \"Dining and Drinking\",\n                        \"Dynamic and Residential\",\n                        \"Education\",\n                        \"Entertainment\",\n                        \"Extreme\",\n                        \"Fashion\",\n                        \"File Transfer Services\",\n                        \"Filter Avoidance\",\n                        \"Finance\",\n                        \"Freeware and Shareware\",\n                        \"Gambling\",\n                        \"Games\",\n                        \"Government and Law\",\n                        \"Hacking\",\n                        \"Hate Speech\",\n                        \"Health and Nutrition\",\n                        \"Humor\",\n                        \"Hunting\",\n                        \"Illegal Activities\",\n                        \"Illegal Downloads\",\n                        \"Illegal Drugs\",\n                        \"Infrastructure and Content Delivery Networks\",\n                        \"Internet Telephony\",\n                        \"Job Search\",\n                        \"Lingerie and Swimsuits\",\n                        \"Lotteries\",\n                        \"Military\",\n                        \"Mobile Phones\",\n                        \"Nature\",\n                        \"News\",\n                        \"Non-governmental Organizations\",\n                        \"Non-sexual Nudity\",\n                        \"Online Communities\",\n                        \"Online Meetings\",\n                        \"Online Storage and Backup\",\n                        \"Online Trading\",\n                        \"Organizational Email\",\n                        \"Paranormal\",\n                        \"Parked Domains\",\n                        \"Peer File Transfer\",\n                        \"Personal Sites\",\n                        \"Personal VPN\",\n                        \"Photo Search and Images\",\n                        \"Politics\",\n                        \"Pornography\",\n                        \"Professional Networking\",\n                        \"Real Estate\",\n                        \"Reference\",\n                        \"Religion\",\n                        \"SaaS and B2B\",\n                        \"Safe for Kids\",\n                        \"Science and Technology\",\n                        \"Search Engines and Portals\",\n                        \"Sex Education\",\n                        \"Shopping\",\n                        \"Social Networking\",\n                        \"Social Science\",\n                        \"Society and Culture\",\n                        \"Software Updates\",\n                        \"Sports and Recreation\",\n                        \"Streaming Audio\",\n                        \"Streaming Video\",\n                        \"Tobacco\",\n                        \"Transportation\",\n                        \"Travel\",\n                        \"Weapons\",\n                        \"Web Hosting\",\n                        \"Web Page Translation\",\n                        \"Web-based Email\"\n                    ]\n                },\n                \"state\": \"custom\",\n                \"update_cats_action\": \"use_global\",\n                \"uncategorized_url\": \"use_global\"\n            },\n            \"web_reputation\": {\n                \"state\": \"custom\",\n                \"score\": {\n                    \"drop\": [\n                        \"-10.0\",\n                        \"10.0\"\n                    ],\n                    \"decrypt\": [],\n                    \"pass_through\": []\n                },\n                \"wbrs_no_score_action\": \"monitor\"\n            },\n            \"default_action\": \"use_global\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/routing_policies?policy_names=RP1",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"routing_policies"
+									],
+									"query": [
+										{
+											"key": "policy_names",
+											"value": "RP1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "IP Spoofing Profile",
+					"item": [
+						{
+							"name": "Get IP Spoofing Profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/ip_spoofing_profiles?profile_names=spoof2,spoof3",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"ip_spoofing_profiles"
+									],
+									"query": [
+										{
+											"key": "profile_names",
+											"value": "spoof2,spoof3"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify IP Spoofing Profile",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ip_spoofing_profiles\": [\n        {\n            \"profile_name\": \"spoof1\"\n        },\n        {\n            \"profile_name\": \"spoof2\",\n            \"new_profile_name\": \"newspoof2\"\n        },\n        {\n            \"profile_name\": \"spoof3\",\n            \"new_profile_name\": \"newspoof3\",\n            \"ip_address\": \"2001:420:80:1::15\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/ip_spoofing_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"ip_spoofing_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add IP Spoofing Profile",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ip_spoofing_profiles\": [\n        {\n            \"profile_name\": \"spoof1\",\n            \"ip_address\": \"1.1.1.1\"\n        },\n        {\n            \"profile_name\": \"spoof2\",\n            \"ip_address\": \"2001:420:80:1::15\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/ip_spoofing_profiles",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"ip_spoofing_profiles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete IP Spoofing Profile",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"decryption_policies\": [\n        {\n            \"policy_status\": \"enable\",\n            \"policy_name\": \"DP1\",\n            \"policy_description\": \"\",\n            \"policy_order\": 1,\n            \"policy_expiry\": \"12/2/2024 22:00\",\n            \"membership\": {\n                \"identification_profiles\": [\n                    {\n                        \"profile_name\": \"AllowISEIdentity\",\n                        \"auth\": \"No Authentication\"\n                    }\n                ]\n            },\n            \"url_filtering\": {\n                \"custom_cats\": {\n                    \"use_global\": [\n                        \"GM Global External No Auth Custom URL\",\n                        \"Block NetFlix\",\n                        \"Secure Admin Workstation Allow List\",\n                        \"GM Global External Office 365 No Auth\",\n                        \"MFG Allow Custom URL\",\n                        \"Internet DENY Allow List\",\n                        \"Mobile Link GME Ogrinal Custom URL\",\n                        \"ESRS Server No Auth GME Orginal Custom URL\",\n                        \"CiscoEURservers No Auth GME Oginal Custom URL\"\n                    ]\n                },\n                \"predefined_cats\": {\n                    \"use_global\": [\n                        \"Adult\",\n                        \"Advertisements\",\n                        \"Alcohol\",\n                        \"Arts\",\n                        \"Astrology\",\n                        \"Auctions\",\n                        \"Business and Industry\",\n                        \"Chat and Instant Messaging\",\n                        \"Cheating and Plagiarism\",\n                        \"Child Abuse Content\",\n                        \"Computer Security\",\n                        \"Computers and Internet\",\n                        \"DIY Projects\",\n                        \"Dating\",\n                        \"Digital Postcards\",\n                        \"Dining and Drinking\",\n                        \"Dynamic and Residential\",\n                        \"Education\",\n                        \"Entertainment\",\n                        \"Extreme\",\n                        \"Fashion\",\n                        \"File Transfer Services\",\n                        \"Filter Avoidance\",\n                        \"Finance\",\n                        \"Freeware and Shareware\",\n                        \"Gambling\",\n                        \"Games\",\n                        \"Government and Law\",\n                        \"Hacking\",\n                        \"Hate Speech\",\n                        \"Health and Nutrition\",\n                        \"Humor\",\n                        \"Hunting\",\n                        \"Illegal Activities\",\n                        \"Illegal Downloads\",\n                        \"Illegal Drugs\",\n                        \"Infrastructure and Content Delivery Networks\",\n                        \"Internet Telephony\",\n                        \"Job Search\",\n                        \"Lingerie and Swimsuits\",\n                        \"Lotteries\",\n                        \"Military\",\n                        \"Mobile Phones\",\n                        \"Nature\",\n                        \"News\",\n                        \"Non-governmental Organizations\",\n                        \"Non-sexual Nudity\",\n                        \"Online Communities\",\n                        \"Online Meetings\",\n                        \"Online Storage and Backup\",\n                        \"Online Trading\",\n                        \"Organizational Email\",\n                        \"Paranormal\",\n                        \"Parked Domains\",\n                        \"Peer File Transfer\",\n                        \"Personal Sites\",\n                        \"Personal VPN\",\n                        \"Photo Search and Images\",\n                        \"Politics\",\n                        \"Pornography\",\n                        \"Professional Networking\",\n                        \"Real Estate\",\n                        \"Reference\",\n                        \"Religion\",\n                        \"SaaS and B2B\",\n                        \"Safe for Kids\",\n                        \"Science and Technology\",\n                        \"Search Engines and Portals\",\n                        \"Sex Education\",\n                        \"Shopping\",\n                        \"Social Networking\",\n                        \"Social Science\",\n                        \"Society and Culture\",\n                        \"Software Updates\",\n                        \"Sports and Recreation\",\n                        \"Streaming Audio\",\n                        \"Streaming Video\",\n                        \"Tobacco\",\n                        \"Transportation\",\n                        \"Travel\",\n                        \"Weapons\",\n                        \"Web Hosting\",\n                        \"Web Page Translation\",\n                        \"Web-based Email\"\n                    ]\n                },\n                \"state\": \"custom\",\n                \"update_cats_action\": \"use_global\",\n                \"uncategorized_url\": \"use_global\"\n            },\n            \"web_reputation\": {\n                \"state\": \"custom\",\n                \"score\": {\n                    \"drop\": [\n                        \"-10.0\",\n                        \"10.0\"\n                    ],\n                    \"decrypt\": [],\n                    \"pass_through\": []\n                },\n                \"wbrs_no_score_action\": \"monitor\"\n            },\n            \"default_action\": \"use_global\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/ip_spoofing_profiles?profile_names=spoof1",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"ip_spoofing_profiles"
+									],
+									"query": [
+										{
+											"key": "profile_names",
+											"value": "spoof1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Configuration Files",
+					"item": [
+						{
+							"name": "Get Configuration Files",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/configuration_file?mail_to=xyz123@cisco.com",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"configuration_file"
+									],
+									"query": [
+										{
+											"key": "mail_to",
+											"value": "xyz123@cisco.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Configuration Files",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "action",
+											"value": "save",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/configuration_file",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"configuration_file"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Appliance Configuration Files",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/appliance_config_files",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"appliance_config_files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Configuration Files—Backup Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/config_backup_server",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"config_backup_server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Configuration Files—Backup Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Sample Request 1\n{\n    \"config_backup_status\": \"enable\",\n    \"save_passphrase\": false,\n    \"retrieval_method\": \"scp_push\",\n    \"scp_settings\": {\n        \"scp_host\": \"dut058.perf8\",\n        \"directory\": \"/data\",\n        \"username\": \"sandhgan\",\n        \"host_key_checking\": {\n            \"status\": \"enable\",\n            \"key_method\": \"auto\",\n            \"ssh_key\": \"\"\n        }\n    }\n}\n\nSample Request 2\n{\n    \"config_backup_status\": \"enable\",\n    \"save_passphrase\": false,\n    \"retrieval_method\": \"ftp_push\",\n    \"ftp_settings\": {\n        \"ftp_host\": \"dut058.perf8\",\n        \"directory\": \"/data/db\",\n        \"username\": \"sandhgan\",\n        \"passphrase\": \"Q2lzY28xMjMk\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/config_backup_server",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"config_backup_server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Configuration Files—Reset",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "action",
+											"value": "reset",
+											"type": "text"
+										},
+										{
+											"key": "reset_network_settings",
+											"value": "True",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/system_admin/configuration_file",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"system_admin",
+										"configuration_file"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Authentication Realms",
+					"item": [
+						{
+							"name": "Get Authentication Realm Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/auth_realms?realm_names=ad1",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"auth_realms"
+									],
+									"query": [
+										{
+											"key": "realm_names",
+											"value": "ad1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Authentication Realm Settings",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"auth_sequences\": [\n        {\n            \"schemes\": {\n                \"Kerberos\": [\n                    \"myADRealm\"\n                ],\n                \"Basic\": [\n                    \"myRealm\",\n                    \"myADRealm\"\n                ]\n            },\n            \"name\": \"myAuthSequence2\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/auth_sequences",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"auth_sequences"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Authentication Realm Sequence Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/auth_sequences",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"auth_sequences"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Authentication Realm Sequence Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"auth_sequences\": [\n        {\n            \"schemes\": {\n                \"Basic\": [\n                    \"myRealm\",\n                    \"myADRealm\",\n                    \"myBasicRealm\"\n                ]\n            },\n            \"name\": \"myAuthSequence2\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/auth_sequences",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"auth_sequences"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Authentication Realm Sequence Settings",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"auth_sequences\": [\n        {\n            \"schemes\": {\n                \"Kerberos\": [\n                    \"myADRealm\"\n                ],\n                \"Basic\": [\n                    \"myRealm\",\n                    \"myADRealm\"\n                ]\n            },\n            \"name\": \"myAuthSequence2\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/auth_sequences",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"auth_sequences"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Global Authentication Settings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "action",
+											"value": "reset",
+											"type": "text"
+										},
+										{
+											"key": "reset_network_settings",
+											"value": "True",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/global_auth_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"global_auth_setting"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Global Authentication Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/global_auth_setting",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"global_auth_setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Umbrella Seamless ID",
+					"item": [
+						{
+							"name": "Get Umbrella Seamless ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/umbrella_seamless_id",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"umbrella_seamless_id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Umbrella Seamless ID",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"cisco_umbrella_seamless_id\": {\n        \"swg_proxy\": {\n            \"host\": \"54.185.245.81\",\n            \"ports\": [\"80\", \"443\"]\n        },\n        \"org_id\": \"4709668\"\n    }\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/umbrella_seamless_id",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"umbrella_seamless_id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Start Test for Umbrella Seamless ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443wsa/api/v3.0/web_security/swg_connectivity_test?host=wsa353.cs1&Ports=11",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443wsa",
+									"path": [
+										"api",
+										"v3.0",
+										"web_security",
+										"swg_connectivity_test"
+									],
+									"query": [
+										{
+											"key": "host",
+											"value": "wsa353.cs1"
+										},
+										{
+											"key": "Ports",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Secure DNSSec Settings",
+					"item": [
+						{
+							"name": "Get Secure DNS Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/dns/dnssec",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"dns",
+										"dnssec"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Secure DNS Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"secure_dns\": true\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/network/dns/dnssec",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"network",
+										"dns",
+										"dnssec"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Identity Services Engine",
+					"item": [
+						{
+							"name": "Get Identity Service Engine Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/ise",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"ise"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Identity Service Engine Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ise_service_status\": \"enable\",\n    \"primary_ise_pxgrid\": {\n        \"host\": \"1.2.3.3\"\n    },\n    \"secondary_ise_pxgrid\": {\n        \"host\": \"1.2.3.9\"\n    },\n    \"wa_client_cert\": {\n        \"generated\": {\n            \"expiry_duration\": 60,\n            \"country\": \"IN\",\n            \"basic_constraints\": \"not critical\",\n            \"org_unit\": \"WSA\",\n            \"common_name\": \"Cisco\",\n            \"organization\": \"Cisco\"\n        },\n        \"current_cert\": \"generated\"\n    },\n    \"sxp_status\": \"disable\",\n    \"ers_settings\": {\n        \"status\": \"enable\",\n        \"username\": \"qwer-12\",\n        \"password\": \"YWJjZGVmZw==\",\n        \"secondary_server\": \"ise-server12.cs1.devit.ciscolabs.com\",\n        \"ers_same_as_ise\": false,\n        \"port\": 9061,\n        \"primary_server\": \"ise-server12.cs1.devit.ciscolabs.com2\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/ise",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"ise"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Identity Service Engine Certificate Details",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file=@",
+											"value": "/C:/Users/admin/Desktop/rsa-ca.cert.pem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/ise_cert?cert_type=primary_pxgrid",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"ise_cert"
+									],
+									"query": [
+										{
+											"key": "cert_type",
+											"value": "primary_pxgrid"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Identity Service Engine Certificate",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file=@",
+											"value": "/C:/Users/admin/Desktop/rsa-ca.cert.pem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/ise_download_cert?cert_type=csr",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"ise_download_cert"
+									],
+									"query": [
+										{
+											"key": "cert_type",
+											"value": "csr"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Start Test for the Identity Service Engine",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file=@",
+											"value": "/C:/Users/admin/Desktop/rsa-ca.cert.pem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/network/ise/start_test",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"network",
+										"ise",
+										"start_test"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Anti-Malware Reputation",
+					"item": [
+						{
+							"name": "Get Anti-Malware Reputation Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/anti_malware_and_reputation",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"anti_malware_and_reputation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify Anti-Malware Reputation Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ise_service_status\": \"enable\",\n    \"primary_ise_pxgrid\": {\n        \"host\": \"1.2.3.3\"\n    },\n    \"secondary_ise_pxgrid\": {\n        \"host\": \"1.2.3.9\"\n    },\n    \"wa_client_cert\": {\n        \"generated\": {\n            \"expiry_duration\": 60,\n            \"country\": \"IN\",\n            \"basic_constraints\": \"not critical\",\n            \"org_unit\": \"WSA\",\n            \"common_name\": \"Cisco\",\n            \"organization\": \"Cisco\"\n        },\n        \"current_cert\": \"generated\"\n    },\n    \"sxp_status\": \"disable\",\n    \"ers_settings\": {\n        \"status\": \"enable\",\n        \"username\": \"qwer-12\",\n        \"password\": \"YWJjZGVmZw==\",\n        \"secondary_server\": \"ise-server12.cs1.devit.ciscolabs.com\",\n        \"ers_same_as_ise\": false,\n        \"port\": 9061,\n        \"primary_server\": \"ise-server12.cs1.devit.ciscolabs.com2\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/anti_malware_and_reputation",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"anti_malware_and_reputation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Anti-Malware Analytics Console Status",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file=@",
+											"value": "/C:/Users/admin/Desktop/rsa-ca.cert.pem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/malware_analytics_endpoints_console_registration",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"malware_analytics_endpoints_console_registration"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Anti-Malware Analytics Console Registration",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file=@",
+											"value": "/C:/Users/admin/Desktop/rsa-ca.cert.pem",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/security_services/malware_analytics_endpoints_console_registration",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"security_services",
+										"malware_analytics_endpoints_console_registration"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SMTP",
+					"item": [
+						{
+							"name": "Get SMTP Relay Host Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/smtp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"smtp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add SMTP Relay Hosts",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"routing_table\": \"management\",\n    \"relay_hosts\": [\n        {\n            \"host\": \"191.10.55.255\"\n        },\n        {\n            \"host\": \"10.10.55.8\",\n            \"port\": \"3\"\n        },\n        {\n            \"host\": \"google1.com\",\n            \"port\": \"13\"\n        },\n        {\n            \"host\": \"ggtalk.com\",\n            \"port\": \"11\"\n        },\n        {\n            \"host\": \"google.com\",\n            \"port\": \"35\"\n        },\n        {\n            \"host\": \"google.com\",\n            \"port\": \"37\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/smtp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"smtp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify SMTP Relay Host Details",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"routing_table\": \"management\",\n    \"relay_hosts\": [\n        {\n            \"old_host\": \"google.com\",\n            \"old_port\": \"35\",\n            \"new_host\": \"google.com\",\n            \"new_port\": \"37\"\n        },\n        {\n            \"old_host\": \"ggtalk.com\",\n            \"old_port\": \"11\",\n            \"new_host\": \"10.10.194.12\",\n            \"new_port\": \"23\"\n        },\n        {\n            \"old_host\": \"10.10.194.12\",\n            \"old_port\": \"28\",\n            \"new_host\": \"10.10.194.12\",\n            \"new_port\": \"27\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/smtp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"smtp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete SMTP Relay Hosts",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"host\": \"10.10.194.12\",\n        \"port\": \"23\"\n    },\n    {\n        \"host\": \"google.com\",\n        \"port\": \"37\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/smtp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"smtp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete All SMTP Relay Hosts",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"delete_all\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/configure/system/smtp",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"configure",
+										"system",
+										"smtp"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SecureX",
+					"item": [
+						{
+							"name": "Get SecureX Files",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/ctr/user_info",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"ctr",
+										"user_info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Modify SecureX File Settings",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"client_id\": \"Y2xpZW50LWY2NzQzNjdlLTJhOTMtNDI3Yy05MGVmLWJjZmFhMGVkY2RjNA==\",\n        \"client_secret\": \"QmlHbGlpeFlENXNxQWVkb0R1NFprSTdzaDVGaVc5OEJMYVhEWkcydlBtWWJnR3Bud0pVZUF3\",\n        \"server\": \"YXBqYw==\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/ctr/user_info",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"ctr",
+										"user_info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add User Information Details for SecureX",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"client_id\": \"Y2xpZW50LWY2NzQzNjdlLTJhOTMtNDI3Yy05MGVmLWJjZmFhMGVkY2RjNA==\",\n        \"client_secret\": \"MFVTTS05cERieVh0RDF5RGE2dzZvMnlJTWtwNkZ1eFU2YnJIY1VkcW1wdzZ0M1pNMTVVWGNn\",\n        \"server\": \"YXBqYw==\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v2.0/ctr/user_info",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v2.0",
+										"ctr",
+										"user_info"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User/Auth",
+					"item": [
+						{
+							"name": "Get APIs Accessible to a User Role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/api/v2.0/login/privileges",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"api",
+										"v2.0",
+										"login",
+										"privileges"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Auth Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/generic_resources/auth_settings",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"generic_resources",
+										"auth_settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User Agents",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/generic_resources/user_agents",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"generic_resources",
+										"user_agents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get URL Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/generic_resources/url_categories",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"generic_resources",
+										"url_categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Time Ranges",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/time_ranges",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"time_ranges"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Quotas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/web_security/quotas",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"web_security",
+										"quotas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Proxy Settings",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/generic_resources/proxy_settings",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"generic_resources",
+										"proxy_settings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Identification Methods",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{hostname}}:6443/wsa/api/v3.0/generic_resources/identification_methods",
+									"protocol": "https",
+									"host": [
+										"{{hostname}}"
+									],
+									"port": "6443",
+									"path": [
+										"wsa",
+										"api",
+										"v3.0",
+										"generic_resources",
+										"identification_methods"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

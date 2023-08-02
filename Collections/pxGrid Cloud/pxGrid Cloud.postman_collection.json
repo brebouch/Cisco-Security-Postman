@@ -1,0 +1,952 @@
+{
+	"info": {
+		"_postman_id": "8be13527-cec0-40dc-9938-9502d4568dfd",
+		"name": "pxGrid Cloud",
+		"description": "# Cisco Platform Exchange Grid Cloud\n\nCisco Platform Exchange Grid (pxGrid) Cloud is a new Cisco Cloud offer that enables you to share contextual information between on-prem applications and cloud-based solutions without compromising the security of your network.\n\nToday we rely on multiple technology solutions to meet the security and reliability needs of our network. Cisco pxGrid Cloud bridges the gap created by these siloed applications by providing a unified framework that enables seamless data integration between various cloud applications and on-premise Cisco Identity Services Engine (Cisco ISE). Cisco pxGrid Cloud is customizable, enabling you to share and consume only the data that is relevant to your situation.\n\nCisco Identity Services Engine (Cisco ISE) Release 3.1 Patch 3 and later support Cisco pxGrid Cloud. Cisco pxGrid Cloud is included as part of the Cisco ISE Advantage license. Cisco and its partners and customers can develop pxGrid Cloud-based applications and register them with the pxGrid Cloud offer. These applications use the External RESTful Services (ERS) and the pxGrid API to exchange information with Cisco ISE. The use cases addressed vary by the application that is onboarded. To learn more about specific application integrations, login to [pxGrid Cloud]().\n\nCisco pxGrid Cloud offers the following benefits:\n\n- Secure connection to the internet for cloud ecosystem integration.\n- Plug and play deployment without requiring infrastructure changes to your network.\n- Cisco ISE as a single source of truth for endpoint identity by delivering consistent context exchange with on-prem and cloud partners.\n- Enrichment of Software as a Service-based (SaaS-based) security analysis with real-time endpoint context from on-prem security products.\n- Threat containment by isolating endpoints from the network through actions initiated from the security SaaS solutions.\n    \n\n# Cisco pxGrid Cloud Terminology\n\nThe following are some of the common terms that are used in the Cisco pxGrid Cloud solution and their meaning in the Cisco pxGrid Cloud environment:\n\n- **App**: An application service catalogue entry in pxGrid Cloud App Store\n- **Tenant**: An organization is represented as a tenant. Sometimes, an organization can have more than one tenant (for different business units or different locations).\n- **Offer**: A set of capabilities packaged together and offered as a solution.\n- **Subscription**: An instance of an offer being consumed by a tenant is a subscription.\n- **Device**: A device (also called as a product) is any on-prem asset (physical or virtual). A Cisco ISE deployment is a device for pxGrid Cloud.\n- **Data Exchange Hub (dxHub)**: Bi-directional Data Exchange framework with Publisher/Subscriber semantics.\n    \n\n# Overview\n\nThe App Registry manages applications and the activation of tenants on those applications. Once an application is created, an application developer is provided with an API key that can be utilized to call the API as an application.  \nTo use the API key, the application simply provides it in the `X-API-KEY` header.\n\nOnce an application is created, tenants may activate the application through a one time password operation. The tenant requests a one time password from the application store and provides that to the application at a URL defined by the application. The application then redeems this one time password with the App Registry in exchange for the credentials, that enables the application to perform further operations under the tenant's identity.\n\nThe following sections describe the App Registry API that is used by an application integrating with the pxGrid Cloud subsystems.\n\n## Using an API Key\n\nUsing an API key to authorize a request to cloud services is as simple as including it in the `X-API-KEY` header:\n\nCODE SNIPPET\n\n``` markup\nCopyGET /api/v1/.... HTTP/1.1\nX-API-KEY: unQjc80hiF0W28vH254uGS8tyxPk0VoLxWTo64ONdtXxwFpl4ZlD7mAhpTzBlQDy\nAccept: application/json\n...\n\n ```\n\n## Error Responses\n\nApp Registry conforms to standard REST interpretations when issuing HTTP status codes in response to errors (non 2xx series status codes).\n\nIn the case of a non-2xx response status, a descriptive error object is returned, for example:\n\nCODE SNIPPET\n\n``` markup\nCopyHTTP/1.1 404 Not Found\nContent-Type: application/json\n\n{ \n  \"error\": \"Application not found\"\n}\n ```\n\nDocumentation: [https://developer.cisco.com/docs/pxgrid-cloud/api/#!overview]()",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8695710",
+		"_collection_link": "https://galactic-astronaut-430691.postman.co/workspace/Cisco-Security~ff5542bd-d893-4a19-ae32-6a56f151c6e7/collection/8695710-8be13527-cec0-40dc-9938-9502d4568dfd?action=share&creator=8695710&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "API Proxy",
+			"item": [
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "dxhub",
+							"item": [
+								{
+									"name": "v2",
+									"item": [
+										{
+											"name": "apiproxy",
+											"item": [
+												{
+													"name": "request",
+													"item": [
+														{
+															"name": "{DeviceId}",
+															"item": [
+																{
+																	"name": "direct",
+																	"item": [
+																		{
+																			"name": "ers",
+																			"item": [
+																				{
+																					"name": "config",
+																					"item": [
+																						{
+																							"name": "op",
+																							"item": [
+																								{
+																									"name": "systemconfig",
+																									"item": [
+																										{
+																											"name": "iseversion",
+																											"item": [
+																												{
+																													"name": "API ERS get ISE version",
+																													"request": {
+																														"method": "GET",
+																														"header": [
+																															{
+																																"key": "X-Api-Key",
+																																"value": "<string>"
+																															},
+																															{
+																																"key": "X-Api-Proxy-Communication-Style",
+																																"value": "<string>"
+																															},
+																															{
+																																"key": "Accept",
+																																"value": "application/json"
+																															}
+																														],
+																														"url": {
+																															"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/ers/config/op/systemconfig/iseversion",
+																															"protocol": "https",
+																															"host": [
+																																"{{hostname}}"
+																															],
+																															"path": [
+																																"api",
+																																"dxhub",
+																																"v2",
+																																"apiproxy",
+																																"request",
+																																":DeviceId",
+																																"direct",
+																																"ers",
+																																"config",
+																																"op",
+																																"systemconfig",
+																																"iseversion"
+																															],
+																															"variable": [
+																																{
+																																	"key": "DeviceId",
+																																	"value": "<string>"
+																																}
+																															]
+																														},
+																														"description": "API ERS get ISE version"
+																													},
+																													"response": [
+																														{
+																															"name": "API ERS get ISE Version",
+																															"originalRequest": {
+																																"method": "GET",
+																																"header": [
+																																	{
+																																		"key": "X-Api-Key",
+																																		"value": "<string>"
+																																	},
+																																	{
+																																		"key": "X-Api-Proxy-Communication-Style",
+																																		"value": "<string>"
+																																	},
+																																	{
+																																		"key": "Accept",
+																																		"value": "application/json"
+																																	}
+																																],
+																																"url": {
+																																	"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/ers/config/op/systemconfig/iseversion",
+																																	"protocol": "https",
+																																	"host": [
+																																		"{{hostname}}"
+																																	],
+																																	"path": [
+																																		"api",
+																																		"dxhub",
+																																		"v2",
+																																		"apiproxy",
+																																		"request",
+																																		":DeviceId",
+																																		"direct",
+																																		"ers",
+																																		"config",
+																																		"op",
+																																		"systemconfig",
+																																		"iseversion"
+																																	],
+																																	"variable": [
+																																		{
+																																			"key": "DeviceId"
+																																		}
+																																	]
+																																}
+																															},
+																															"status": "OK",
+																															"code": 200,
+																															"_postman_previewlanguage": "json",
+																															"header": [
+																																{
+																																	"key": "Content-Type",
+																																	"value": "application/json"
+																																}
+																															],
+																															"cookie": [],
+																															"body": "{\n  \"OperationResult\": {\n    \"resultValue\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n}"
+																														}
+																													]
+																												}
+																											]
+																										}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		},
+																		{
+																			"name": "api",
+																			"item": [
+																				{
+																					"name": "v1",
+																					"item": [
+																						{
+																							"name": "deployment",
+																							"item": [
+																								{
+																									"name": "node",
+																									"item": [
+																										{
+																											"name": "API OpenAPI get deployment",
+																											"request": {
+																												"method": "GET",
+																												"header": [
+																													{
+																														"key": "X-Api-Key",
+																														"value": "<string>"
+																													},
+																													{
+																														"key": "X-Api-Proxy-Communication-Style",
+																														"value": "<string>"
+																													},
+																													{
+																														"key": "Accept",
+																														"value": "application/json"
+																													}
+																												],
+																												"url": {
+																													"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/api/v1/deployment/node",
+																													"protocol": "https",
+																													"host": [
+																														"{{hostname}}"
+																													],
+																													"path": [
+																														"api",
+																														"dxhub",
+																														"v2",
+																														"apiproxy",
+																														"request",
+																														":DeviceId",
+																														"direct",
+																														"api",
+																														"v1",
+																														"deployment",
+																														"node"
+																													],
+																													"variable": [
+																														{
+																															"key": "DeviceId",
+																															"value": "<string>"
+																														}
+																													]
+																												},
+																												"description": "API OpenAPI get deployment"
+																											},
+																											"response": [
+																												{
+																													"name": "API OpenAPI get deployment",
+																													"originalRequest": {
+																														"method": "GET",
+																														"header": [
+																															{
+																																"key": "X-Api-Key",
+																																"value": "<string>"
+																															},
+																															{
+																																"key": "X-Api-Proxy-Communication-Style",
+																																"value": "<string>"
+																															},
+																															{
+																																"key": "Accept",
+																																"value": "application/json"
+																															}
+																														],
+																														"url": {
+																															"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/api/v1/deployment/node",
+																															"protocol": "https",
+																															"host": [
+																																"{{hostname}}"
+																															],
+																															"path": [
+																																"api",
+																																"dxhub",
+																																"v2",
+																																"apiproxy",
+																																"request",
+																																":DeviceId",
+																																"direct",
+																																"api",
+																																"v1",
+																																"deployment",
+																																"node"
+																															],
+																															"variable": [
+																																{
+																																	"key": "DeviceId"
+																																}
+																															]
+																														}
+																													},
+																													"status": "OK",
+																													"code": 200,
+																													"_postman_previewlanguage": "json",
+																													"header": [
+																														{
+																															"key": "Content-Type",
+																															"value": "application/json"
+																														}
+																													],
+																													"cookie": [],
+																													"body": "{\n  \"response\": [\n    {\n      \"fqdn\": \"<string>\",\n      \"hostname\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"nodeStatus\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"services\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"fqdn\": \"<string>\",\n      \"hostname\": \"<string>\",\n      \"ipAddress\": \"<string>\",\n      \"nodeStatus\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"services\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"version\": \"<string>\"\n}"
+																												}
+																											]
+																										}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		},
+																		{
+																			"name": "pxgrid",
+																			"item": [
+																				{
+																					"name": "echo",
+																					"item": [
+																						{
+																							"name": "query",
+																							"item": [
+																								{
+																									"name": "API pxGrid echo query",
+																									"request": {
+																										"method": "POST",
+																										"header": [
+																											{
+																												"key": "X-Api-Key",
+																												"value": "<string>"
+																											},
+																											{
+																												"key": "X-Api-Proxy-Communication-Style",
+																												"value": "<string>"
+																											},
+																											{
+																												"key": "Content-Type",
+																												"value": "application/json"
+																											},
+																											{
+																												"key": "Accept",
+																												"value": "application/json"
+																											}
+																										],
+																										"body": {
+																											"mode": "raw",
+																											"raw": "{\n  \"some key\": \"<string>\"\n}",
+																											"options": {
+																												"raw": {
+																													"headerFamily": "json",
+																													"language": "json"
+																												}
+																											}
+																										},
+																										"url": {
+																											"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/pxgrid/echo/query",
+																											"protocol": "https",
+																											"host": [
+																												"{{hostname}}"
+																											],
+																											"path": [
+																												"api",
+																												"dxhub",
+																												"v2",
+																												"apiproxy",
+																												"request",
+																												":DeviceId",
+																												"direct",
+																												"pxgrid",
+																												"echo",
+																												"query"
+																											],
+																											"variable": [
+																												{
+																													"key": "DeviceId",
+																													"value": "<string>"
+																												}
+																											]
+																										},
+																										"description": "API pxGrid echo query"
+																									},
+																									"response": [
+																										{
+																											"name": "API pxGrid echo query",
+																											"originalRequest": {
+																												"method": "POST",
+																												"header": [
+																													{
+																														"key": "X-Api-Key",
+																														"value": "<string>"
+																													},
+																													{
+																														"key": "X-Api-Proxy-Communication-Style",
+																														"value": "<string>"
+																													},
+																													{
+																														"key": "Content-Type",
+																														"value": "application/json"
+																													},
+																													{
+																														"key": "Accept",
+																														"value": "application/json"
+																													}
+																												],
+																												"body": {
+																													"mode": "raw",
+																													"raw": "{\n  \"some key\": \"<string>\"\n}",
+																													"options": {
+																														"raw": {
+																															"headerFamily": "json",
+																															"language": "json"
+																														}
+																													}
+																												},
+																												"url": {
+																													"raw": "https://{{hostname}}/api/dxhub/v2/apiproxy/request/:DeviceId/direct/pxgrid/echo/query",
+																													"protocol": "https",
+																													"host": [
+																														"{{hostname}}"
+																													],
+																													"path": [
+																														"api",
+																														"dxhub",
+																														"v2",
+																														"apiproxy",
+																														"request",
+																														":DeviceId",
+																														"direct",
+																														"pxgrid",
+																														"echo",
+																														"query"
+																													],
+																													"variable": [
+																														{
+																															"key": "DeviceId"
+																														}
+																													]
+																												}
+																											},
+																											"status": "OK",
+																											"code": 200,
+																											"_postman_previewlanguage": "json",
+																											"header": [
+																												{
+																													"key": "Content-Type",
+																													"value": "application/json"
+																												}
+																											],
+																											"cookie": [],
+																											"body": "{\n  \"some key\": \"<string>\"\n}"
+																										}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Swagger File: [api-proxy.yaml]()\n\nThe Proxy API allows an application, on behalf of a tenant, to invoke public APIs on any tenant device registered with the Device Registry with the hostname as regional FQDN. There are three types of API calls (auth with TenantApiKey) in ISE: ERS, OpenAPI and pxGrid."
+		},
+		{
+			"name": "Publisher-Subscriber",
+			"item": [
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "dxhub",
+							"item": [
+								{
+									"name": "v1",
+									"item": [
+										{
+											"name": "registry",
+											"item": [
+												{
+													"name": "subscriptions",
+													"item": [
+														{
+															"name": "Create Subscription (sets SubscriptionId)",
+															"request": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<string>"
+																	},
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"streams\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "https://{{hostname}}/api/dxhub/v1/registry/subscriptions",
+																	"protocol": "https",
+																	"host": [
+																		"{{hostname}}"
+																	],
+																	"path": [
+																		"api",
+																		"dxhub",
+																		"v1",
+																		"registry",
+																		"subscriptions"
+																	]
+																},
+																"description": "Create Subscription (sets SubscriptionId)"
+															},
+															"response": [
+																{
+																	"name": "Create Subscription (sets SubscriptionId)",
+																	"originalRequest": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "X-Api-Key",
+																				"value": "<string>"
+																			},
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			},
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"streams\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "https://{{hostname}}/api/dxhub/v1/registry/subscriptions",
+																			"protocol": "https",
+																			"host": [
+																				"{{hostname}}"
+																			],
+																			"path": [
+																				"api",
+																				"dxhub",
+																				"v1",
+																				"registry",
+																				"subscriptions"
+																			]
+																		}
+																	},
+																	"status": "Created",
+																	"code": 201,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"_id\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"info\": {\n    \"groupId\": \"<string>\",\n    \"streams\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"meta\": {\n    \"created\": \"<string>\",\n    \"lastModified\": \"<string>\"\n  },\n  \"tId\": \"<string>\"\n}"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Swagger File: [pub-sub.yaml]()\n\nSubscriptions allow clients to subscribe to list of streams. Streams can only be consumed though a subscription. If a client wants to implement multiple logical consumers with multiple threads of execution for the same subscription, they should reuse the same subscription identifier. This allows a client to scale consumption from the same list of streams across logical consumers. Using different subscription identifiers will result in all consumers receiving all messages from the list of streams.\n\nConsumption workflow:\n\n- Create a Subscription for list of Streams that a client wants to consume.\n- Consume batches of messages for the subscription. The client will receive messages from all streams in the order in which messages were published to those streams.\n- Make sure the hostname is a regional FQDN"
+		},
+		{
+			"name": "Tenant Mgmt",
+			"item": [
+				{
+					"name": "idm",
+					"item": [
+						{
+							"name": "api",
+							"item": [
+								{
+									"name": "v1",
+									"item": [
+										{
+											"name": "appregistry",
+											"item": [
+												{
+													"name": "otp",
+													"item": [
+														{
+															"name": "redeem",
+															"item": [
+																{
+																	"name": "Link Tenant using OTP (sets TenantApiKey)",
+																	"request": {
+																		"method": "POST",
+																		"header": [
+																			{
+																				"key": "X-Api-Key",
+																				"value": "<string>"
+																			},
+																			{
+																				"key": "Content-Type",
+																				"value": "application/json"
+																			}
+																		],
+																		"body": {
+																			"mode": "raw",
+																			"raw": "{\n  \"otp\": \"<string>\"\n}",
+																			"options": {
+																				"raw": {
+																					"headerFamily": "json",
+																					"language": "json"
+																				}
+																			}
+																		},
+																		"url": {
+																			"raw": "https://{{dna_hostname}}/idm/api/v1/appregistry/otp/redeem",
+																			"protocol": "https",
+																			"host": [
+																				"{{dna_hostname}}"
+																			],
+																			"path": [
+																				"idm",
+																				"api",
+																				"v1",
+																				"appregistry",
+																				"otp",
+																				"redeem"
+																			]
+																		},
+																		"description": "Link Tenant using OTP (sets TenantApiKey)"
+																	},
+																	"response": [
+																		{
+																			"name": "Untitled Response",
+																			"originalRequest": {
+																				"method": "POST",
+																				"header": [
+																					{
+																						"key": "X-Api-Key",
+																						"value": "<string>"
+																					},
+																					{
+																						"key": "Content-Type",
+																						"value": "application/json"
+																					}
+																				],
+																				"body": {
+																					"mode": "raw",
+																					"raw": "{\n  \"otp\": \"<string>\"\n}",
+																					"options": {
+																						"raw": {
+																							"headerFamily": "json",
+																							"language": "json"
+																						}
+																					}
+																				},
+																				"url": {
+																					"raw": "https://{{dna_hostname}}/idm/api/v1/appregistry/otp/redeem",
+																					"protocol": "https",
+																					"host": [
+																						"{{dna_hostname}}"
+																					],
+																					"path": [
+																						"idm",
+																						"api",
+																						"v1",
+																						"appregistry",
+																						"otp",
+																						"redeem"
+																					]
+																				}
+																			},
+																			"status": "OK",
+																			"code": 200,
+																			"_postman_previewlanguage": "text",
+																			"header": [],
+																			"cookie": [],
+																			"body": ""
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "applications",
+													"item": [
+														{
+															"name": "{APP_ID}",
+															"item": [
+																{
+																	"name": "tenants",
+																	"item": [
+																		{
+																			"name": "{TenantId}",
+																			"item": [
+																				{
+																					"name": "Unlink tenant",
+																					"request": {
+																						"method": "DELETE",
+																						"header": [
+																							{
+																								"key": "X-Api-Key",
+																								"value": "<string>"
+																							}
+																						],
+																						"url": {
+																							"raw": "https://{{dna_hostname}}/idm/api/v1/appregistry/applications/:APP_ID/tenants/:TenantId",
+																							"protocol": "https",
+																							"host": [
+																								"{{dna_hostname}}"
+																							],
+																							"path": [
+																								"idm",
+																								"api",
+																								"v1",
+																								"appregistry",
+																								"applications",
+																								":APP_ID",
+																								"tenants",
+																								":TenantId"
+																							],
+																							"variable": [
+																								{
+																									"key": "APP_ID",
+																									"value": "<string>"
+																								},
+																								{
+																									"key": "TenantId",
+																									"value": "<string>"
+																								}
+																							]
+																						},
+																						"description": "Unlink tenant"
+																					},
+																					"response": [
+																						{
+																							"name": "Untitled Response",
+																							"originalRequest": {
+																								"method": "DELETE",
+																								"header": [
+																									{
+																										"key": "X-Api-Key",
+																										"value": "<string>"
+																									}
+																								],
+																								"url": {
+																									"raw": "https://{{dna_hostname}}/idm/api/v1/appregistry/applications/:APP_ID/tenants/:TenantId",
+																									"protocol": "https",
+																									"host": [
+																										"{{dna_hostname}}"
+																									],
+																									"path": [
+																										"idm",
+																										"api",
+																										"v1",
+																										"appregistry",
+																										"applications",
+																										":APP_ID",
+																										"tenants",
+																										":TenantId"
+																									],
+																									"variable": [
+																										{
+																											"key": "APP_ID"
+																										},
+																										{
+																											"key": "TenantId"
+																										}
+																									]
+																								}
+																							},
+																							"status": "OK",
+																							"code": 200,
+																							"_postman_previewlanguage": "text",
+																							"header": [],
+																							"cookie": [],
+																							"body": ""
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "api",
+					"item": [
+						{
+							"name": "uno",
+							"item": [
+								{
+									"name": "v1",
+									"item": [
+										{
+											"name": "registry",
+											"item": [
+												{
+													"name": "devices",
+													"item": [
+														{
+															"name": "Get devices (sets first one as DeviceId)",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<string>"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	}
+																],
+																"url": {
+																	"raw": "https://{{dna_hostname}}/api/uno/v1/registry/devices",
+																	"protocol": "https",
+																	"host": [
+																		"{{dna_hostname}}"
+																	],
+																	"path": [
+																		"api",
+																		"uno",
+																		"v1",
+																		"registry",
+																		"devices"
+																	]
+																},
+																"description": "Get devices (sets first one as DeviceId)"
+															},
+															"response": [
+																{
+																	"name": "Get devices and use first one (sets DeviceId)",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "X-Api-Key",
+																				"value": "<string>"
+																			},
+																			{
+																				"key": "Accept",
+																				"value": "application/json"
+																			}
+																		],
+																		"url": {
+																			"raw": "https://{{dna_hostname}}/api/uno/v1/registry/devices",
+																			"protocol": "https",
+																			"host": [
+																				"{{dna_hostname}}"
+																			],
+																			"path": [
+																				"api",
+																				"uno",
+																				"v1",
+																				"registry",
+																				"devices"
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "[\n  {\n    \"_id\": \"<string>\",\n    \"apps\": [\n      {\n        \"appId\": \"<string>\",\n        \"status\": \"<string>\"\n      },\n      {\n        \"appId\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    ],\n    \"clientId\": \"<string>\",\n    \"deviceId\": \"<string>\",\n    \"deviceInfo\": {\n      \"description\": \"<string>\",\n      \"deviceType\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"meta\": {\n      \"created\": \"<string>\",\n      \"createdTimeStamp\": \"<number>\",\n      \"enrollmentStatus\": \"<string>\",\n      \"lastModified\": \"<string>\",\n      \"lastModifiedTimeStamp\": \"<number>\"\n    },\n    \"mgtInfo\": {\n      \"capabilitiesUrl\": \"<string>\",\n      \"fqdn\": \"<string>\",\n      \"paramsUrl\": \"<string>\",\n      \"region\": \"<string>\",\n      \"statusesUrl\": \"<string>\",\n      \"syncsUrl\": \"<string>\"\n    },\n    \"tId\": \"<string>\"\n  },\n  {\n    \"_id\": \"<string>\",\n    \"apps\": [\n      {\n        \"appId\": \"<string>\",\n        \"status\": \"<string>\"\n      },\n      {\n        \"appId\": \"<string>\",\n        \"status\": \"<string>\"\n      }\n    ],\n    \"clientId\": \"<string>\",\n    \"deviceId\": \"<string>\",\n    \"deviceInfo\": {\n      \"description\": \"<string>\",\n      \"deviceType\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"meta\": {\n      \"created\": \"<string>\",\n      \"createdTimeStamp\": \"<number>\",\n      \"enrollmentStatus\": \"<string>\",\n      \"lastModified\": \"<string>\",\n      \"lastModifiedTimeStamp\": \"<number>\"\n    },\n    \"mgtInfo\": {\n      \"capabilitiesUrl\": \"<string>\",\n      \"fqdn\": \"<string>\",\n      \"paramsUrl\": \"<string>\",\n      \"region\": \"<string>\",\n      \"statusesUrl\": \"<string>\",\n      \"syncsUrl\": \"<string>\"\n    },\n    \"tId\": \"<string>\"\n  }\n]"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Swagger File: [tenant-management.yaml]()\n\nThis collection demonstrates how to make API calls with pxGrid Cloud. The pubsub portion is not shown as it requires WebSocket connection. To make the API calls, application needs to link with a tenant and get a DeviceId.\n\n**Link tenant with OTP (auth with APP_API_KEY)**  \n  \nThe OTP is obtained in DNA Cloud UI when a tenant connects to the App. This sets the TenantApiKey that will be used in subsequent calls.\n\n**Get devices info from tenant (auth with TenantApiKey)**  \n  \nDevice represents ISE deployment. With this call, the ISE deployment can be selected. This sets the DeviceId using the first entry and will be used for the API calls.\n\n**Unlink tenant**  \n  \nThis API is used by an application to deactivate a tenants’s subscription to itself. Doing so will render the API key granted for the tenant unusable.\n\n**variables**  \n  \nThe variables must be set before use and the hostname should be a global FQDN  \n  \nFrom App registration process:\n\n- APP_ID\n- APP_API_KEY  \n      \n    From UI when tenant connect to App:\n- OTP"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": "neoffers.cisco.com",
+			"type": "string"
+		},
+		{
+			"key": "dna_hostname",
+			"value": "dnaservices.cisco.com",
+			"type": "string"
+		}
+	]
+}
