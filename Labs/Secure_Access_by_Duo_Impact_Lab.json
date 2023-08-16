@@ -34,7 +34,7 @@
 							}
 						}
 					],
-					"_postman_id": "befcf815-25e0-4295-a5a1-4b46d13677d3",
+					"id": "befcf815-25e0-4295-a5a1-4b46d13677d3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -91,7 +91,7 @@
 							}
 						}
 					],
-					"_postman_id": "d296251c-8026-4857-b52c-f167f45b56a3",
+					"id": "d296251c-8026-4857-b52c-f167f45b56a3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -162,7 +162,7 @@
 							}
 						}
 					],
-					"_postman_id": "6ed38833-e403-43e8-8a65-83103dbb25d0",
+					"id": "6ed38833-e403-43e8-8a65-83103dbb25d0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -209,8 +209,7 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -231,7 +230,7 @@
 							}
 						}
 					],
-					"_postman_id": "605a14f3-7594-4d4c-9936-c8e9f700d890",
+					"id": "605a14f3-7594-4d4c-9936-c8e9f700d890",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -289,7 +288,7 @@
 							}
 						}
 					],
-					"_postman_id": "624d425e-d6c8-43e4-8a9d-a6bac13a0961",
+					"id": "624d425e-d6c8-43e4-8a9d-a6bac13a0961",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -351,7 +350,7 @@
 							}
 						}
 					],
-					"_postman_id": "cf5d1e72-90a0-4566-8347-3fa12cec51f6",
+					"id": "cf5d1e72-90a0-4566-8347-3fa12cec51f6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -378,10 +377,7 @@
 									"value": "<REPLACE PHONE ID HERE>",
 									"type": "text"
 								}
-							],
-							"options": {
-								"urlencoded": {}
-							}
+							]
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/admin/v1/users/:user_id/phones",
@@ -399,8 +395,7 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "DUDD6KLWQMWMH5P4V8YG",
-									"type": "string"
+									"value": "DUDD6KLWQMWMH5P4V8YG"
 								}
 							]
 						}
@@ -421,7 +416,7 @@
 							}
 						}
 					],
-					"_postman_id": "925d8dfd-90fb-465e-8af7-5fd2ed14557c",
+					"id": "925d8dfd-90fb-465e-8af7-5fd2ed14557c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -441,10 +436,7 @@
 						],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": [],
-							"options": {
-								"urlencoded": {}
-							}
+							"urlencoded": []
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/admin/v1/phones/:phone_id/activation_url",
@@ -462,8 +454,7 @@
 							"variable": [
 								{
 									"key": "phone_id",
-									"value": "DPCAB3FULYMV8U6QBQNP",
-									"type": "string"
+									"value": "DPCAB3FULYMV8U6QBQNP"
 								}
 							]
 						}
@@ -484,7 +475,7 @@
 							}
 						}
 					],
-					"_postman_id": "f0603ae3-869e-4ecd-af13-650f71428fe6",
+					"id": "f0603ae3-869e-4ecd-af13-650f71428fe6",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -505,10 +496,7 @@
 						],
 						"body": {
 							"mode": "urlencoded",
-							"urlencoded": [],
-							"options": {
-								"urlencoded": {}
-							}
+							"urlencoded": []
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/admin/v1/phones/:phone_id/send_sms_activation",
@@ -526,8 +514,7 @@
 							"variable": [
 								{
 									"key": "phone_id",
-									"value": "DPCAB3FULYMV8U6QBQNP",
-									"type": "string"
+									"value": "DPCAB3FULYMV8U6QBQNP"
 								}
 							]
 						}
@@ -535,7 +522,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "a5ee6380-10b8-42d2-876c-79959ee60359",
+			"id": "a5ee6380-10b8-42d2-876c-79959ee60359",
 			"auth": {
 				"type": "basic",
 				"basic": {
@@ -627,7 +614,7 @@
 							}
 						}
 					],
-					"_postman_id": "01ceafca-8eb4-4841-99fd-18a78a289d77",
+					"id": "01ceafca-8eb4-4841-99fd-18a78a289d77",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -700,7 +687,7 @@
 							}
 						}
 					],
-					"_postman_id": "9617774e-e84e-48b3-bf83-d41aa4f0468d",
+					"id": "9617774e-e84e-48b3-bf83-d41aa4f0468d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -726,17 +713,14 @@
 									"value": "authapi",
 									"type": "text"
 								}
-							],
-							"options": {
-								"urlencoded": {}
-							}
+							]
 						},
 						"url": "https://{{api_hostname}}/admin/v1/integrations"
 					},
 					"response": []
 				}
 			],
-			"_postman_id": "f914ea79-8ee7-4065-9298-7fcc66e2e28b",
+			"id": "f914ea79-8ee7-4065-9298-7fcc66e2e28b",
 			"auth": {
 				"type": "basic",
 				"basic": {
@@ -830,7 +814,7 @@
 							}
 						}
 					],
-					"_postman_id": "1b963270-4aaa-406a-bcba-bffcfdaa6f9f",
+					"id": "1b963270-4aaa-406a-bcba-bffcfdaa6f9f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -902,7 +886,7 @@
 							}
 						}
 					],
-					"_postman_id": "733113f7-5e13-4d13-94df-01c7ea6b625e",
+					"id": "733113f7-5e13-4d13-94df-01c7ea6b625e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -922,8 +906,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {}
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username=brennan",
@@ -971,7 +954,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "2ba7461b-631b-48cb-a986-cf3f9be7722c",
+			"id": "2ba7461b-631b-48cb-a986-cf3f9be7722c",
 			"auth": {
 				"type": "basic",
 				"basic": {
@@ -1047,7 +1030,7 @@
 							}
 						}
 					],
-					"_postman_id": "33ed84f7-e250-4542-a809-0c20db95efe3",
+					"id": "33ed84f7-e250-4542-a809-0c20db95efe3",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1127,7 +1110,7 @@
 							}
 						}
 					],
-					"_postman_id": "9462683c-508a-4161-bd0d-dc4a00ac42f1",
+					"id": "9462683c-508a-4161-bd0d-dc4a00ac42f1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1161,10 +1144,7 @@
 									"description": "Optional - The authentication status of the group. See Retrieve Groups for a list of possible values.",
 									"type": "text"
 								}
-							],
-							"options": {
-								"urlencoded": {}
-							}
+							]
 						},
 						"url": "https://{{api_hostname}}/admin/v1/groups"
 					},
@@ -1196,7 +1176,7 @@
 							}
 						}
 					],
-					"_postman_id": "2ba1729f-5076-45b4-86ac-b3ce46e3af10",
+					"id": "2ba1729f-5076-45b4-86ac-b3ce46e3af10",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1230,10 +1210,7 @@
 									"description": "Optional - The authentication status of the group. See Retrieve Groups for a list of possible values.",
 									"type": "text"
 								}
-							],
-							"options": {
-								"urlencoded": {}
-							}
+							]
 						},
 						"url": "https://{{api_hostname}}/admin/v1/groups"
 					},
@@ -1253,7 +1230,7 @@
 							}
 						}
 					],
-					"_postman_id": "aa6b441e-e506-4f2b-91fc-d703bcf8fbc9",
+					"id": "aa6b441e-e506-4f2b-91fc-d703bcf8fbc9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1308,7 +1285,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "416edc85-4e7b-4ce4-afb6-a1d16842d5c5",
+			"id": "416edc85-4e7b-4ce4-afb6-a1d16842d5c5",
 			"auth": {
 				"type": "basic",
 				"basic": {
@@ -1408,7 +1385,7 @@
 							}
 						}
 					],
-					"_postman_id": "324e9eca-8576-45a6-bc8f-d0ecc37ab3bb",
+					"id": "324e9eca-8576-45a6-bc8f-d0ecc37ab3bb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1456,8 +1433,7 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -1478,7 +1454,7 @@
 							}
 						}
 					],
-					"_postman_id": "63449c8b-7cfa-45c8-8849-933f18cfaaad",
+					"id": "63449c8b-7cfa-45c8-8849-933f18cfaaad",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1521,8 +1497,7 @@
 								{
 									"id": "af2c640c-8050-49aa-bcbd-a8ad6c0a73ef",
 									"key": "user_id",
-									"value": "DUDD6KLWQMWMH5P4V8YG",
-									"type": "string"
+									"value": "DUDD6KLWQMWMH5P4V8YG"
 								}
 							]
 						}
@@ -1543,7 +1518,7 @@
 							}
 						}
 					],
-					"_postman_id": "f415ecf3-e0a4-4793-b999-a0591eb4394a",
+					"id": "f415ecf3-e0a4-4793-b999-a0591eb4394a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1579,8 +1554,7 @@
 								{
 									"id": "5def6a00-b7b4-413c-871d-923fa545102f",
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -1629,7 +1603,7 @@
 							}
 						}
 					],
-					"_postman_id": "de846d5a-5319-4e04-92bf-0aca66d2151a",
+					"id": "de846d5a-5319-4e04-92bf-0aca66d2151a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1656,8 +1630,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {}
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username={{username}}",
@@ -1703,7 +1676,7 @@
 							}
 						}
 					],
-					"_postman_id": "9332e25a-62e0-4a5b-95de-4a5826198660",
+					"id": "9332e25a-62e0-4a5b-95de-4a5826198660",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1745,8 +1718,7 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -1767,7 +1739,7 @@
 							}
 						}
 					],
-					"_postman_id": "f9532564-577e-4836-a40d-546f26b52990",
+					"id": "f9532564-577e-4836-a40d-546f26b52990",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1803,8 +1775,7 @@
 								{
 									"id": "5def6a00-b7b4-413c-871d-923fa545102f",
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -1853,7 +1824,7 @@
 							}
 						}
 					],
-					"_postman_id": "0406725a-21b4-45ca-8e1c-14f215ac9e07",
+					"id": "0406725a-21b4-45ca-8e1c-14f215ac9e07",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1880,8 +1851,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {}
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username={{username}}",
@@ -1927,7 +1897,7 @@
 							}
 						}
 					],
-					"_postman_id": "dca68b6a-8206-475d-97af-a54b3721e081",
+					"id": "dca68b6a-8206-475d-97af-a54b3721e081",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1963,13 +1933,11 @@
 							"variable": [
 								{
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								},
 								{
 									"key": "group_id",
-									"value": "{{blocked_group_id}}",
-									"type": "string"
+									"value": "{{blocked_group_id}}"
 								}
 							]
 						}
@@ -1990,7 +1958,7 @@
 							}
 						}
 					],
-					"_postman_id": "b6d32afb-ed32-4b5a-892c-274758c0b03c",
+					"id": "b6d32afb-ed32-4b5a-892c-274758c0b03c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2026,8 +1994,7 @@
 								{
 									"id": "5def6a00-b7b4-413c-871d-923fa545102f",
 									"key": "user_id",
-									"value": "{{user_id}}",
-									"type": "string"
+									"value": "{{user_id}}"
 								}
 							]
 						}
@@ -2076,7 +2043,7 @@
 							}
 						}
 					],
-					"_postman_id": "4b2596e7-f838-42cc-9d66-8f1594660a8b",
+					"id": "4b2596e7-f838-42cc-9d66-8f1594660a8b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2103,8 +2070,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {}
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username=brennan",
@@ -2137,7 +2103,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "34be8b6c-fdab-46e1-ab0d-0c09f23d7d42",
+			"id": "34be8b6c-fdab-46e1-ab0d-0c09f23d7d42",
 			"auth": {
 				"type": "basic",
 				"basic": {
@@ -2229,7 +2195,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "201d1ebe-d4a3-4235-8fcc-6ecc0569226d",
+				"id": "68fd7233-ec19-49be-a338-d4cb494cac26",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2239,7 +2205,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1498d8ec-f0f0-4d88-acd9-c32a6cf8f2cc",
+				"id": "6330d7d4-bc10-4b8b-b3e8-723203c14db9",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2249,109 +2215,109 @@
 	],
 	"variable": [
 		{
-			"id": "04aaa28c-1d4a-4a78-8e9e-61991088a9b8",
+			"id": "17ab026d-0b03-421b-aa71-ab1ef033225c",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "9735a11e-fdca-4f7d-96fb-c0cb3bc84a52",
+			"id": "1e952ba9-39ed-47e8-a5cf-ab13799a9b2e",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "501ba24a-ea67-4784-b0bf-130b4296381c",
+			"id": "f16eb274-bd61-4c9d-9fbe-63b184865a5b",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7ba0debd-59d0-4135-8d9e-7194ab4c5b54",
+			"id": "8d108065-53d0-4b88-9672-ff1aa6b22f03",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e560f737-810d-4027-bd27-8ae7beebfa29",
+			"id": "518e9b6f-8cae-414b-a8ab-66312d7e2fcb",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8bfd09d9-34f0-4e0f-a985-b09e889a304d",
+			"id": "9acb9369-63fa-4186-986e-b4606c27c95d",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8c5405de-7fe4-4b59-b056-bfad44881bf2",
+			"id": "559a41de-3c1c-47b1-86b0-09560d14cd78",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bf477588-6519-47ec-9914-660f287f9748",
+			"id": "e9156d0e-10a3-4e6f-aea4-b2e2f72f7bdc",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6777c5b2-c8e8-4555-910e-5cc50a4f7f4b",
+			"id": "a1395029-917b-4212-9e4d-0391a501a866",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3b75cb5d-aec0-466d-a16d-387c3292f94d",
+			"id": "cf1c52ab-60de-43f3-8304-4267bbee0f03",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4bff9c9a-c3bf-466c-8732-db86f3d759c9",
+			"id": "df32f746-5852-4e5c-88b3-d9355b8cb0f6",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b10c05c1-5a7f-4c3b-ba1b-c7c130bab761",
+			"id": "4361c7d7-7c92-4ed4-943c-3d63385abe2a",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3cc1e2c0-6f00-4265-9f07-b3919584f147",
+			"id": "5c3aeedb-b649-44b2-a18f-fc705df2dd7b",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b0fce617-8cbf-4832-b7d8-de56e10eaccc",
+			"id": "1f644bf0-3489-44de-bbb5-35beee46d66b",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6fc31182-2a8f-40f4-8a82-b43f26323ef7",
+			"id": "afe011ed-7a52-492c-bbfa-fcefa70a538c",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "300d3ce5-f74a-45de-9a4a-9210f534a0fc",
+			"id": "0f99204b-b668-4e98-80d5-eb326c6a20e6",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "89e51f7d-cee2-4f5d-beb8-7c10c6d71403",
+			"id": "da6a334f-1105-40c9-9921-0061246cfd77",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "76f6cc58-11d0-4fc7-af07-57be74ef59e4",
+			"id": "38ec04a1-3f5b-44aa-a760-d3fc818ea202",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
