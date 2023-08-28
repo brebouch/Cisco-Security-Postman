@@ -1724,7 +1724,7 @@
 									"",
 									"//HOST is retrieved from the environment variable itself, since parsing the hostname using",
 									"//postman-collection's URL object will just give you the variable name.",
-									"let HOST = pm.collectionVariables.get(\"auth_api_hostname\")",
+									"let HOST = pm.collectionVariables.get(\"api_hostname\")",
 									"",
 									"let PATH = URL_OBJECT.getPath();",
 									"let QUERY = URL_OBJECT.getQueryString();",
@@ -1775,7 +1775,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username=<<Replace with Username>>",
+							"raw": "https://{{api_hostname}}/auth/v2/auth?device=auto&factor=push&username=brennan",
 							"protocol": "https",
 							"host": [
 								"{{api_hostname}}"
@@ -1796,7 +1796,7 @@
 								},
 								{
 									"key": "username",
-									"value": "<<Replace with Username>>"
+									"value": "brennan"
 								}
 							]
 						},
@@ -2357,109 +2357,109 @@
 	],
 	"variable": [
 		{
-			"id": "6a69055c-308f-41ca-b377-6ca6a1f55e8c",
+			"id": "68771994-8127-403c-8d5d-35f1bfa58a3f",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "640a95f8-c576-45c7-9a13-5b372fdbe791",
+			"id": "c116dab6-105f-49b7-a474-67954a6114be",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3f17b16c-0107-4b69-a618-e2794b86ac53",
+			"id": "afe4ebc4-173e-4610-a837-c0fe07f90711",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d88b483a-f76f-44d8-b7be-2088f673cb95",
+			"id": "b08e9018-50e2-4c11-9ba9-677a6758ffd4",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d5d0d401-1297-4f88-ab5c-406fff0f27b0",
+			"id": "bfcceca8-2211-4226-a08d-5f5fdcfc7a85",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "69e7894c-fabe-4778-9b63-631528e81a0c",
+			"id": "7a3f7c04-5576-4b42-986e-7751b852e8da",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "60f21fb9-03d8-4198-b942-db7aa6336b90",
+			"id": "6fecc7d8-9dd3-4deb-b875-b50f2fd098f9",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4727f3a5-6a94-46dd-a035-f20ef78748f1",
+			"id": "19fa6d53-d1dc-4739-a846-acc2b8c24edf",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7f8441c6-7615-4a25-8f8f-fff34ee179b9",
+			"id": "a63f958d-d7ca-469b-ba3a-e6e31088ba49",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d267ca46-7e5d-4d48-905f-4598d8509ee1",
+			"id": "23060410-c782-40ec-a2fe-0af565c1aacf",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "feca1ad6-747f-46b5-ac6b-7d3a890bfdfd",
+			"id": "073283c4-0058-4319-b442-d32622017d24",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "551be0d1-aa87-47cc-b3b2-88be4c43d110",
+			"id": "0f4a4663-c4b3-4c5d-8b3a-9cbd915c14d4",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "304fbf64-53cf-4829-90a6-c64249e1cd57",
+			"id": "d2371dfe-e861-4d8c-bf58-679d816d7129",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6f0bdf6d-21da-4f8d-8c8c-a69d7143d73d",
+			"id": "981c72a8-bcfd-43b7-be42-bf3595a785ca",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "37001f76-778b-4012-af46-fca5530b4e14",
+			"id": "0c14db8e-64bb-4597-ab28-220bb591aeec",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6c310069-4010-4a79-a356-ce461fcb6fe2",
+			"id": "573fe6bb-6f91-44b7-901b-0318c3f0818d",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "77201f34-12ca-491a-80ce-0740ac76a518",
+			"id": "0090f63e-e80b-43f6-aac5-8e19abda5ca6",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e67d864d-b9d9-46c7-901d-bc661c18fb18",
+			"id": "6277d5bb-3f14-45f1-ad7f-2aba81e159fb",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
