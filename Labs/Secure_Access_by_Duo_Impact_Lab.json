@@ -258,39 +258,6 @@
 									"key": "number",
 									"value": "15034539357",
 									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Impact-Brennan",
-									"type": "text"
-								},
-								{
-									"key": "extension",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "type",
-									"value": "unknown",
-									"type": "text"
-								},
-								{
-									"key": "platform",
-									"value": "Generic Smartphone",
-									"type": "text"
-								},
-								{
-									"key": "predelay",
-									"value": "",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "postdelay",
-									"value": "",
-									"type": "text",
-									"disabled": true
 								}
 							]
 						},
@@ -2263,109 +2230,109 @@
 	],
 	"variable": [
 		{
-			"id": "85abc899-7dbb-4c9d-ad20-4ebbd21ba76e",
+			"id": "42aa03da-0d26-412a-abc8-5d441a552cd8",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8205f499-da4c-4cd6-9c2c-93c106f59d51",
+			"id": "a43874b2-4df5-408d-9e56-721dd9fb77b4",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0fc27d44-1c68-4a86-b685-a1d075cb4433",
+			"id": "8c9a4896-c346-4df9-9a3d-518ab62163d3",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "957a8c33-d84a-4edc-bb4a-655305340cc1",
+			"id": "bb7b4ad8-fe55-4fad-8d2e-d063e38c595f",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "447ec3d6-7243-461e-be14-49fe14b2c842",
+			"id": "c65c52af-7c42-4de3-bc7e-07ee2fcb1048",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "90a1acd0-61ca-4dd1-93e0-d6502f2838c1",
+			"id": "9974917e-d598-46a7-8b27-c80577a0bc11",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f5b17dcf-9da1-4b11-bb82-95d1f00d169f",
+			"id": "ba5fae41-174c-4c24-a42f-f624d380f370",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ec382b17-a749-4579-b4c6-dea75692496d",
+			"id": "d899eb06-417b-4742-a8f6-a2ce6238ade8",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "13ae4ac2-26ab-4d41-a54b-93f83248017f",
+			"id": "fcc3ea13-9d2e-4b0b-9990-1ec8b8f7186b",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "06f0d2b7-8481-4bd6-a1d9-8b3b59d6856c",
+			"id": "e4673f82-c0d8-4d49-beec-1cd147333b3a",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "17044e3a-6826-4b71-9963-731bfc246fd2",
+			"id": "7113883b-b24d-4e76-bc96-d5e507d66d10",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b8274d16-da79-4a38-9b66-cc19e136643f",
+			"id": "3bed4249-e021-41cf-88fa-e5cc7d877919",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4509eb38-650c-4eb9-b733-45af9cca61d3",
+			"id": "adbb7cfc-eb5b-429e-a653-fe8cd6d4f814",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c486e0bd-e798-4716-b090-20ded68a7467",
+			"id": "519b2a8b-b15c-4054-abe9-e08059edcd13",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ade08e74-e34c-4972-affa-fc287d4af0a4",
+			"id": "6cdbafc2-4096-4d4b-9a02-e690f356e7d5",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8b76631e-255b-467a-b59e-4d9ad7125624",
+			"id": "d5bad7e1-305f-44fc-9e7b-2357f75d0d83",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2e791534-0064-47e7-b633-2cd2ddc74d0e",
+			"id": "31ee334c-ab0d-4f69-b90a-ac74f43c444c",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bbb9da67-ed76-4d4c-a629-fd8f0c5cc136",
+			"id": "aa7ec0f4-d8fe-4ba6-b773-4a1610309db8",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
