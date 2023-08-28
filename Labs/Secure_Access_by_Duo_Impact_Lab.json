@@ -864,7 +864,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{api_hostname}}/auth/v2/preauth?username=<INSERT USERNAME HERE>",
+							"raw": "https://{{api_hostname}}/auth/v2/preauth?username=<<REPLACE WITH USERNAME>>",
 							"protocol": "https",
 							"host": [
 								"{{api_hostname}}"
@@ -888,15 +888,14 @@
 									"disabled": true
 								},
 								{
-									"key": "username",
-									"value": "<INSERT USERNAME HERE>",
-									"description": "Unique identifier for the user that is commonly specified by your application during user creation (e.g. user@domain.com).\n\nExactly one of user_id and username must be specified."
-								},
-								{
 									"key": "trusted_device_token",
 									"value": "",
 									"description": "If the trusted_device_token is present and the Remembered Devices option is enabled in the Duo Admin Panel, return an \"allow\" response for the period of time a device may be remembered as set by the Duo administrator.",
 									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "<<REPLACE WITH USERNAME>>"
 								}
 							]
 						}
@@ -2357,109 +2356,109 @@
 	],
 	"variable": [
 		{
-			"id": "25b13a75-e7eb-41ba-8bbb-5d3a3a23a0d5",
+			"id": "10891d34-7588-439d-bb43-650481930580",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7931ec88-b54b-446f-be91-478e1c776397",
+			"id": "ea055db1-2041-417f-83a2-92595382074f",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3d539d79-fd37-41d2-93a0-674fa81f99c8",
+			"id": "1f29f731-d3aa-49c0-b33f-e25edc7587db",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e36b9984-917e-40e5-9b1a-b1d88b596531",
+			"id": "770c107e-a1ac-476a-ba77-7f3efc229465",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a852e027-051d-4899-ba21-b6b1041c8950",
+			"id": "efdc155e-632d-4732-936b-b008f4cf08ad",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a6d9695f-d0bf-4e1f-9983-0619435cde24",
+			"id": "55c870bc-9fe3-4cb2-8ea6-3af87bec13db",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "246f47f3-10b1-4f6e-aac6-1701f84ea686",
+			"id": "fef06e86-93ca-4a01-a01b-b6b92d5eafaf",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "07f9868a-090d-46e6-a884-5d2aff836248",
+			"id": "a129a09d-7711-4a32-a210-a2192a1a82c8",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ec64ece9-37b0-4600-bdb2-ea9f71feaef5",
+			"id": "ecb6833a-1f54-44a8-9de3-c85c52531838",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "82e79fba-f037-4159-a7a4-130399ef7f6a",
+			"id": "38998291-5f41-4b88-b895-848400adbc07",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "99535a8a-2a76-4028-b987-862351d42072",
+			"id": "3111506e-b3f4-4746-87da-cb97062c0249",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1ee1d8cb-e698-47c0-a51c-ab99f997f45e",
+			"id": "6a36449d-625d-4478-870e-216ee87dd6a9",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "625656b6-6ff7-4da1-841b-c924dd12083a",
+			"id": "f053e332-a4a4-472d-8e1d-3a86e1878e60",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "80405346-06c9-4865-80d8-73c11c7cbc80",
+			"id": "1e82b1ef-41e1-427b-84b4-6d2c513af4a2",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2eb43aed-e06a-4a80-9ebe-bc82fcdd0f88",
+			"id": "63d0b645-2734-4811-8bd5-70da68201638",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "16ce456a-a05d-44b6-9314-d4786b0054b4",
+			"id": "92d22e1e-e247-4322-af56-92f3cd4a6109",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "aeebcdb5-319e-486c-ba4b-fdd2a8d63cc2",
+			"id": "62b41818-22e7-453c-a53f-65e59143f44e",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "def301bb-f651-4614-9a17-5164c2c5ad33",
+			"id": "0520a7e4-440d-4356-aaf5-f7090f7ad783",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
