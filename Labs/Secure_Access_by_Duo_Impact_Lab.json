@@ -2257,17 +2257,73 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ef99c9ca-42ee-4f4f-aa1a-23b3ca7f46a9",
+						"id": "b1e0631e-8bd3-4a0d-99ad-680c45fc8bd2",
 						"type": "text/javascript",
 						"exec": [
-							""
+							"",
+							"const pc = require('postman-collection');",
+							"const currentDate= require('moment');",
+							"var DATE = currentDate.utc().format(\"ddd, DD MMM YYYY HH:mm:ss ZZ\");",
+							"pm.collectionVariables.set(\"date\", DATE)",
+							"",
+							"// Collect Collection & Updates Variables",
+							"var url = request.url;",
+							"while(url.indexOf('{{') >= 0) {",
+							"var variableName = url.substring(url.indexOf('{{')+2, url.indexOf('}}'));",
+							"var variableValue= pm.collectionVariables.get(variableName);",
+							"url = url.replace('{{'+variableName+'}}', variableValue);",
+							"}",
+							"console.log(url)",
+							"var METHOD = request.method;",
+							"",
+							"var URL_OBJECT = new pc.Url(url);",
+							"",
+							"//HOST is retrieved from the environment variable itself, since parsing the hostname using",
+							"//postman-collection's URL object will just give you the variable name.",
+							"var HOST = pm.collectionVariables.get(\"api_hostname\")",
+							"",
+							"var PATH = URL_OBJECT.getPath();",
+							"if (pm.request.method == 'GET' || pm.request.method == 'DELETE') {",
+							"    var QUERY = URL_OBJECT.getQueryString();",
+							"    console.log(QUERY)",
+							"    if(QUERY == null) {",
+							"        QUERY = ''",
+							"    }",
+							"var HMAC_STRING = DATE + \"\\n\" ",
+							"                + METHOD + \"\\n\" ",
+							"                + HOST + \"\\n\" ",
+							"                + PATH + \"\\n\"",
+							"                + QUERY     ",
+							"    console.log(HMAC_STRING)",
+							"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
+							"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
+							"} else {",
+							"    if (pm.request.body.toString() != '') {",
+							"        var BODY_OBJECT = new pc.Url(request.url + '?' + pm.request.body.toString());",
+							"    } else {",
+							"        var BODY_OBJECT = new pc.Url(request.url)",
+							"    }",
+							"    var QUERY = BODY_OBJECT.getQueryString();",
+							"    console.log(QUERY)",
+							"    if(QUERY == null) {",
+							"        QUERY = ''",
+							"    }",
+							"    var HMAC_STRING = DATE + \"\\n\" ",
+							"                + METHOD + \"\\n\" ",
+							"                + HOST + \"\\n\" ",
+							"                + PATH + \"\\n\"",
+							"                + QUERY     ",
+							"    console.log(HMAC_STRING)",
+							"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
+							"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
+							"}"
 						]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "f54e4fdc-d984-4070-b108-af84c76f1c08",
+						"id": "a9d5eeeb-52e1-463a-bdfb-0f852bc07ebf",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2301,109 +2357,109 @@
 	],
 	"variable": [
 		{
-			"id": "a0bf2086-a9d5-452e-96f1-e4db8414576b",
+			"id": "437c27d0-1eba-4edc-a3f0-7d34d58407ee",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0c6c420a-4a7f-4068-83f0-c5e8d10b452e",
+			"id": "905b8cf7-0fb5-4e6c-90d6-f23300179b7c",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8f7a2f58-04e0-4439-a79b-35b13828669b",
+			"id": "181736a2-c93e-4700-8fd4-53a7eaab452e",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "90eb2584-8102-404e-ac43-cb7ba594c279",
+			"id": "35d83bba-b588-4719-aa71-a95da57693b1",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ad4250ff-2033-47e1-9863-4d81d18e27fe",
+			"id": "97ba3f72-2c8e-4d99-987e-6dd0a8e7ccc9",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "718db5e8-3ccd-43c8-81ef-21d0f0eee379",
+			"id": "eca9a957-ce96-46c7-85a5-16c567c268c1",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1092aa0e-4776-4dc8-a019-d6d7c370fd9c",
+			"id": "f22d42f7-eb57-48da-8b5f-3c9e5abf9d42",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "fa3c7b7a-ac22-4a45-b49e-5564cda52df6",
+			"id": "b9525b51-453f-444c-9c2e-52aa943332a5",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5404c244-7721-4c9a-af17-46d552f1d9d4",
+			"id": "87868fe3-45f2-4df1-8549-f79ef894e86c",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "530f2ba3-f3e9-4dad-9932-351b324e0e22",
+			"id": "3472fb94-2578-4a15-b7df-650dfbe8a2aa",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "013dad84-0a05-4a4c-aeda-cc28ff80f5c4",
+			"id": "496d6839-ea5b-447f-8058-7981dc3c4348",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "dcc52f73-3360-4c97-8f02-fc1a6f375342",
+			"id": "b9df6ea2-9a4e-44d9-bca4-f339606a5e01",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b472d014-734d-4e8a-8cc0-f672b310f74e",
+			"id": "867720af-190c-4a5f-8c73-6cdc1beb4749",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1d3aed41-cee9-4189-a0a2-0c02ebbb61ad",
+			"id": "4e377d99-bc6d-41a2-85fe-7efac7244ef3",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b7410857-61bd-4adf-b2e7-f1b4fac8e795",
+			"id": "cf6e2b12-2328-4393-9622-c8b6e652d4b0",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "723c8fb6-7d9d-4a21-9f7f-570b94696b11",
+			"id": "dae6ac24-d0c2-486f-8e6c-83ac7bb38c5b",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a691cb6b-7b1a-4f4f-9921-2ef85f3fbba0",
+			"id": "a5a9c222-d1f1-4e53-b587-151da06bdce8",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f540a659-0315-4ac2-abc5-5af02f2f4524",
+			"id": "ae0db271-f94e-4a12-80b6-ffabd68350a7",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
