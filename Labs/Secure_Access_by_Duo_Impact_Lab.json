@@ -1479,7 +1479,63 @@
 							"script": {
 								"id": "345d5bde-4386-461a-a649-79c3d17e2f16",
 								"exec": [
-									""
+									"",
+									"const pc = require('postman-collection');",
+									"const currentDate= require('moment');",
+									"var DATE = currentDate.utc().format(\"ddd, DD MMM YYYY HH:mm:ss ZZ\");",
+									"pm.collectionVariables.set(\"date\", DATE)",
+									"",
+									"// Collect Collection & Updates Variables",
+									"var url = request.url;",
+									"while(url.indexOf('{{') >= 0) {",
+									"var variableName = url.substring(url.indexOf('{{')+2, url.indexOf('}}'));",
+									"var variableValue= pm.collectionVariables.get(variableName);",
+									"url = url.replace('{{'+variableName+'}}', variableValue);",
+									"}",
+									"console.log(url)",
+									"var METHOD = request.method;",
+									"",
+									"var URL_OBJECT = new pc.Url(url);",
+									"",
+									"//HOST is retrieved from the environment variable itself, since parsing the hostname using",
+									"//postman-collection's URL object will just give you the variable name.",
+									"var HOST = pm.collectionVariables.get(\"api_hostname\")",
+									"",
+									"var PATH = URL_OBJECT.getPath();",
+									"if (pm.request.method == 'GET' || pm.request.method == 'DELETE') {",
+									"    var QUERY = URL_OBJECT.getQueryString();",
+									"    console.log(QUERY)",
+									"    if(QUERY == null) {",
+									"        QUERY = ''",
+									"    }",
+									"var HMAC_STRING = DATE + \"\\n\" ",
+									"                + METHOD + \"\\n\" ",
+									"                + HOST + \"\\n\" ",
+									"                + PATH + \"\\n\"",
+									"                + QUERY     ",
+									"    console.log(HMAC_STRING)",
+									"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
+									"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
+									"} else {",
+									"    if (pm.request.body.toString() != '') {",
+									"        var BODY_OBJECT = new pc.Url(request.url + '?' + pm.request.body.toString());",
+									"    } else {",
+									"        var BODY_OBJECT = new pc.Url(request.url)",
+									"    }",
+									"    var QUERY = BODY_OBJECT.getQueryString();",
+									"    console.log(QUERY)",
+									"    if(QUERY == null) {",
+									"        QUERY = ''",
+									"    }",
+									"    var HMAC_STRING = DATE + \"\\n\" ",
+									"                + METHOD + \"\\n\" ",
+									"                + HOST + \"\\n\" ",
+									"                + PATH + \"\\n\"",
+									"                + QUERY     ",
+									"    console.log(HMAC_STRING)",
+									"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
+									"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -2245,109 +2301,109 @@
 	],
 	"variable": [
 		{
-			"id": "fbc8caae-df69-4f8c-a38d-9492299d9773",
+			"id": "006c9f3b-0955-4e34-9b46-39b30b86dc89",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "21e4eb29-7f98-41e3-9a9d-f9afba278ed2",
+			"id": "efe6a249-5294-47ef-927c-b651cc175272",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8e5fd92f-a92c-47f7-b175-3bd39d7e3590",
+			"id": "730a5b78-5768-448b-803a-a011b5fe99c1",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "219bcaef-72e5-4d22-8794-67388229fc1e",
+			"id": "50924484-d0b9-4e4a-9600-bee392b76f6f",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e3140205-f705-46fd-952c-a8aec08b737e",
+			"id": "c9f01160-eadd-47ac-90c5-235c6129b9f2",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2f2b604c-039f-4abe-9158-6ec6f6f788c5",
+			"id": "9162235b-9093-4ae8-95cb-abec0e216086",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "fc4de341-acb7-45b9-b090-306d042cbe05",
+			"id": "06dd0fd9-0a42-4521-99b6-ac4f7afbad1c",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d351f9b3-60e7-42c7-aac6-de78b6e1a752",
+			"id": "c191f74d-f9fa-4f3e-b063-e5f99c05d727",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2b797660-67da-4b93-9262-27c6f794fd77",
+			"id": "c21e26d3-b086-487f-bd26-8d4caf2f195e",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "844d1d43-cc7a-433e-bc74-e82f8d383998",
+			"id": "d2b05834-4e24-4291-bee9-374d19519126",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4ac9ff69-abdc-4b04-816c-0276933a7b92",
+			"id": "7a001584-5057-4528-aede-c291b9d0828a",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f8d2507c-923a-4868-bb55-953c41020db2",
+			"id": "9c51f5ea-1d32-4bf4-961d-180d85f4da08",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d81bd802-80b6-473d-a2af-89ff12395bf8",
+			"id": "339aa5e7-d773-4b26-a70e-ef8be60bcef1",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e48a32f5-3fd0-4b0f-a7cd-bbafc84a7d88",
+			"id": "81933787-d9a1-4e52-bdfd-f067ed070647",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6c34d647-469a-49e1-b274-44308b186048",
+			"id": "8c07e58f-bf49-44ab-bb60-f462b68520b9",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "86ad2839-7bec-41ff-83f0-2727a06d8c90",
+			"id": "9f748ace-579e-4a90-87bb-72232f91f8fe",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1076d39f-a235-43c7-af82-e4023d1a40de",
+			"id": "7ab9068e-e71b-4802-b186-7f2ca61b7e7c",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a7592d30-4628-4b9b-bd6d-9dee09f15c14",
+			"id": "438bc4f6-b5e8-4e11-8ff5-e3258c782eb2",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
