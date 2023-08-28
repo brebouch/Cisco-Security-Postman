@@ -529,67 +529,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Send Activation Code via SMS Copy",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "01080bbf-dfba-41ba-b414-a91473a6355d",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "0b283265-44a4-48cf-95c4-03d58f64eed4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Date",
-								"value": "{{date}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": []
-						},
-						"url": {
-							"raw": "https://{{api_hostname}}/admin/v1/phones/:phone_id/send_sms_activation",
-							"protocol": "https",
-							"host": [
-								"{{api_hostname}}"
-							],
-							"path": [
-								"admin",
-								"v1",
-								"phones",
-								":phone_id",
-								"send_sms_activation"
-							],
-							"variable": [
-								{
-									"id": "124570be-203b-44ec-8d40-3add23056b02",
-									"key": "phone_id",
-									"value": "{{phone_id}}"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"id": "a5ee6380-10b8-42d2-876c-79959ee60359",
@@ -2297,109 +2236,109 @@
 	],
 	"variable": [
 		{
-			"id": "0fabf0ed-c5f1-4dc6-b099-1707a13dbb35",
+			"id": "b1f01c47-3dd9-40c6-a53c-c3a38aa42526",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "026eb0f1-db0c-496f-96e9-fb62eef35196",
+			"id": "dbfa33fe-e7a7-4fb9-9a1a-09f35c2cae02",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a873545b-e07d-4689-90b8-c44525e95177",
+			"id": "9870c32b-12f0-4d90-a253-1e2d3706c3fc",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4783114d-98b2-4486-847f-cdc837cc5be7",
+			"id": "07596f7a-d5ed-4af8-87a6-c1673333c85e",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c2ae1448-fbd5-401e-b3e9-88c2d7d3be6f",
+			"id": "cd2a8272-fec8-4c3c-b31f-ac06a4e1824d",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "347646f9-a511-4169-b94f-ec6da1109e24",
+			"id": "c4979dbe-6bbb-48fd-aff7-0ed1f37173a0",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e253ebf6-9c53-4816-8738-fb908bc5482e",
+			"id": "3c25ab2a-4bd2-406e-8205-190562445093",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8a9e676a-d77f-4a4c-a7a0-147ca00a06b6",
+			"id": "bb70ffe1-e740-4231-a406-3cebb77d8361",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0b323b84-5fb9-4f27-a77f-7871d33f1320",
+			"id": "019d7b49-c5a5-4e95-8916-f6fdab1638e5",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "495e3805-ee05-49f2-bc09-6cbc1d372635",
+			"id": "17e3c8c2-863d-4d50-afa6-b04753264a13",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ca7795e1-99c1-44d1-803e-15f60c8892c1",
+			"id": "f3d19161-9d31-48be-807e-a837b79cd6bc",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6c497df5-87e0-4bda-a016-dce906b525e4",
+			"id": "13817f0e-0851-486a-bf9f-50d8984abdae",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8ca71ea7-1066-477d-b622-27b5b6fd33d4",
+			"id": "327c95c4-faba-4786-a862-a59b07c18d8c",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c26c30e4-3c0a-4e4c-87de-5cc52ecc1bd3",
+			"id": "5530830f-7596-4432-9b90-579eb1ec6a48",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4474126f-9b24-47d4-bc40-1acd32d5a1a6",
+			"id": "f7a2cf74-1916-425b-b55e-ca88d94b2d0f",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "afd50c30-f699-42e3-97eb-09247c70981d",
+			"id": "bd38e116-48ce-4123-8a8e-28e6ba7f728b",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "723e41d9-3569-4ba9-bdb2-da55c0a85dfb",
+			"id": "2ef86c99-ca8a-438e-97c7-b2c20d7b9244",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e1bc8c6e-da3c-49f4-ad79-f11c01eb76a1",
+			"id": "a70e1a68-af88-4f46-a8aa-7d3a201cd556",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
