@@ -534,7 +534,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9756a238-5948-4741-a45c-63504796c255",
+						"id": "e8fef593-f2a0-46df-9236-2e4bb4af56af",
 						"type": "text/javascript",
 						"exec": [
 							"",
@@ -562,17 +562,19 @@
 							"var PATH = URL_OBJECT.getPath();",
 							"if (pm.request.method == 'GET' || pm.request.method == 'DELETE') {",
 							"    var QUERY = URL_OBJECT.getQueryString();",
-							"var HMAC_STRING = DATE + \"\\n\" ",
-							"                + METHOD + \"\\n\" ",
-							"                + HOST + \"\\n\" ",
-							"                + PATH + \"\\n\"",
-							"                + QUERY     ",
+							"    var HMAC_STRING = DATE + \"\\n\" ",
+							"                    + METHOD + \"\\n\" ",
+							"                    + HOST + \"\\n\" ",
+							"                    + PATH + \"\\n\"",
+							"                    + QUERY     ",
 							"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
 							"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
 							"} else {",
-							"    var BODY_OBJECT = new pc.Url(request.url + '?' + pm.request.body.toString());",
-							"    var QUERY = BODY_OBJECT.getQueryString();",
-							"    console.log(QUERY)",
+							"    if (pm.request.body.toString() != '') {",
+							"        var BODY_OBJECT = new pc.Url(request.url + '?' + pm.request.body.toString());",
+							"    } else {",
+							"        var BODY_OBJECT = new pc.Url(request.url)",
+							"    }",
 							"    var HMAC_STRING = DATE + \"\\n\" ",
 							"                + METHOD + \"\\n\" ",
 							"                + HOST + \"\\n\" ",
@@ -588,7 +590,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6e9a5fc2-3f6e-4afb-9b4e-19c9f0bbb107",
+						"id": "9247f210-ba8f-4c7b-ac0e-9fa8cb302318",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2215,109 +2217,109 @@
 	],
 	"variable": [
 		{
-			"id": "172fe31c-5c7a-45f2-887c-af5cfb29bef4",
+			"id": "97cad07b-8b1f-4779-95f8-8b2f5a6efd53",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "45ba7d9c-1ede-4fea-8bd1-e6af250311c1",
+			"id": "2421c8cc-49a6-4f33-b7da-aa620684c64c",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3442bcc4-9410-4d31-b184-69dac709ecd5",
+			"id": "1393883c-30aa-48e2-8b09-f19f522c285f",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4e942051-e9c1-4a1d-9fab-d509ad49b9ec",
+			"id": "93dd9704-2dd0-4a4b-a026-ac5fe027008a",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8d73348b-d55d-4423-a7fe-95f68ddbd45b",
+			"id": "1886649e-8b26-4a94-b844-cb6274d1e66a",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c19ea971-f44d-4aad-84be-5265915479e1",
+			"id": "727f46e7-5259-454e-ae46-3a890a5e681c",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d9c1c71f-e136-4fd3-8224-132d8b776813",
+			"id": "ec360d6c-fa28-4da6-a6f5-06b00d823331",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "dd4549c8-7c86-4f09-8afa-e77bdb1ed07a",
+			"id": "b71cf2c8-dca9-4cfd-a40c-82e19f2bd035",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d522300a-342c-4914-a8f6-fe831704373e",
+			"id": "e5c63782-4a7c-4d85-9d3a-c8e4919a7318",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "6f6c6884-f155-405b-8ba9-b99fe17fccd1",
+			"id": "0c2ce96b-8bae-4e87-8bbf-57d291ca8188",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3f4b326d-fb3c-4ddf-9f84-644a5197971f",
+			"id": "b56f4379-ba36-48ab-9957-83618a8ca107",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8e404ef0-b6e7-4a06-a520-07d312694477",
+			"id": "fc03f09d-adfd-41d5-872d-f88d5502a4c6",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "39c91877-eddc-4e27-b4fe-0ef4a775a5a9",
+			"id": "e0738e91-27cd-4daa-a442-5a540ee9df42",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2fe3a252-a97a-4c22-8d18-e6f3cf36f9c2",
+			"id": "156ea443-696c-4fdb-9e64-4d9c20abaa38",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "28a5ba82-befb-4752-ac67-890b2ff5e20a",
+			"id": "533ed891-d454-4ef8-b210-ac91782e3539",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "fa1f0641-413a-4ec2-9be7-5620cc4ecdd0",
+			"id": "981aa165-6319-412d-be71-8b9f828aa45d",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "10f68d87-587c-4c75-bdaf-f62f4648155c",
+			"id": "59f6e842-3c68-411c-86f0-0b12e32409fa",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "9f49ee86-7cd5-4b88-8a0e-f04e1cbdac27",
+			"id": "9f5a9f98-e070-4b41-a117-8e73f06820e5",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
