@@ -599,7 +599,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "714b978e-dfd9-405b-93cd-78497457def0",
+						"id": "16245c07-1e7e-47f0-af25-e15a1c98282f",
 						"type": "text/javascript",
 						"exec": [
 							"",
@@ -640,7 +640,7 @@
 							"var HMACd = CryptoJS.HmacSHA1(HMAC_STRING, pm.collectionVariables.get(\"admin_skey\")).toString();",
 							"pm.collectionVariables.set(\"admin_hmac_key\", HMACd)",
 							"} else {",
-							"    if (len(pm.request.body.toString()) > 1) {",
+							"    if (pm.request.body.toString().length > 1) {",
 							"    var BODY_OBJECT = new pc.Url(request.url + '?' + pm.request.body.toString());",
 							"    } else {",
 							"        var BODY_OBJECT = new pc.Url(request.url);",
@@ -665,7 +665,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "906ae679-08e4-4ea7-b17c-374576dd4dc9",
+						"id": "96cced1f-53d5-43e5-b9c0-acf82b4c0f90",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -2292,109 +2292,109 @@
 	],
 	"variable": [
 		{
-			"id": "bbeb4490-e473-432c-bbb8-9d58828f060c",
+			"id": "54c7a9df-972a-48f7-bc50-24ec0224cc28",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "679464f7-101c-42c8-bb11-1d586b058fab",
+			"id": "613a9933-f1d9-42f9-b8a9-d5b6bd9dc68a",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f433e6bd-d296-49d1-b08c-204d5a31e0a9",
+			"id": "2039b920-281a-49a1-bd27-95bc31f2275b",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "00c15d49-60e2-4f04-a302-07006c661df5",
+			"id": "994c0e93-1b8c-42f9-bdfa-617153badc4c",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "2e46ad02-65aa-468b-a5f0-7c1398cd2693",
+			"id": "a9ad6857-c78c-48a8-a7fb-e4454a073182",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d87cf8da-67c0-4ea9-b60d-566e71db8e5f",
+			"id": "617b0ad0-0d75-421c-b7f1-595e47f0dd74",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f43eef04-9f0c-41bb-89a5-15ba1604a096",
+			"id": "4b3729e3-13cf-4ef1-97cd-25855a74c3ae",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "cbd375ff-e016-4bf7-b64c-5f5fcbd8d876",
+			"id": "12bd87e8-a1c8-4d8e-994b-657fab7e6e23",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0f20060b-638c-4c56-b05f-7afa02267bb3",
+			"id": "84f4f67c-43e1-495b-bd26-44ece42b4f04",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bfc0fc67-2e56-4881-9bf0-c16568daa97a",
+			"id": "ad8da799-1bfa-49ed-bb83-1f14a8cb7a93",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "79c97cc4-046b-4a13-bf1a-939b66eb0f85",
+			"id": "5af80141-a96f-4b65-9066-a4576799ea06",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "9771c12b-6d79-4261-8dff-b62072af7c5a",
+			"id": "de916203-c70f-4f8c-b52f-16fd56a60716",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f4e659c5-60d5-4880-b499-b30efab4e835",
+			"id": "ab09263a-dba1-4b8f-b076-6719abb61389",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ffdd7597-fe54-4400-b3fa-8d51aebf5aec",
+			"id": "914e05a5-6aea-4b7b-91a8-12128d7ec82e",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8be7bf84-f2fd-4822-b8b7-3418f9f3ac0a",
+			"id": "bce4f66e-a1ec-4b31-96fe-89260d5f043b",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "db8fbc06-bd6a-4924-ac8a-e6f9274f7794",
+			"id": "0d581329-05e3-4bbb-b4ed-1ee5d45126a8",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "22c22bc4-e904-4e75-af83-a2fdcd30cee1",
+			"id": "c0e3b770-9bcf-4d68-9d36-d38bf2c95131",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "80d300e0-da7e-4e92-b045-4f3c222d50d9",
+			"id": "2856323e-5353-4689-b3e6-ee597f5e3ee2",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
