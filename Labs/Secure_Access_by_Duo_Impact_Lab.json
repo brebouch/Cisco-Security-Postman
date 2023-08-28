@@ -266,6 +266,53 @@
 					"response": []
 				},
 				{
+					"name": "Create a Phone Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c2d94a0d-1ba1-4aca-9ff0-09615b679f2b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c510ecad-9f51-4a4f-93ae-0c145cb38855",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Date",
+								"value": "{{date}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "number",
+									"value": "15034539357",
+									"type": "text"
+								}
+							]
+						},
+						"url": "https://{{api_hostname}}/admin/v1/phones"
+					},
+					"response": []
+				},
+				{
 					"name": "Retrieve All Phones",
 					"event": [
 						{
@@ -2291,109 +2338,109 @@
 	],
 	"variable": [
 		{
-			"id": "5ad6b9d0-4532-492c-ad94-f032d7e9b010",
+			"id": "be39f2bf-53b8-4596-8dcd-63b50e95b457",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b27b8f93-f1ce-4d5a-a60f-6deb10398323",
+			"id": "f3a1e4d7-d50d-4145-bc31-dfe9a5d3a671",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "cb32b5c2-5d0a-4e22-8bca-45a45a2f4d7a",
+			"id": "aa7dbb59-a6d4-4e13-91d0-123eee7372e8",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "18d3d17b-0422-407a-9b75-fc8c4b51bc31",
+			"id": "e176ba10-2201-4376-aff2-dfe86effa79d",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e3248cac-d104-44d9-b8cf-39b1a8964c25",
+			"id": "2a426640-7d7a-4586-9767-0121a07da70d",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "91e34c0d-951d-4613-b1a2-d9adbee970bb",
+			"id": "475fdc15-7b1f-4fdb-874d-2812b3f1747e",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4a110efa-ec68-4fcf-969f-7971edf22e74",
+			"id": "32931f22-29a0-43de-99a9-9c9ba94b91c3",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "9979c24e-262f-4dba-995f-fdf413e69d7f",
+			"id": "41c966be-af00-491a-b8a8-fc8607ea4e12",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "be06ff0c-eacd-4c26-bb4d-015390b8194c",
+			"id": "20bb826c-4e44-42eb-8795-bd811861cd72",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5b76ceeb-78e3-4fde-9a02-d33f21c88172",
+			"id": "d51f9d93-926d-42ad-8718-7f9d9aedca1b",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "432dea06-c7fc-4605-b295-41a7a9ca7dfd",
+			"id": "6a4871ce-3411-4274-ab68-0c23510ae634",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c44e36b4-549d-4e22-a019-330e0438828b",
+			"id": "3854bd90-9525-497f-9b6c-4425baca3e93",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1c60191c-0b63-43d2-a4d5-b37f17e1e797",
+			"id": "91dc5a3a-7895-4030-9d07-7b20aa843049",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "08a83cdf-6b49-4ea1-b4c3-b50a1d536d03",
+			"id": "5391134e-6687-4dcd-bdb6-86e3c177833f",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e6458e32-2616-48be-aac6-1565eae863a0",
+			"id": "f6d809a2-1eca-4ad4-a23f-12d0b801fcc9",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0748c4e3-c630-43c3-8211-e57ac0e92654",
+			"id": "00abf53d-63ca-4a63-995a-b99054c5a82a",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3b606f99-d40a-482e-b4f0-41aa62c2e52e",
+			"id": "f78ebb3d-ba4f-4749-ae22-1b7b157643ac",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0c90c9fa-ab03-4f90-9790-bf6bf55ee335",
+			"id": "c4d7feee-1e02-483e-9117-bd17491ad3b5",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
