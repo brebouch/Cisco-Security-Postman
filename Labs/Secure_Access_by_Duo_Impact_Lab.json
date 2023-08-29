@@ -2342,109 +2342,109 @@
 	],
 	"variable": [
 		{
-			"id": "63f01149-6645-4f8d-8a23-e3814da51be6",
+			"id": "19609d6f-c5e0-489f-af13-f69efe65de83",
 			"key": "api_hostname",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e4364b39-891a-4832-a6d8-bdc56809ccc1",
+			"id": "261ad2aa-22a6-4a99-9aec-751cb9621fa4",
 			"key": "admin_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a2918b67-c633-4146-92c6-50de30277cb3",
+			"id": "66bf1528-60ca-4068-bfd5-9c7d8a20fd7e",
 			"key": "admin_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7b15a9c6-9239-4240-b970-8b8307333f10",
+			"id": "4e810cb6-3618-4e12-8743-f27c89a2c0c6",
 			"key": "username",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d56059b1-771f-4254-84bc-fc875821f622",
+			"id": "6b06fe9c-0123-465c-b3b1-ae6785d12fe2",
 			"key": "auth_ikey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4adba623-a895-460c-8cf8-a944ebaa7f56",
+			"id": "f0f6579a-b598-476b-9bdb-97e6d744569f",
 			"key": "auth_skey",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e018d1d3-8b69-4be9-8087-2e7793ff83ea",
+			"id": "cc69c7fd-e905-4ede-ab9e-65a240febbe8",
 			"key": "user_first_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "104f310b-8785-4b7d-8de6-ca0abf8188d8",
+			"id": "f94cf801-67cb-4a71-8d0b-45fbb0967c64",
 			"key": "user_last_name",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "23134e5d-33d6-491b-94d9-bca1c46425fe",
+			"id": "b7c5893f-04f7-4c62-8475-b00fcce9643e",
 			"key": "user_email",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "416a607c-ea08-4183-baea-6aa89e9c84f2",
+			"id": "374c23e3-ecf1-4393-a8dc-17598d9b2d5c",
 			"key": "phone_number_with_country",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b6390521-7d42-4334-940e-f7e4174ca327",
+			"id": "f7e429f8-d96a-4436-8285-4ef707ffdcf8",
 			"key": "auth_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5c625aff-ddca-4f5e-a634-5b605ac2c946",
+			"id": "a7dace2f-5c20-4041-8300-861466538cb3",
 			"key": "admin_hmac_key",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "245f3f02-0f05-4ce8-b173-f632c50d2ad6",
+			"id": "6482e114-a8fc-46b7-93fe-0a97ed060168",
 			"key": "date",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "1097c5c1-8711-4592-8e01-2ced8d25d5f0",
+			"id": "0c0ff381-9428-473c-b2d5-913042cf41cd",
 			"key": "user_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0152459b-f3e6-469e-8b76-ff88677b3960",
+			"id": "24120e68-4b4e-4c3d-abc8-d8dde1aa3cc4",
 			"key": "phone_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "46d6dd6a-5317-40ec-a798-b2de328c56c5",
+			"id": "cc4e24dd-8e4c-459e-b841-9bae7327d4f8",
 			"key": "integration_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bde7b463-56fc-4921-a1d1-4bfc1cf91ceb",
+			"id": "e920f34d-22a5-4c75-98d1-8966bd25f3a0",
 			"key": "trusted_group_id",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "cb50152a-6685-4df0-b83c-fd27b2b4e8d4",
+			"id": "7c6959bf-986f-46b0-85fa-ccc4a1a06a48",
 			"key": "blocked_group_id",
 			"value": "",
 			"type": "string"
