@@ -25,9 +25,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/activities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"activities"
@@ -81,9 +79,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/activities/:activity_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"activities",
@@ -187,9 +183,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/activities/:activity_id/flows/tags",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"activities",
@@ -249,9 +243,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/activity-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -315,9 +307,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/activity-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -394,9 +384,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines"
@@ -426,9 +414,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines"
@@ -444,9 +430,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:activity_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -471,9 +455,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -511,9 +493,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -545,9 +525,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/activity-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -606,9 +584,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/component-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -660,9 +636,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/baselines",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -700,9 +674,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/activities/:activity_id/visualisations/variable-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -768,9 +740,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/components/:component_id/visualisations/property-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -829,9 +799,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences/:target/:target_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -875,9 +843,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/visualisations/tag-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -955,9 +921,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/:diff_type/:action",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -1005,9 +969,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -1046,9 +1008,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences/:action",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -1086,9 +1046,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id/visualisations/flow-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"baselines",
@@ -1172,9 +1130,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/differences/:difference_id/:action",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"differences",
@@ -1218,9 +1174,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/baselines/differences/:action",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -1259,9 +1213,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components"
@@ -1333,9 +1285,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1381,9 +1331,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1407,9 +1355,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/credentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1441,9 +1387,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/flows",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1512,9 +1456,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/flows/tags",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1561,9 +1503,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/variables",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1614,9 +1554,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/vulnerabilities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1661,9 +1599,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/component-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -1733,9 +1669,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/component-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -1837,9 +1771,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/label",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1864,9 +1796,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/components/:component_id/label",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"components",
@@ -1905,9 +1835,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								":object_type",
@@ -1951,9 +1879,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								":object_type",
@@ -1989,9 +1915,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								":object_type",
@@ -2033,9 +1957,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/events/categories",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2062,9 +1984,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/events/severities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2091,9 +2011,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/ping",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2111,9 +2029,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/protocols/counts",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2146,9 +2062,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/risk-score/devices/counts",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2182,9 +2096,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/vulnerabilities/counts",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2217,9 +2129,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/dashboard/:widget_id/refresh",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"dashboard",
@@ -2245,9 +2155,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/homepage/dashboard",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"homepage",
@@ -2292,9 +2200,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2347,9 +2253,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/tagless-flows",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2427,9 +2331,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2514,9 +2416,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/counts",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2578,9 +2478,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2646,9 +2544,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2696,9 +2592,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/tagless-flows",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2771,9 +2665,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2849,9 +2741,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/counts",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2906,9 +2796,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -2986,9 +2874,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3012,9 +2898,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/activities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3065,9 +2949,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/activities/tags",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3093,9 +2975,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/credentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3120,9 +3000,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/riskScore",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3147,9 +3025,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/variables",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3174,9 +3050,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/vulnerabilities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"devices",
@@ -3215,9 +3089,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/networknode-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3285,9 +3157,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/networknode-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3376,9 +3246,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/flows",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"flows"
@@ -3438,9 +3306,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"flows",
@@ -3464,9 +3330,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id/flowContent",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"flows",
@@ -3491,9 +3355,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id/properties",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"flows",
@@ -3538,9 +3400,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/flow-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3604,9 +3464,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/flow-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3696,9 +3554,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/graph/:format",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3739,9 +3595,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/graph/:format",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -3793,9 +3647,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups"
@@ -3825,9 +3677,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups"
@@ -3843,9 +3693,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups",
@@ -3883,9 +3731,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups",
@@ -3909,9 +3755,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups",
@@ -3949,9 +3793,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"groups",
@@ -3982,9 +3824,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/version",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"version"
@@ -4007,9 +3847,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/parameters?pattern=incididunt commodo",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"parameters"
@@ -4046,9 +3884,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/parameters",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"parameters"
@@ -4079,9 +3915,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/parameters",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"parameters"
@@ -4098,9 +3932,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/parameters/:parameter_key",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"parameters",
@@ -4124,9 +3956,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/parameters/:parameter_key",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"parameters",
@@ -4156,9 +3986,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/pcapReplays",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"pcapReplays"
@@ -4174,9 +4002,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"pcapReplays",
@@ -4194,9 +4020,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"pcapReplays",
@@ -4214,9 +4038,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"pcapReplays",
@@ -4241,9 +4063,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"pcapReplays",
@@ -4274,9 +4094,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/risk-score/activity-tags-period",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"risk-score",
@@ -4307,9 +4125,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/risk-score/activity-tags-period",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"risk-score",
@@ -4332,9 +4148,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/homepage/presets-highlights",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"homepage",
@@ -4371,9 +4185,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets"
@@ -4411,9 +4223,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets"
@@ -4429,9 +4239,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4469,9 +4277,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4495,9 +4301,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4535,9 +4339,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4562,9 +4364,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/dataInfo",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4590,9 +4390,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/refreshData",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4618,9 +4416,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/settings",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4659,9 +4455,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/settings",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4686,9 +4480,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4720,9 +4512,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4760,9 +4550,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/sensors",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"sensors"
@@ -4792,9 +4580,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/sensors",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"sensors"
@@ -4824,9 +4610,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/sensors/package",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"sensors",
@@ -4843,9 +4627,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/sensors/:sensor_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"sensors",
@@ -4889,9 +4671,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/tag-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4930,9 +4710,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/tag-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -4979,9 +4757,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/tags",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"tags"
@@ -5023,9 +4799,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5096,9 +4870,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/devices-ids",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5154,9 +4926,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/orphans-ids",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5205,9 +4975,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5272,9 +5040,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/devices-ids",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5321,9 +5087,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/orphans-ids",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"presets",
@@ -5377,9 +5141,7 @@
 						],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/vulnerabilities",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"vulnerabilities"
@@ -5421,9 +5183,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/vulnerabilities/:vuln_id",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"vulnerabilities",
@@ -5453,9 +5213,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"globalCredentials"
@@ -5485,9 +5243,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"globalCredentials"
@@ -5517,9 +5273,7 @@
 						},
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"globalCredentials"
@@ -5536,9 +5290,7 @@
 						"header": [],
 						"url": {
 							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
-							
 							"path": [
-								"{{hostname}}",
 								"api",
 								"1.0",
 								"globalCredentials"
