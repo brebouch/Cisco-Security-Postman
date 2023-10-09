@@ -24,7 +24,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/activities",
+							"raw": "{{hostname}}/api/1.0/activities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -80,7 +80,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/activities/:activity_id",
+							"raw": "{{hostname}}/api/1.0/activities/:activity_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -113,7 +113,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/activities/:activity_id/flows",
+							"raw": "{{hostname}}/api/1.0/activities/:activity_id/flows",
 							"protocol": "https",
 							"host": [
 								"{{hostname}}"
@@ -186,7 +186,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/activities/:activity_id/flows/tags",
+							"raw": "{{hostname}}/api/1.0/activities/:activity_id/flows/tags",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -248,7 +248,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/activity-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/activity-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -314,7 +314,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/activity-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/activity-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -393,7 +393,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines",
+							"raw": "{{hostname}}/api/1.0/baselines",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -425,7 +425,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines",
+							"raw": "{{hostname}}/api/1.0/baselines",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -443,7 +443,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:activity_id",
+							"raw": "{{hostname}}/api/1.0/baselines/:activity_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -470,7 +470,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -510,7 +510,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -544,7 +544,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/activity-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/activity-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -605,7 +605,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/component-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/visualisations/component-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -659,7 +659,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/baselines",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/baselines",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -699,7 +699,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/activities/:activity_id/visualisations/variable-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/activities/:activity_id/visualisations/variable-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -767,7 +767,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/components/:component_id/visualisations/property-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/components/:component_id/visualisations/property-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -828,7 +828,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences/:target/:target_id",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/differences/:target/:target_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -874,7 +874,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/visualisations/tag-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/visualisations/tag-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -954,7 +954,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/:diff_type/:action",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id_id/:diff_type/:action",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1004,7 +1004,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/differences",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1045,7 +1045,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/differences/:action",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/differences/:action",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1085,7 +1085,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id/visualisations/flow-list",
+							"raw": "{{hostname}}/api/1.0/baselines/:baseline_id/:target/:target_id/visualisations/flow-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1171,7 +1171,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/differences/:difference_id/:action",
+							"raw": "{{hostname}}/api/1.0/differences/:difference_id/:action",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1217,7 +1217,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/baselines/differences/:action",
+							"raw": "{{hostname}}/api/1.0/presets/baselines/differences/:action",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1258,7 +1258,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components",
+							"raw": "{{hostname}}/api/1.0/components",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1332,7 +1332,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id",
+							"raw": "{{hostname}}/api/1.0/components/:component_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1380,7 +1380,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id",
+							"raw": "{{hostname}}/api/1.0/components/:component_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1406,7 +1406,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/credentials",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/credentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1440,7 +1440,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/flows",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/flows",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1511,7 +1511,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/flows/tags",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/flows/tags",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1560,7 +1560,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/variables",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/variables",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1613,7 +1613,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/vulnerabilities",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/vulnerabilities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1660,7 +1660,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/component-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/component-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1732,7 +1732,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/component-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/component-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1836,7 +1836,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/label",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/label",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1863,7 +1863,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/components/:component_id/label",
+							"raw": "{{hostname}}/api/1.0/components/:component_id/label",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1904,7 +1904,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties",
+							"raw": "{{hostname}}/api/1.0/:object_type/:component_id/usersProperties",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1950,7 +1950,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
+							"raw": "{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -1988,7 +1988,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
+							"raw": "{{hostname}}/api/1.0/:object_type/:component_id/usersProperties/:property_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2032,7 +2032,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/events/categories",
+							"raw": "{{hostname}}/api/1.0/dashboard/events/categories",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2061,7 +2061,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/events/severities",
+							"raw": "{{hostname}}/api/1.0/dashboard/events/severities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2090,7 +2090,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/ping",
+							"raw": "{{hostname}}/api/1.0/dashboard/ping",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2110,7 +2110,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/protocols/counts",
+							"raw": "{{hostname}}/api/1.0/dashboard/protocols/counts",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2145,7 +2145,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/risk-score/devices/counts",
+							"raw": "{{hostname}}/api/1.0/dashboard/risk-score/devices/counts",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2181,7 +2181,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/vulnerabilities/counts",
+							"raw": "{{hostname}}/api/1.0/dashboard/vulnerabilities/counts",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2216,7 +2216,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/dashboard/:widget_id/refresh",
+							"raw": "{{hostname}}/api/1.0/dashboard/:widget_id/refresh",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2244,7 +2244,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/homepage/dashboard",
+							"raw": "{{hostname}}/api/1.0/homepage/dashboard",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2291,7 +2291,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/dashboard",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2346,7 +2346,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/tagless-flows",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/tagless-flows",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2426,7 +2426,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2513,7 +2513,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/counts",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/counts",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2577,7 +2577,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/dashboard-security/:protocol_type/list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2645,7 +2645,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2695,7 +2695,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/tagless-flows",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/tagless-flows",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2770,7 +2770,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/components?property-value=incididunt commodo",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2848,7 +2848,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/counts",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/counts",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2905,7 +2905,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/dashboard-security/:protocol_type/list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -2985,7 +2985,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3011,7 +3011,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/activities",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/activities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3064,7 +3064,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/activities/tags",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/activities/tags",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3092,7 +3092,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/credentials",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/credentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3119,7 +3119,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/riskScore",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/riskScore",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3146,7 +3146,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/variables",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/variables",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3173,7 +3173,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/devices/:device_id}}/vulnerabilities",
+							"raw": "{{hostname}}/api/1.0/devices/:device_id}}/vulnerabilities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3214,7 +3214,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/networknode-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/networknode-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3284,7 +3284,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/networknode-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/networknode-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3375,7 +3375,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/flows",
+							"raw": "{{hostname}}/api/1.0/flows",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3437,7 +3437,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id",
+							"raw": "{{hostname}}/api/1.0/flows/:flow_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3463,7 +3463,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id/flowContent",
+							"raw": "{{hostname}}/api/1.0/flows/:flow_id/flowContent",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3490,7 +3490,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/flows/:flow_id/properties",
+							"raw": "{{hostname}}/api/1.0/flows/:flow_id/properties",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3537,7 +3537,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/flow-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/flow-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3603,7 +3603,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/flow-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/flow-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3695,7 +3695,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/graph/:format",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/graph/:format",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3738,7 +3738,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/graph/:format",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/graph/:format",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3792,7 +3792,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups",
+							"raw": "{{hostname}}/api/1.0/groups",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3824,7 +3824,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups",
+							"raw": "{{hostname}}/api/1.0/groups",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3842,7 +3842,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
+							"raw": "{{hostname}}/api/1.0/groups/:group_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3882,7 +3882,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
+							"raw": "{{hostname}}/api/1.0/groups/:group_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3908,7 +3908,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
+							"raw": "{{hostname}}/api/1.0/groups/:group_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3948,7 +3948,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/groups/:group_id",
+							"raw": "{{hostname}}/api/1.0/groups/:group_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -3981,7 +3981,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/version",
+							"raw": "{{hostname}}/api/1.0/version",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4006,7 +4006,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/parameters?pattern=incididunt commodo",
+							"raw": "{{hostname}}/api/1.0/parameters?pattern=incididunt commodo",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4045,7 +4045,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/parameters",
+							"raw": "{{hostname}}/api/1.0/parameters",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4078,7 +4078,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/parameters",
+							"raw": "{{hostname}}/api/1.0/parameters",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4097,7 +4097,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/parameters/:parameter_key",
+							"raw": "{{hostname}}/api/1.0/parameters/:parameter_key",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4123,7 +4123,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/parameters/:parameter_key",
+							"raw": "{{hostname}}/api/1.0/parameters/:parameter_key",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4155,7 +4155,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/pcapReplays",
+							"raw": "{{hostname}}/api/1.0/pcapReplays",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4173,7 +4173,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/",
+							"raw": "{{hostname}}/api/1.0/pcapReplays/uploads/",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4193,7 +4193,7 @@
 						"method": "OPTIONS",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/",
+							"raw": "{{hostname}}/api/1.0/pcapReplays/uploads/",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4213,7 +4213,7 @@
 						"method": "HEAD",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
+							"raw": "{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4240,7 +4240,7 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
+							"raw": "{{hostname}}/api/1.0/pcapReplays/uploads/:tus_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4273,7 +4273,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/risk-score/activity-tags-period",
+							"raw": "{{hostname}}/api/1.0/risk-score/activity-tags-period",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4306,7 +4306,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/risk-score/activity-tags-period",
+							"raw": "{{hostname}}/api/1.0/risk-score/activity-tags-period",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4331,7 +4331,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/homepage/presets-highlights",
+							"raw": "{{hostname}}/api/1.0/homepage/presets-highlights",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4370,7 +4370,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets",
+							"raw": "{{hostname}}/api/1.0/presets",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4410,7 +4410,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets",
+							"raw": "{{hostname}}/api/1.0/presets",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4428,7 +4428,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4468,7 +4468,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4494,7 +4494,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4534,7 +4534,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4561,7 +4561,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/dataInfo",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/dataInfo",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4589,7 +4589,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/refreshData",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/refreshData",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4617,7 +4617,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/settings",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/settings",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4658,7 +4658,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/settings",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/settings",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4685,7 +4685,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4719,7 +4719,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/starring/:type",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4759,7 +4759,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/sensors",
+							"raw": "{{hostname}}/api/1.0/sensors",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4791,7 +4791,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/sensors",
+							"raw": "{{hostname}}/api/1.0/sensors",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4823,7 +4823,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/sensors/package",
+							"raw": "{{hostname}}/api/1.0/sensors/package",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4842,7 +4842,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/sensors/:sensor_id",
+							"raw": "{{hostname}}/api/1.0/sensors/:sensor_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4888,7 +4888,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/tag-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/tag-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4929,7 +4929,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/tag-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/tag-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -4978,7 +4978,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/tags",
+							"raw": "{{hostname}}/api/1.0/tags",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5022,7 +5022,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5095,7 +5095,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/devices-ids",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/devices-ids",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5153,7 +5153,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/orphans-ids",
+							"raw": "{{hostname}}/api/1.0/presets/preview/visualisations/vulnerability-list/:vuln_id/orphans-ids",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5204,7 +5204,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5271,7 +5271,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/devices-ids",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/devices-ids",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5320,7 +5320,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/orphans-ids",
+							"raw": "{{hostname}}/api/1.0/presets/:preset_id/visualisations/vulnerability-list/:vuln_id/orphans-ids",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5376,7 +5376,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/vulnerabilities",
+							"raw": "{{hostname}}/api/1.0/vulnerabilities",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5420,7 +5420,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/vulnerabilities/:vuln_id",
+							"raw": "{{hostname}}/api/1.0/vulnerabilities/:vuln_id",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5452,7 +5452,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
+							"raw": "{{hostname}}/api/1.0/globalCredentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5484,7 +5484,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
+							"raw": "{{hostname}}/api/1.0/globalCredentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5516,7 +5516,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
+							"raw": "{{hostname}}/api/1.0/globalCredentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
@@ -5535,7 +5535,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://{{hostname}}/api/1.0/globalCredentials",
+							"raw": "{{hostname}}/api/1.0/globalCredentials",
 							"protocol": "https",
 							"path": [
 								"{{hostname}}",
